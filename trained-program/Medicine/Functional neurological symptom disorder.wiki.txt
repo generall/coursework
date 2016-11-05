@@ -1,0 +1,176 @@
+Functional neurological symptom disorder (FNsD) is a condition in which patients experience neurological symptoms such as weakness, movement disorders, sensory symptoms and blackouts. The brain of a patient with functional neurological symptom disorder is structurally normal, but functions incorrectly. In broad terms, there is a problem with the patient's central nervous system, which is not sending and receiving signals correctly. Other terms for functional neurological symptom disorder represent changing ideas and attitudes to these disorders and include functional neurological disorder (FND), conversion disorder, and psychogenic movement disorder/non-epileptic seizures. The cause of functional neurological disorders is considered to be multifactorial, which means many different factors can contribute to the development of the disorder. With greater understanding of the brain most diseases including functional neurological disorders should be thought of as having biological, psychological and social components (the biopsychosocial disease model). Functional neurological disorders are common in neurological services, accounting for up to one third of outpatient neurology clinic attendances, and associated with as much physical disability and distress as other neurological disorders. The diagnosis is made based on positive signs and symptoms in the history and examination during consultation of a neurologist (see below). Assessment demonstrates that normal function of the nervous system is possible. The best evidence for treatment for functional neurological disorders from recent studies suggest that physiotherapy and/or psychological therapy can both be helpful depending on the individual patient. Physiotherapy is particularly helpful for patients with motor symptoms (weakness, gait disorders, movement disorders) and tailored cognitive behavioural therapy has the best evidence in patients with dissociative (non-epileptic) attacks.
+
+
+== Alternative names ==
+Although the DSM-5 uses the term "functional neurological symptom disorder", many other names for the same condition are widely used by doctors. These include:
+Functional neurological disorder (FND)
+Conversion disorder (in cases where there is a psychological stressor causing symptoms)
+Functional movement disorder (FMD)
+Medically unexplained neurological symptoms
+Functional symptoms
+Psychogenic movement disorder (PMD)
+Non-epileptic attack disorder (NEAD)
+Psychogenic non-epileptic seizures (PNES)
+
+
+== Signs and symptoms ==
+There are a great number of symptoms experienced by those with functional neurological disorder. It is important to note that all the symptoms which are experienced by those with FNsD are real, and often debilitating. The core symptoms are those of motor or sensory function or episodes of altered awareness
+Limb weakness or paralysis
+Blackouts (also called dissociative or non-epileptic seizures/attacks) – these may look like epileptic seizures or faints
+Movement disorders including tremors, dystonia (spasms), myoclonus (jerky movements)
+Visual symptoms including loss of vision or double vision
+Speech symptoms including dysphonia (whispering speech), slurred or stuttering speech
+Sensory disturbance including hemisensory syndrome (altered sensation down one side of the body)
+Other symptoms also commonly occur in patients with FND, or may indeed be dominant. These symptoms are not defined with FND but when present occur as part of a more widespread functional disorder in which multiple symptoms are present and genuine but don't show up in laboratory investigations or scans:
+Chronic pain – including fibromyalgia
+Fatigue – including chronic fatigue syndrome
+Dizziness
+Sleep disturbance – either insufficient (insomnia) or excessive (hypersomnia)
+Poor memory and concentration
+Nausea
+Irritable bowel symptoms
+Overactive bladder or urinary voiding dysfunction
+Depression
+Anxiety including panic attacks
+Post-traumatic stress disorder
+
+
+== Epidemiology and aetiology ==
+
+
+=== Epidemiology ===
+Functional neurological disorders are a common problem, and are the second most common reason for a neurological outpatient visit after headache/migraine. Dissociative (non-epileptic) seizures account for about 1 in 7 referrals to neurologists after an initial seizure, and functional weakness has a similar prevalence to multiple sclerosis.
+For most symptom types, FND is more common in females than males, although there are exceptions such as functional myoclonus. It can occur at most ages from 7 years upwards including the elderly. Peak age of onset of non-epileptic seizures is mid-twenties and peak age of onset of functional limb weakness or movement disorder is in the late thirties.
+
+
+=== Aetiology and mechanism ===
+The mechanism of what goes wrong in the nervous system in functional neurological disorders is becoming clearer from experimental studies. Attentional processes, problems in self-agency and perception of voluntariness of movements play an important role, in combination with prior beliefs.
+Functional imaging studies of the brain shows potentially interesting differences in areas involved in planning, interpretation and execution of movements influenced by areas of emotional regulation; however, studies are small and have not been carried out on patients pre- and post-successful treatment so it is difficult to draw definite conclusions. Although currently there is no way to 'see' whether a patient has FND using a scan, their symptoms are real and often cause disability and distress to the individual.
+Historically, FND has traditionally been viewed as an entirely psychological disorder (hence the terms psychogenic and conversion disorder mentioned above). Epidemiological studies and meta-analysis have shown higher rates of depression and anxiety in patients with FND compared to the general population, but rates are similar to patients with other neurological disorders such as epilepsy or Parkinson's disease. Psychological disorders and stressful life events, both recent and in childhood, may be risk factors for developing the condition in some patients, but they rarely provide a full explanation for the cause of the condition and are absent in many patients. This is similar to risk factors for diseases like stroke e.g. smoking. Smoking increases the risk of a person having a stroke but stroke occurs frequently in patients who have never smoked. Functional disorders are best understood as having biological, psychological and social components (the biopsychosocial disease model).
+
+
+== Diagnostic criteria ==
+A firm diagnosis of a functional neurological disorder is dependent on positive features from the history and examination.
+Functional neurological disorders should not be diagnosed just because tests are normal or just because a patient has psychological problems.
+Patients with functional movement disorders and limb weakness often experience symptom onset triggered by an episode of acute pain, a physical injury or a sudden episode with features of panic or dissociation. Patients with dissociative seizures also may experience symptoms of panic and dissociation as a brief 'warning phase' prior to loss of awareness.
+The diagnosis should rest however on the basis of the nature of the physical symptoms themselves.
+Positive features of functional weakness on examination include Hoover's sign, when there is weakness of hip extension which normalises with contralateral hip flexion, and thigh abductor sign, weakness of thigh abduction which normalises with contralateral thigh abduction. Signs of functional tremor include entrainment and distractibility. The patient with tremor should be asked to copy rhythmical movements with one hand or foot. If the tremor of the other hand entrains to the same rhythm, stops, or if the patient has trouble copying a simple movement this may indicate a functional tremor. Functional dystonia usually presents with an inverted ankle posture or clenched fist.
+Positive features of Dissociative or non-epileptic attacks include prolonged motionless unresponsiveness, long duration episodes (>2 minutes) and symptoms of dissociation prior to the attack. These signs can be usefully discussed with patients when the diagnosis is being made.
+Patients with functional neurological disorders are more likely to have a history of other functional disorders such as irritable bowel syndrome, chronic pelvic pain or fibromyalgia but this cannot be used to make a diagnosis. FND does not show up on blood tests or structural brain imaging such as MRI or CT scanning. However, this is also the case for many other neurological conditions so negative investigations should not be used alone to make the diagnosis. FND can, however, occur alongside other neurological diseases and tests may show non-specific abnormalities which cause confusion for doctors and patients. Published studies show good reliability in diagnosing FND as long as the diagnosis is based on positive signs and symptoms.
+
+
+=== DSM-5 diagnostic criteria ===
+The DSM-5 classification system of the American Psychiatric Association has updated its criteria so that the criteria emphasise the need for positive diagnostic symptoms and signs. With increased awareness that many patients do not have a psychological stressor at symptom onset this has been dropped from the criteria for diagnosis. Doctors are still encouraged to look for possible psychological stressors.
+A. The patient has ≥1 symptoms of altered voluntary motor or sensory function.
+B. Clinical findings provide evidence of incompatibility between the symptom and recognised neurological or medical conditions.
+C. The symptom or deficit is not better explained by another medical or mental disorder.
+D. The symptom or deficit causes clinically significant distress or impairment in social, occupational, or other important areas of functioning or warrants medical evaluation.
+Specify type of symptom or deficit as:
+With weakness or paralysis
+With abnormal movement (e.g., tremor, dystonic movement, myoclonus, gait disorder)
+With swallowing symptoms
+With speech symptoms (e.g., dysphonia, slurred speech)
+With attacks or seizures
+With anaesthesia or memory loss
+With special sensory symptom (e.g., visual, olfactory,or hearing disturbance)
+With mixed symptoms.
+Specify if:
+Acute episode: symptoms present for less than 6 months
+Persistent: symptoms present for 6 months or more.
+Specify if:
+Psychological stressor (See: Conversion disorder)
+No psychological stressor
+
+
+=== ICD-11 diagnostic criteria ===
+The International Classification of Disease (ICD-11) which is due to be finalised in 2017 will have functional disorders within the neurology section for the first time. Functional disorders will also appear in the psychiatry section under dissociative disorders.
+
+
+== Prevalence ==
+Functional neurological disorder is a common problem, with estimates suggesting that up to a third of neurology outpatients having functional symptoms. In the DSM-IV, where the condition was still referred to as Conversion Disorder, David A. Fishbain estimated that it affected between 0.011% and 0.5% of the general population. In Scotland, around 5000 new cases of FND are diagnosed annually. Furthermore, non-epileptic seizures account for 1 in 7 referrals to neurologists after an initial seizure, and functional weakness has a similar prevalence to multiple sclerosis.
+
+
+== Misdiagnosis ==
+Currently, doctors believe that misdiagnosis rates for FND are low, with some research suggesting that only 2% of patients are misdiagnosed after a follow up 12.5 years later.
+
+
+== Treatment ==
+Treatment requires a firm and transparent diagnosis based on positive features which both health professionals and patients can feel confident about. It is essential that the health professional indicates that this is a common problem which is genuine, not imagined and not a diagnosis of exclusion.
+Confidence in the diagnosis does not in itself improve symptoms, but appears to improve the efficacy of treatments such as physiotherapy which require altering established abnormal patterns of movement by allowing the patient different ways of thinking about their symptoms.
+A multi-disciplinary approach to treating functional neurological disorder is recommended. Treatment options can include:
+Physiotherapy and occupational therapy
+Psychological therapy including cognitive behavioural therapy and other forms of psychotherapy directed specifically at FND symptoms or at other functional or psychological symptoms if present
+Medication such as sleeping tablets, painkillers, anti-epileptic medications and anti-depressants
+Physiotherapy with someone who understands functional disorders may be the initial treatment of choice for patients with motor symptoms such as weakness, gait (walking) disorder and movement disorders. Nielsen et al have reviewed the medical literature on physiotherapy for functional motor disorders up to 2012 and concluded that the available studies, although limited, mainly report positive results. Since then several studies have shown positive outcomes. In one study, up to 65% of patients were very much or much improved after five days of intensive physiotherapy even though 55% of patients were thought to have poor prognosis. In a randomised controlled trial of physiotherapy there was significant improvement in mobility which was sustained on one year follow up. In multidisciplinary settings 69% of patients markedly improved even with short rehabilitation programmes. Benefit from treatment continued even when patients were contacted up 25months after treatment.
+For patients with severe and chronic FND a combination of physiotherapy, occupational therapy and cognitive behavioural therapy may be the best combination with positive studies being published in patients who have had symptoms for up to three years before treatment.
+Cognitive behavioural therapy (CBT) alone may be beneficial in treating patients with dissociative (non-epileptic) seizures. A randomised controlled trial of patients who undertook 12 sessions of CBT which taught patients how to interrupt warning signs before seizure onset, challenged unhelpful thoughts and helped patients start activities they had been avoiding found a reduction in the seizure frequency with positive outcomes sustained at six month follow up. A large multicentre trial of CBT for dissociative (non-epileptic) seizures started in 2015 in the UK.
+For many patients with FND, accessing treatment can be difficult. Availability of expertise is limited and they may feel that they are being dismissed or told 'it's all in your head' especially if psychological input is part of the treatment plan. A clear understanding of why the diagnosis is being made is a key part of treatment. Some medical professionals are uncomfortable explaining and treating patients with functional symptoms. Changes in the diagnostic criteria, increasing evidence, literature about how to make the diagnosis and how to explain it and changes in medical training is slowly changing this
+Jon Stone is a neurologist who specialises in FND and has written a website for both patients and doctors, and the international non-profit organization FND Hope has a website. After a diagnosis of functional neurological disorder has been made, it is important that the neurologist explains this fully to the patient, and ensures that they understand it. ProjectFND has a website containing recent and easily understood information for patients and doctors along with a Facebook group.
+Some, but not all patients with FNsD may experience low moods or anxiety due to their condition. However, they will often not seek treatment due being worried that a doctor will blame their symptoms on their anxiety or depression.
+It is recommended that the treatment of functional neurological disorder should be balanced and involve a whole-person approach. This means that it should include professionals from multiple departments, including neurologists, general practitioners (or primary health care providers), physiotherapists, occupational therapists, psychiatrists and psychologists.
+
+
+== Alternative diagnoses ==
+Functional neurological symptom disorder can mimic many other conditions. However, doctors state that misdiagnosis rates are low. Some alternative diagnoses for FNsD include:
+Hemiplegic migraine
+Multiple sclerosis
+Motor neurone disease
+Parkinson's
+Autoimmune disorders
+Ehlers–Danlos syndrome
+Stroke
+Vitamin B12 deficiency or pernicious anaemia
+Myasthenia gravis
+
+
+== History ==
+The first evidence of FNsD dates back to 1900 BC, where the symptoms were blamed on the uterus moving within the female body. The treatment varied "depending on the position of the uterus, which must be forced to return to its natural position. If the uterus had moved upwards, this could be done by placing malodorous and acrid substances near the woman's mouth and nostrils, while scented ones were placed near her vagina; on the contrary, if the uterus had lowered, the document recommends placing the acrid substances near her vagina and the perfumed ones near her mouth and nostrils."
+In Greek mythology, hysteria, the original name for FNsD, was thought to be caused by a lack of orgasms, uterine melancholy and not procreating. Plato, Aristotle and Hippocrates believed that a lack of sex upset the uterus. The Greeks believed that it could be prevented and cured with wine and orgies. Hippocrates argued that a lack of regular sexual intercourse led to the uterus producing toxic fumes and caused it to move in the body, and that this meant that all women should be married and enjoy a satisfactory sexual life.
+Throughout the Middle Ages, melissa, a natural remedy, was used to treat hysteria. Women with the condition were seen as the cause of the condition, which was then referred to as amor heroycus, or the madness of love, unfulfilled sexual desire. Trotula de Ruggerio, the first female doctor in Europe, believed that abstinence caused illness, and advised women to take remedies such as mint or musk oil.
+From the 13th century, women with hysteria were exorcised, as it was believed that they were possessed by the devil. They believed that if doctors could not find the cause of a disease or illness, it must be caused by the devil.
+In the beginning of the 16th century, women were sexually stimulated by midwives in order to relieve their symptoms. Girolamo Cardano and Giovanni Battista Della Porta believed that polluted water and fumes caused the symptoms of hysteria. Towards the end of the century, however, the role of the uterus was no longer central to the disorder, with Thomas Willis discovering that the brain and central nervous system were the cause of the symptoms. Thomas Sydenham argued that the symptoms of hysteria may have an organic cause. He also proved that the uterus is not the cause of symptoms.
+In 1692, in Salem (MA), there was an outbreak of hysteria. This led to the Salem witch trials, where the 'witches' had symptoms such as sudden movements, staring eyes and uncontrollable jumping.
+From the 18th century, there is a move from the idea of hysteria being caused by the uterus to it being caused by the brain. This led to an understanding that it could affect both sexes. Jean Martin Charcot argued that hysteria was caused by "a hereditary degeneration of the nervous system, namely a neurological disorder."
+In the 19th century, hysteria moved from being considered a neurological disorder to being considered a psychological disorder, when Pierre Janet argued that "dissociation appears autonomously for neurotic reasons, and in such a way as to adversely disturb the individual's everyday life." However, as early as 1874, doctors including W. B. Carpenter and J. A. Omerod began to speak out against hysteria due to there being no evidence of its existence.
+Freud referred to the condition as both hysteria and conversion disorder throughout his career. He believed that those with the condition could not live in a mature relationship, and that those with the condition were unwell in order to achieve a 'secondary gain' in that they are able to manipulate their situation to fit their needs or desires. He also found that both men and women could suffer with the disorder. However, throughout his career, Freud admitted that "he had not succeeded in curing a single patient, and there was no clinical evidence that his theory had any merit whatsoever." Freud frequently made serious diagnostic errors due to his theory of hysteria. In 1901, a patient died of a sarcoma of the abdominal glands, which had given her abdominal pain. One key feature of hysteria was said to be abdominal pain, and so Freud treated her for this, and claimed her condition had "cleared up". After her death, he then claimed that hysteria had caused her tumour; however, there is no evidence to support his claim.
+In 1901, "Steyerthal predicted that: Within a few years the concept of hysteria will belong to history ... there is no such disease and there never has been. What Charcot called hysteria is a tissue woven of a thousand threads, a cohort of the most varied diseases, with nothing in common but the so-called stigmata, which in fact may accompany any disease."
+Although the term "conversion disorder" has been in existence for many years, the term "hysteria" was still being used in the 20th century. However, by this point, it bore little resemblance to the original meaning, instead referring to symptoms which could not be explained by a recognised organic pathology, and was therefore believed to be the result of stress, anxiety, trauma or depression. The term fell out of favour of doctors over time due to the negative connotations 'hysteria' held. Furthermore, critics pointed out that it can be challenging to find organic pathologies for all symptoms, and so the practice of diagnosing patients who suffered with such symptoms as having hysteria led to the disorder being meaningless, vague and a sham-diagnosis, as it does not refer to any definable disease.
+Throughout its history, many patients have been misdiagnosed with hysteria or conversion disorder when they had organic disorders such as tumours or epilepsy or vascular diseases. This has led to patient deaths, a lack of appropriate care and suffering for the patients. Eliot Slater, after studying the condition in the 1950s stated that "The diagnosis of 'hysteria' is all too often a way of avoiding a confrontation with our own ignorance. This is especially dangerous when there is an underlying organic pathology, not yet recognised. In this penumbra we find patients who know themselves to be ill but, coming up against the blank faces of doctors who refuse to believe in the reality of their illness, proceed by way of emotional lability, overstatement and demands for attention ... Here is an area where catastrophic errors can be made. In fact it is often possible to recognise the presence though not the nature of the unrecognisable, to know that a man must be ill or in pain when all the tests are negative. But it is only possible to those who come to their task in a spirit of humility. In the main the diagnosis of 'hysteria' applies to a disorder of the doctor–patient relationship. It is evidence of non-communication, of a mutual misunderstanding ... We are, often, unwilling to tell the full truth or to admit to ignorance ... Evasions, even untruths, on the doctor's side are among the most powerful and frequently used methods he has for bringing about an efflorescence of 'hysteria'". Slater was outspoken against the condition, as there has never been any evidence to prove that it exists. He stated that "The diagnosis of 'hysteria' is a disguise for ignorance and a fertile source of clinical error. It is, in fact, not only a delusion but also a snare."
+In 1980, the DSM III added 'conversion disorder' to its list of conditions. The diagnostic criteria for this condition are nearly identical to those used for hysteria. The diagnostic criteria were:
+A. The predominant disturbance is a loss of or alteration in physical functioning suggesting a physical disorder. It is involuntary and medically unexplainable
+B. One of the following must also be present:
+A temporal relationship between symptom onset and some external event of psychological conflict.
+The symptom allows the individual to avoid unpleasant activity.
+The symptom provides opportunity for support which may not have been otherwise available.
+As Eliot Slater stated, however, "Unfortunately we have to recognise that trouble, discord, anxiety and frustration are so prevalent at all stages of life that their mere occurrence near to the time of onset of an illness does not mean very much." Furthermore, many illnesses and injuries can cause an individual to avoid unpleasant activities, and can provide the opportunity for support, particularly from a doctor. This makes Criteria B meaningless for the most part, and therefore any patient whose symptoms satisfy Criteria A by being medically unexplained, could be diagnosed with Conversion Disorder.
+The DSM-5 changed the name of the condition from conversion disorder to Functional Neurological Symptom Disorder. Today, there is growing evidence that psychological stress does not cause FNsD. A recent study by the charity FNDHope found that psychological triggers affected only 30% of patients. Some doctors still follow Freud's theory about conversion disorder; however, others are moving on to look at the role of the central nervous system in FNsD symptoms.
+
+
+== Common myths ==
+Patients are imagining their symptoms
+The symptoms are not just 'imagined', they are real. FND exists at the interface between neurology and psychiatry and cannot be easily categorised in to either speciality completely.
+
+Patients are pretending to have symptoms
+If a patient is pretending to have symptoms, this is called 'feigning', 'malingering', 'factitious disorder' or 'Munchausen syndrome'. An fMRI study has shown that the brain activity in someone simulating weakness is different to that of someone with a functional weakness. The belief that patients with FND are feigning is demoralizing to suffering patients and can become a major roadblock in a patient's ability to access treatment and care.
+
+Functional neurological disorder is caused by psychological dysfunction or an emotional problem
+Psychological factors may be important in many patients but not all, and psychological factors cannot be used to make a diagnosis.
+No biomarkers have been found to support this theory
+
+Functional neurological symptom disorder only affects females
+"The ratio of females to males ranges from 2:1 up to 10:1"
+
+Functional neurological symptom disorder only affects young adults
+Functional neurological symptom disorder is rare
+FNsD affects between 0.011% and 0.5% of the general population
+
+
+== Research ==
+Research is ongoing in many aspects of functional neurological disorders but large studies are needed to definitely answer key questions including: What is the best treatment for patients with FND? What biological, psychological and social factors cause FND? FND is not alone in requiring further research into the best treatments or in lack of understanding about what causes the disorder. Even disorders like multiple sclerosis and Parkinson's disease have no definite known cause. The importance of increased awareness in the medical world of what constitutes a positive diagnosis of FND and what the best treatments are may, in the short term, be where research is focused.
+
+
+== Controversy ==
+There is much controversy surrounding the FND diagnosis. Some doctors continue to believe that all FND patients have unresolved traumatic events (often of a sexual nature) which are being expressed in a physical way. However, some doctors do not believe this to be the case. Wessely and White state that all somatic illnesses, including fibromyalgia, irritable bowel syndrome and chronic fatigue syndrome "still fall under the title of 'unexplained' since no consensual scientific explanation has been advanced for any of them that meets with universal acceptance. Unexplained means what it says on the tin, and is not a code for psychiatric, still less for 'all in the mind'." They go on to argue that "A somatoform disorder can only be so classified in the absence of an adequate physical explanation (World Health Organization, 1992). Furthermore, a somatoform pain disorder can only "... occur in association with emotional conflict or psychosocial problems that are sufficient to allow the conclusion that they are the main causal influences" (World Health Organization, 1992). How can the clinician be sure that the psychosocial problem actually caused the illness?"
+
+
+== References ==

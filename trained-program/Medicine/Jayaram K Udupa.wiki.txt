@@ -1,0 +1,33 @@
+Jayaram K Udupa Phd is Chief professor of Radiological Science at Perlman School of Medicine University of Pennsylvania. J.K Udupa has been in the medical image science, image processing and physics analysis for medical imaging programing and medical diagnostic procedures for over 30 years. Developing the basic theory, algorithms, and large software systems for image processing, 3D visualization, and image analysis, and in utilizing these in over 15 medical application areas. He is a Professor of Radiological Sciences and the Chief of the Medical Image Processing Group, Department of Radiology, at the University of Pennsylvania, Philadelphia. He is known for his major contributions and MIPGs accomplishments in image processing, (Fuzzy connectedness and object definition: theory, algorithms, and applications in image segmentation) and its applications in various fields of science, medicine and engineering.
+
+
+== Career ==
+1982-91 Director, Medical Image Processing Group, Department of Radiology, University of Pennsylvania.
+1991- 2016 Chief, Medical Imaging Section, Department of Radiology, University of Pennsylvania.
+
+
+=== Transfer of Technology and Dissemination ===
+The first to transfer 3D visualization technology to the medical imaging industry. Implemented an early version of the software package DISPLAY82 (developed with a major role played by me at MIPG) on an Independent Physician Display Console (IPDC) of the General Electric (GE) CT Scanners in 1979 and in 1980. This was the earliest attempt to bring to use the 3D visualization technology via medical imaging scanner manufacturers. Subsequently, played a major role in developing software packages called 3D82, 3D83 and 3D98 all designed to run on the GE IPDC. This had a major impact on the industrialization of medical 3D visualization.
+In 1984 almost all scanner manufacturers and a few other independent vendors entered this field. Since then the field has seen tremendous growth. Subsequently assisted several vendors in their early development of the 3D visualization technology. Some major examples are: Technicare, Thomson CGR, Multiplanar Diagnostic Imaging, and Virtual Imaging.
+Implemented an early version of DISPLAY82 at the Mayo Clinic (Biodynamics Research Unit) in 1980 and revised again in 1981. This initial effort, which triggered widespread use of 3D in Mayo for research, led to the development of ANALYZE, a package Mayo Clinic has subsequently developed and commercialized.
+Designed and directed the development of a major software system, called 3DVIEWNIX., that is data-, machine-, and application-independent, for the visualization and analysis of multidimensional multimodality data.
+
+
+== Medical Image Processing Group MIPG ==
+MIPG is one of the oldest and longest active research groups in the world and is engaged in research on the processing, visualization, and analysis of medical images and the medical and clinical applications of these computerized methods. It was formed in the Department of Computer Science, (then) State University of New York, Buffalo, in 1976 by Gabor Herman T. Jayaram K. Udupa joined the group in 1978. The whole group moved to University of Pennsylvania, its current home, in 1981. Jayaram K. Udupa was appointed its director in 1991.
+Medical Image Processing Group MIPG Department of Radiology Goddard Laboratories Philadelphia
+
+
+== References ==
+
+
+== External links ==
+The MIPG perspective, IEEE Transactions on Medical Imaging, 21:281-295, April 2002.
+Udupa, Jayaram K.; Herman, Gabor T. (1999-09-28). 3D Imaging in Medicine, Second Edition. CRC Press. ISBN 9780849331794. 
+Generalized Scale: Medicine & Health Science Books by Anant Madabhushi, Jayaram Udupa, VDM Verlag Dr. Mueller e.K. (October 6, 2008) ISBN 978-3836473781
+Minimally interactive segmentation of 4D dynamic upper airway MR images via fuzzy connectedness.
+Tong Y1, Udupa JK1, Odhner D1, Wu C1, Sin S2, Wagshul ME3, Arens R2. Pubmed 27147344
+UPENN: http://www.med.upenn.edu/apps/faculty/index.php/g275/p16284
+http://www.med.upenn.edu/stc/staff/udupa.html
+Udupa, Jayaram K.; Herman, Gabor T. (1999-09-28). 3D Imaging in Medicine, Second Edition. CRC Press. ISBN 9780849331794. 
+Tong, Yubing; Udupa, Jayaram K.; Odhner, Dewey; Wu, Caiyun; Sin, Sanghun; Wagshul, Mark E.; Arens, Raanan (2016-05-01). "Minimally interactive segmentation of 4D dynamic upper airway MR images via fuzzy connectedness". Medical Physics. 43 (5): 2323. doi:10.1118/1.4945698. ISSN 0094-2405. PMC 4833751. PMID 27147344.
