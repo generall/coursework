@@ -1,0 +1,9 @@
+{
+    "topic_modeling": {
+        "categories": ["Oceans", "Programming languages", "Medicine"],
+        "corpus_name": "data",
+        "ldamodel_name": "ldamodel"},
+    "tone_analyse": {
+        "folder_for_algos": "pickled_algos/",
+        "negative_train_file": "negative.txt",
+        "positive_train_file": "positive.txt"}}
