@@ -1,0 +1,21 @@
+Neurogenesis is the process by which neurons are generated from neural stem cells and progenitor cells. Through precise genetic mechanisms of cell fate determination, many different varieties of excitatory and inhibitory neurons are generated from different kinds of neural stem cells. 
+Neurogenesis occurs during embryogenesis in all animals and is responsible for producing all the neurons of the organism. Prior to the period of neurogenesis, neural stem cells first multiply until the correct number of progenitor cells is achieved. For example, the primary neural stem cell of the mammalian brain, called a radial glial cell, resides in an embryonic zone called the ventricular zone, which lies adjacent to the developing brain ventricles. The process of neurogenesis then involves a final cell division of the parent neural stem cell, which produces daughter neurons that will never divide again. The molecular and genetic factors influencing neurogenesis notably include the Notch pathway, and many genes have been linked to Notch pathway regulation. All neurons are thus 'post-mitotic', and most neurons of the human central nervous system live the lifetime of the individual. In mammals, adult neurogenesis has been shown to occur in three primary places of the brain: the dentate gyrus of the hippocampus, subventricular zone (SVZ), and the olfactory bulb. In some vertebrates, regenerative neurogenesis has also been shown to occur.
+
+
+== See also ==
+Neural stem cell
+Ventricular zone
+Subventricular zone
+Radial glial cell
+Cellular differentiation
+Noogenesis
+TED (conference) presentation by Sandrine Thuret
+
+
+== References ==
+
+
+== External links ==
+http://sites.lafayette.edu/neur401-sp10/what-is-neurogenesis/a-timeline-of-research-adult-mammalian-neurogenesis/
+http://thebrain.mcgill.ca/flash/capsules/histoire_bleu05.html
+Article: Nature Medicine 4, 1313 - 1317 (1998) doi:10.1038/3305 Neurogenesis in the adult human hippocampus

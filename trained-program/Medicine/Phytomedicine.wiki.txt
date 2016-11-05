@@ -1,0 +1,97 @@
+Phytomedicine is the science of illness and damage to plants, the causes thereof, their manifestations, their development, their dissemination, methods for maintaining plant health and also measures used to control plant diseases and their causes. The Deutsche Phytomedizinische Gesellschaft (German Phytomedicine Society) is the German association of Phytomedicine practitioners.
+
+
+== Origin of the Terminology ==
+The term "phytomedicine" originates from the members of the Verbandes Deutscher Pflanzenärzte (1928–1939), (German Plant Physicians Society), particularly Otto Appel, known as the Organiser of German Plant Protection. Appel made early attempts to summarise the terminology of Phyto-Medicine or Plant Medicine. He requested that those who taught in this area should represent phyto-medicine, as is the case in the fields of human and veterinary medicine.
+Appel wrote in 1923: Just as one calls a doctor to a sick person or animal, one should also be able in the future to call on the advice of a plant doctor when plant sickness occurs. This doctor should be capable of diagnosing the disease and, in the case of the most important and common diseases, to prescribe a cure or means of preventing the disease spreading. He should ….. also be concerned with prevention, much as hygiene is in human medicine.
+During his long tenure as Director of the Biologischen Reichsanstalt für Land- und Forstwirtschaft (Imperial Institute of Agriculture and Forestry, as it was known from 1919), Appel used this concept as a basis for the development of this organization and thus personally shaped its scientific and institution history. (Sucker, 1998).
+The term phytomedicine is epistemologically a branch of Phytopathologie and Plant Protection or the constituent disciplines. [4] As a "uniting science" (Mühle, 1967) the term "phytomedicine" has the same relevance as the terms "human medicine" and "veterinary medicine" in their respective fields, specifically indicating the inseparable nature of theory and practice. The significance of the term “phytomedicine” results from the differentiation (Stichweh, 1982) under the general term "Areas of phytopathology and plant protection". [5] i.e. their separation into several sub-disciplines since the end of the 19th century. The result of this was that for a time the specific unity of theory and practice, necessary in applied science, lost in importance. This development led to "the demands for a summary and re-organisation in scientific terms to become louder." [6] This demand met the approval of the scientists of the Biologischen Reichsanstalt, for instance that of the Entomologist and founder of the Conservation Society, Fr. Zacher, O. Appel in 1923, and in 1937 the phytopathologist H. Braun. The historical recognition of those above comprises their contribution to the scientific necessity for a unification of the differentiated areas of "phytopathology" and "plant protection" as an essential basis for the further development of their area of expertise, and their contribution to finding a solution.
+The coining of the term "phytomedicine" was thus a statement of the extent to which a maturity of phytopathology had been reached. Discussion about the interdisciplinary area of phytomedicine continues today. [7] The professional representation of scientists formerly known as „plant doctors“ and now as "photomedicine practitioners" has been for around the past 60 years in the hands of the Deutsche Phytomedizinische Gesellschaft e.V. (German Phytomedical Society).
+Core Competence of Phytomedicine Many scientific disciplines contribute to phytomedicine. The basic areas are botany, zoology, microbiology, oncology and soil science, all of whose teaching flow into phytomedicine. Around these are grouped the disciplines of agricultural science which have obtained particular importance within the framework of phytomedical practice and to which many and diverse contributions are brought to phytomedicine.
+The spectrum of core competence of phytomedicine is complemented by areas which concentrate on special classes of pathogens, e.g. agricultural entomology (concerned with animal pathogens, particularly insects and spiders and their adversaries, of which a number play a role in biological plant protection), agricultural mycology (fungal pathogens as a cause of fungal disease), agricultural bacteriology (bacterial pathogens), agricultural virology (viruses as plant pathogens), nematology (threadworm pathogens) and malacology (snails and slugs). In addition there is agricultural herbologie (weeds in general as competitors of the crop). This aetiological, cause-oriented approach led on one hand to a marked increase in our knowledge of the many and various causes of plant damage, but on the other hand in some cases even the simplest factors affecting the causes of damage under production conditions remain unclear.
+Nowadays the larger picture is being investigated. The areas of phytomedicine have become particularly important, as they are usually related to several or all groups of pathogen and often include non-parasitic causes of damage. Attempts are being made to highlight the state of plants that are at danger from pathogens or are already damaged. In contract to human medicine, phytomedicine targets the whole plant population for protection.
+The importance of phytomedicine, for instance to ensure the supply of food and renewable raw materials, is as great today as it was a century ago. Scientific progress and practical recommendations can have a considerable influence on the production, processing and consumption of plants. Individual branches of plant science are often part of public discussion about political matters, and can influence political goals.
+
+
+== Interdisciplinary Interactions in Phytomedicine ==
+Phytomedicine links the science of plant disease and damage to the practice of comprehensively applied plant protection, and is thus of prime importance in linking this science with practice. It plays a major role in ensuring the supply of staple foodstuffs for a population. It guarantees a high quality product in sufficient amounts. It produces the basis for adequate plant quarantine and a reliable trade in agricultural and garden produce.
+The core competences of phytomecine are bound within inter-disciplinary and trans-disciplinary interactions that combine the economic, ecological and social requirements of agriculture (customer protection, occupational health and safety, environmental protection and product quality), and thus the sustainable development of agricultural systems in the sense of increased product quality in a socio-economic and agricultural-ecological context giving support to and aiding communication and guidance. For instance, it can make sense to recommend a deficit irrigation strategy on phytomedical grounds.
+See also:
+Phytomedicine (Journal)
+Phytomedicine at University of Hohenheim.
+
+
+== Causes of Disease and Pathogens in Crop Plants ==
+Abiotic causes of damage
+Viruses
+Mycoplasma and Mycoplasma-like organisms
+Bacteria
+Fungi
+Algae
+Parasitic Flowering Plants
+Weeds
+Nematodes
+Gastropods
+Arthropods
+Vertebrates
+
+
+== Disease Development and Course ==
+These topics will be described under the following aspects:
+Characteristics of infection and pathogen attack
+Impact of ecological factors on pathogens
+Effect of attack on the host
+Plant defence mechanisms
+
+
+== Population Ecology of Pathogens ==
+Population Ecology of pathogens is concerned with their structure, modification and interactions of the population of one species with other populations (of this species) and with the environment. It covers the structure and dynamics of populations, their composition in terms of age, their growth and development under the influence of biotic und abiotic factors of the ecosystem. The inclusion of genetic aspects or of aspects of insular biogeography leads to population biology. The following factors are particularly important for regulation of pathogens:
+Population dynamics
+Dispersion dynamics,
+Annidation and ecological displacement
+Ecological isolation and typification
+Release of organisms
+
+
+== Appearance of Disease and Damage in Crop Plants ==
+The following are of importance in describing disease and damage in crop plants:
+Symptomatology,
+Occurrence in the course of plant development.
+Plant Protection Strategy
+Plant Quarantine
+Culture Strategy
+Physical Measures
+Biotechnical Measures
+Biological measures
+Chemical Measures
+Integration of Plant Protection Measures
+
+
+== Sources and further Literature ==
+Citations
+Appel, O. 1923: Der Pflanzenschutz im Unterricht. In: Schoevers, T.A.C.: Report of the International Conference of Phytopathology and economic Entomology, Wageningen.
+Aust et al. 2005: Glossar phytomedizinischer Begriffe. 3. Aufl. Ulmer.
+Feldmann, F. 2004: Die Zusammensetzung der Mitglieder der DPG. Phytomedizin 34 (3), 41-46.
+Grossmann, F. 1971: The concept of phytomedicine. Indian Phytopathology 24, 247-257.
+Mühle, E. 1967: Phytomedizin und Pflanzenschutz. Der Pflanzenarzt 20, 115-118
+Staar, G. Reinmuth, E. 1974: Phytopathologie und Pflanzenschutz - Phytomedizin. In: Klinkowski, M. (Hrsg.): Grundlagen und allgemeine Probleme der Phytopathologie und des Pflanzenschutzes. 2. Aul. Bd 1, S. 3-5.
+Stichweh, R. 1982: Ausdifferenzierung der Wissenschaft: eine Analyse am deutschen Beispiel. Bielefeld, Wissenschaftsforschung 8.
+Sucker, U. 1998: Anfänge der modernen Phytomedizin. Mitt. d. Biol. Bundesanstalt 334.
+
+Further general Literature
+Günter M. Hoffmann, Franz Nienhaus, Hans-Michael Pöhling:Lehrbuch der Phytomedizin. Blackwell Wissenschafts-Verlag, 1994.ISBN 3-8263-3008-0
+Horst Börner: Pflanzenkrankheiten und Pflanzenschutz. 8., neu bearb. und akt. Aufl., Springer 2009. ISBN 978-3-540-49067-8
+Rudolf Heitefuß: Pflanzenschutz, Grundlagen der praktischen Phytomedizin. 3. Auflage, 2000, Thieme Verlag, ISBN 3-13-513303-6
+Börner, H., Pflanzenkrankheiten und Pflanzenschutz, 7. Auflage, UTB, 1997
+Hallmann, J., A. Quadt-Hallmann und A. von Tiedemann, Phytomedizin, Grundwissen Bachelor, 2007, Ulmer, Stuttgart, UTB
+Heitefuss, R., Pflanzenschutz, Grundlagen der praktischen Phytomedizin. 3. Auflage, 2000, Thieme Verlag, Stuttgart.
+Hoffmann, G.M. F. Nienhaus, H.M. Poehling, F. Schönbeck, H.C. Weltzien und H. Wilbert, Lehrbuch der Phytomedizin, Auflage 1994, Blackwell Verlag, Berlin.
+Schlösser, E., Allgemeine Phytopathologie. 2. Auflage, Thieme Verlag, Stuttgart
+
+
+== External links ==
+Definition Phytomedicine according DPG
+Deutsche Phytomedizinische Gesellschaft e.V. (DPG)
+
+
+== References ==
