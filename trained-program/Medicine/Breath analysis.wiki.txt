@@ -1,0 +1,8 @@
+Exhaled breath analysis is a method in medicine for gaining information on the clinical state of an individual by monitoring the components present in the exhaled breath. It is a non-invasive method and breath samples can be extracted as often as desired.
+Identification and quantification of potential disease biomarkers can be seen as the driving force for the analysis of exhaled breath. Moreover, future applications for medical diagnosis and therapy control with dynamic assessments of normal physiological function or pharmacodynamics are intended.
+Breath analysis is performed using various approaches for sampling and analysis.
+Breath gas analysis consists of the analysis of volatile organic compounds, for example in blood alcohol testing, and various analytical methods can be applied.
+Breath aerosol analysis consists in the sampling and analysis of particles emitted in the respiratory tract and present in exhaled breath. This is a relatively new field that holds great promise for direct diagnostics of pathogens, such as Influenza, and for in-vivo monitoring of the respiratory lining fluid (Respiratory epithelium) components, such as proteins and phospholipids. Various methods are used for sampling exhaled breath aerosols, such as filters, impactors, impingement filter, or electrostatic precipitators. This latter field is related to that of Bioaerosol sampling and analysis.
+
+
+== References ==

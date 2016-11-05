@@ -1,0 +1,15 @@
+Cortical patterning is a field of developmental neuroscience which aims to determine how the various functional areas of the cerebral cortex are generated, what size and shape they will be, and how their spatial pattern across the surface of the cortex is specified. Early brain lesion studies indicated that different parts of the cortex served different cognitive functions, such as visual, somatosensory, and motor functions, beautifully assimilated by Brodmann in 1909. Today the field supports the idea of a 'protomap', which is a molecular pre-pattern of the cortical areas during early embryonic stages. The protomap is a feature of the cortical ventricular zone, which contains the primary stem cells of the cortex known as radial glial cells. A system of signaling centers, positioned strategically at the midline and edges of the cortex, produce secreted signaling proteins that establish concentration gradients in the cortical primordium. This provides positional information for each stem cell, and regulates proliferation, neurogenesis, and areal identity. After the initial establishment of areal identity, axons from the developing thalamus arrive at their correct cortical areal destination through the process of axon guidance and begin to form synapses. Many activity-dependent processes are then thought to play important roles in the maturation of each area.
+
+
+== See also ==
+Protomap
+Radial unit hypothesis
+Neural stem cell
+Stem cell
+Neurogenesis
+Cellular differentiation
+Cortical patterning
+Gyrification
+
+
+== References ==
