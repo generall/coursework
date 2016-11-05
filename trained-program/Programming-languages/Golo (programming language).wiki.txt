@@ -1,0 +1,30 @@
+Golo is a simple, dynamic, weakly-typed language for the JVM created in 2012 as part of the research activities of the DynaMid group of the Centre of Innovation in Telecommunications and Integration of service aka CITI Laboratory at INSA Lyon.
+
+
+== History ==
+It has been build as a showcase on how to build a language runtime with invokedynamic. Golo is largely interoperable with Java (programming language) and other JVM languages (e.g., numeric types are boxing classes from java.lang, and collection literals leverage java.util classes), that runs on the Java Virtual Machine.
+In June 2015, Golo became an official Eclipse Foundation project, currently under incubation.
+
+
+== Technical Details ==
+The language features have been initially designed around the abilities of invokedynamic / JSR 292 that appeared in Java SE 7. Golo uses ahead-of-time compilation of bytecode. While the bytecode remains stable over a program execution, the invokedynamic-based reconfigurable call sites support the adaptive dispatch mechanisms put in place for helping the HotSpot JIT to extract reasonable performance.
+
+
+== Publications ==
+Baptiste Maingret, Frédéric Le Mouël, Julien Ponge, Nicolas Stouls, Jian Cia and Yannick Loiseau. Towards a Decoupled Context-Oriented Programming Language for the Internet of Things. To appear in the 7th International Workshop on Context-Oriented Programming hosted at ECOOP 2015. Prague, Czech Republic. July 2015.
+Julien Ponge, Frédéric Le Mouël, Nicolas Stouls, Yannick Loiseau. Opportunities for a Truffle-based Golo Interpreter. Technical report arXiv:1505.06003 (cs.PL) and HAL-INRIA deposit
+Julien Ponge, Frédéric Le Mouël and Nicolas Stouls. Golo, a Dynamic, Light and Efficient Language for Post-Invokedynamic JVM. In Procs. of PPPJ'13. Stuttgart, Germany. September 2013. DOI link. HAL-INRIA deposit. Slides.
+
+
+== References ==
+"Golo – A Lightweight Dynamic Language for the JVM". Retrieved 2 July 2015. 
+"Golo nominated for JAX Awards 2014". Retrieved 2 July 2015. ]
+"Golo entry at JAX Awards 2014". Retrieved 2 July 2015. 
+"Golo mentioned at the Netbeans Weekly News Issue 587". Retrieved 2 July 2015. ]
+
+
+== External links ==
+Source code is available on GitHub
+Golo project incubation page at Eclipse.org
+Eclipse integration for the Golo JVM language
+Netbeans module to support the Golo language

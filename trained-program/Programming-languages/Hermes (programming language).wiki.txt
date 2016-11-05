@@ -1,0 +1,9 @@
+Hermes is a language for distributed programming that was developed at IBM's Thomas J. Watson Research Center from 1986 through 1992. Hermes' primary features included:
+Language support of processes and interprocess communication.
+Compile-time verification that operations use initialized data.
+Representation-independent data aggregates called tables.
+Lack of pointers.
+The compile-time checking of data initialization, called "typestate analysis", is an early precedent for the definite assignment analysis performed by Java, Cyclone and C#. Hermes and its predecessor, NIL, appear to have been the earliest programming languages supporting this form of initialization checking.
+
+
+== References ==

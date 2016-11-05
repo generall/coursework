@@ -1,0 +1,50 @@
+In computer software, a general-purpose programming language is a programming language designed to be used for writing software in a wide variety of application domains (a general-purpose language). In many ways a general-purpose language only has this status because it does not include language constructs designed to be used within a specific application domain (e.g., a page description language contains constructs intended to make it easier to write programs that control the layout of text and graphics on a page).
+A domain-specific programming language is one designed to be used within a specific application domain.
+The following are some general-purpose languages:
+Ada
+ALGOL
+Assembly language
+BASIC
+Boo
+C
+C++
+C#
+Clojure
+COBOL
+D
+Dart
+Elixir
+Erlang
+F#
+Fortran
+Go
+Harbour
+Haskell
+Idris
+Java
+JavaScript
+Julia
+Lisp
+Lua
+Modula-2
+Oberon
+Objective-C
+Pascal
+Perl
+PHP
+Pike
+PL/I
+Python
+RPG
+Ruby
+Rust
+Scala
+Simula
+Swift
+Tcl
+
+
+== See also ==
+
+
+== References ==

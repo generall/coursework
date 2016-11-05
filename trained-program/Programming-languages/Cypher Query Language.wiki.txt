@@ -1,0 +1,15 @@
+Cypher is a declarative graph query language for the graph database Neo4j that allows for expressive and efficient querying and updating of the graph store. Cypher is a relatively simple but still very powerful language. Very complicated database queries can easily be expressed through Cypher. This allows users to focus on their domain instead of getting lost in database access.
+
+
+== Syntax ==
+Cypher contains a variety of clauses. Among the most common are: MATCH and WHERE. These functions are slightly different than in SQL. MATCH is used for describing the structure of the pattern searched for, primarily based on relationships. WHERE is used to add additional constraints to patterns. For example:
+
+Cypher additionally contains clauses for writing, updating, and deleting data. CREATE and DELETE are used to create and delete nodes and relationships. SET and REMOVE are used to set values to properties and add labels on nodes. It should be noted that nodes can only be deleted when they have no other relationships still existing. For example:
+
+
+== See also ==
+SPARQL, another declarative query language for querying graph data
+OpenCypher, an initiative by Neo4j and others to extend the use of cypher to other graph databases
+
+
+== References ==

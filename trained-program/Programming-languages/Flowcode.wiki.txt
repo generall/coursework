@@ -1,0 +1,10 @@
+Flowcode is a development environment commercially produced by MatrixTSL for programming embedded devices such as PIC, AVR (including Arduino) and ARM using flowcharts instead of a textual programming language. It is currently in its sixth revision.
+Flowcode is a high level programming language dedicated to simplifying complex functionality such as Bluetooth, Mobile Phones Communications, USB etc. by using premade dedicated component libraries of functions. Flowcode is therefore ideal for speeding up software development times and allowing those with little programming experience to get started and help with projects.
+Flowcode is flowchart based and components are simply dragged onto a chart before the program is compiled.
+
+There is a large and helpful online community based at the MatrixTSL website.
+
+
+== External links ==
+Official Site
+Community and help
