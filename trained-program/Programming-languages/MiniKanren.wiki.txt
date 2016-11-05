@@ -1,0 +1,18 @@
+miniKanren is a family of programming languages for relational programming. As relations are bidirectional, if miniKanren is given an expression and a desired output, miniKanren can run the expression "backward", finding all possible inputs to the expression that produce the desired output. This bidirectional behavior allows the user to constrain both the input to the program and the result of the program simultaneously. miniKanren performs an interleaved search which will eventually find any solution that exists, even if any one branch of the search tree is infinitely long and contains no solutions. If no solution exists, miniKanren may search forever if the search tree is infinite.
+An example of miniKanren code is evalo, a relational goal that relates expressions to the values that they evaluate to. When evalo is called in miniKanren like so: (evalo q q), it will generate quines, that is, expressions q that when run will evaluate to themselves.
+The book The Reasoned Schemer uses miniKanren to demonstrate relational programming, and provides a complete implementation in Scheme. The core of the language fits on two printed pages. The Scheme implementation of miniKanren is designed to be easily understood, modified, and extended.
+αleanTAP is a program written in αKanren, an extension of miniKanren for nominal logic. Given a theorem, it can find a proof, making it a theorem-prover. Given a proof, it can find the theorem, making it a theorem-checker. Given part of a proof and part of a theorem, it will fill in the missing parts of the proof and the theorem, making it a theorem-explorer.
+There are implementations of miniKanren in Haskell, Racket, Ruby, Clojure, and Python. The canonical implementation is an embedded language in Scheme. The Clojure core.logic library was inspired by miniKanren.
+The name kanren comes from a Japanese word for "relation".
+
+
+== See also ==
+Logic programming
+Tree traversal
+
+
+== References ==
+
+
+== External links ==
+Official website

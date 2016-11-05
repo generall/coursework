@@ -1,0 +1,18 @@
+Language interoperability is the capability of two different programming languages to natively interact and operate on the same kind of data structures.
+Some object oriented languages can do this thanks to the hosting virtual machine (e.g. .NET CLI compliant languages in the Common Language Runtime and JVM compliant languages in the Java Virtual Machine).
+In this case a language that runs in a VM can use an object created in different language in the same VM. The VM operates the required abstraction of the object representation that permits to call a method of a class defined in the second language.
+In this one can reuse the libraries written in another language of the same VM: e.g. a program written in Groovy, Scala or Clojure can use any library written in Java.
+
+
+== See also ==
+Remote procedure call
+Foreign function interface
+Language-independent specification
+Language binding
+Glue language
+API reuse
+JVM languages
+CLI Languages
+
+
+== References ==

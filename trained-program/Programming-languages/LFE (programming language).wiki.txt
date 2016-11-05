@@ -1,0 +1,134 @@
+LFE (Lisp Flavored Erlang) is a functional, concurrent, general-purpose programming language and Lisp dialect built on top of Core Erlang and the Erlang Virtual Machine (BEAM). LFE builds on top of Erlang in order to provide a Lisp syntax for writing distributed, fault-tolerant, soft real-time, non-stop applications. LFE also extends Erlang to support meta-programming with Lisp macros and an improved developer experience with a feature-rich REPL. LFE is actively supported on all recent releases of Erlang; the oldest version of Erlang supported is R14.
+
+
+== History ==
+
+
+=== Initial release ===
+Initial work on LFE began in 2007, when Robert Virding started creating a prototype of Lisp running on Erlang. This work was focused primarily on parsing and exploring what an implementation might look like; no version control system was being used at the time, so tracking exact initial dates is somewhat problematic.
+Robert Virding announced the first release of LFE on the "Erlang Questions" mail list in March 2008. This release of LFE was very limited: it did not handle recursive letrecs, binarys, receive, or try; it also did not support a Lisp shell.
+Initial development of LFE was done with version R12B-0 of Erlang on a Dell XPS laptop.
+
+
+=== Motivation ===
+Robert Virding has stated that there were a number of reasons why he started the LFE programming language:.
+He had previous experience programming in Lisp.
+Given his previous experience, he was interested in implementing his own Lisp.
+In particular, he wanted to implement a Lisp in Erlang: not only was he curious to see how it would run on and integrate with Erlang, he wanted to see what it would look like.
+Since helping to create the Erlang programming language, he had had the goal of making a Lisp which was specifically designed for running on the BEAM and able to fully interact with Erlang/OTP.
+He wanted to experiment with compiling another language on top of Erlang. As such, he saw LFE as a means of exploring this by generating Core Erlang and plugging it into the backend of the Erlang compiler.
+He was not working with programming or Erlang at the time, so was looking for some interesting programming projects that were not too large to do in his spare time.
+He likes implementing languages.
+He also thought it would be a fun problem to solve, as a solution would have many parts and the problem space was quite open-ended.
+
+
+== Features ==
+A language targeting Erlang Virtual Machine (BEAM)
+Seamless Erlang integration: zero-penalty Erlang function calls (and vice versa)
+Meta programming via macros and the homoiconicity of a Lisp
+Common Lisp-style documentation via both code comments and docstrings
+Shared-nothing concurrent programming via message passing (Actor model)
+Emphasis on recursion and higher-order functions instead of side-effect-based looping
+A full REPL for interactive development and testing (unlike Erlang's shell, the LFE REPL supports function and macro definitions)
+Pattern matching
+Hot loading of code
+A Lisp-2 separation of namespaces for variables and functions
+Java inter-operation via JInterface and Erjang
+Scripting capabilities with both lfe and lfescript
+
+
+== Syntax and semantics ==
+
+
+=== Symbolic expressions (S-expressions) ===
+Like Lisp, LFE is an expression-oriented language. Unlike non-homoiconic programming languages, Lisps make no or little syntactic distinction between "expressions" and "statements": all code and data are written as expressions. LFE brought homoiconicity to the Erlang VM.
+
+
+=== Lists ===
+In LFE, the list data type is written with its elements separated by whitespace, and surrounded by parentheses. For example, (list 1 2 'foo) is a list whose elements are the integers 1 and 2, and the atom foo. These values are implicitly typed: they are respectively two integers and a Lisp-specific data type called a "symbolic atom", and do not have to be declared as such.
+As seen in the example above, LFE expressions are written as lists, using prefix notation. The first element in the list is the name of a form, i.e., a function, operator, macro, or operator. The remainder of the list are the arguments.
+
+
+=== Operators ===
+The LFE/Erlang operators are used in the same way. The expression
+
+evaluates to 42. Unlike functions in Erlang and LFE, arithmetic operators in Lisp are variadic (or n-ary), able to take any number of arguments.
+
+
+=== Lambda expressions and function definition ===
+LFE has lambda, just like Common Lisp. It also, however, has lambda-match to account for Erlang's pattern-matching capabilities in anonymous function calls.
+
+
+== Erlang idioms in LFE ==
+This section does not represent a complete comparison between Erlang and LFE, but should give a taste.
+
+
+=== Pattern matching ===
+Erlang:
+
+LFE:
+
+
+=== List comprehensions ===
+Erlang:
+
+LFE:
+
+Or idiomatic functional style:
+
+
+=== Guards ===
+Erlang:
+
+LFE:
+
+
+=== cons'ing in function heads ===
+Erlang:
+
+LFE:
+
+or using a ``cons`` literal instead of the constructor form:
+
+
+=== Matching records in function heads ===
+Erlang:
+
+LFE:
+
+
+=== Receiving messages ===
+Erlang:
+
+LFE:
+
+or:
+
+
+== Examples ==
+
+
+=== Erlang interoperability ===
+Calls to Erlang functions take the form (<module>:<function> <arg1> ... <argn>):
+
+
+=== Functional paradigm ===
+Using recursion to define the Ackermann function:
+
+Composing functions:
+
+
+=== Concurrency ===
+Message-passing with Erlang's light-weight "processes":
+
+Multiple simultaneous HTTP requests:
+
+
+== References ==
+
+
+== External links ==
+LFE language website
+LFE Quick Start
+LFE User Guide
+LFE on Rosetta Code

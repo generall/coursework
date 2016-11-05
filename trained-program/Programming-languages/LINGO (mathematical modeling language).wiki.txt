@@ -1,0 +1,4 @@
+LINGO is a mathematical modeling language designed for formulating and solving optimization problems, including linear, integer, and nonlinear programming problems.
+
+
+== References ==

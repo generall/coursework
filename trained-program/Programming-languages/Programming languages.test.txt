@@ -1,0 +1,1635 @@
+An embedded style language is a kind of computer language whose commands appear intermixed with those of a base language. Such languages can either have their own syntax, which is translated into that of the base language, or can provide an API with which to invoke the behaviors of the language. Embedded domain-specific languages are common examples of embedded style languages that rely upon translation. Posix threads is an example of an embedded style language that uses only an API to invoke its behaviors. Embedded style languages that are invoked via an API are distinguished from software libraries by the existence of a runtime system. Charm is a computer programming language devised in the early 1990s with similarities to the RTL/2, Pascal and C languages in addition to containing some unique features of its own. The Charm language is defined by a context-free grammar amenable to being processed by recursive descent parser as described in seminal books on compiler design.
+ A set of Charm tools including a compiler, assembler and linker released for the Acorn market has been reviewed in Acorn User magazine under the category of programming software. Charm reworked for RISC OS platforms has subsequently been reviewed in Archive magazine.
+ Charm is further described in the e-book Programming in Charm on the Raspberry Pi.
+ 
+ 
+ == Grammar ==
+ The definition of the Charm grammar in Backus–Naur form along with descriptive examples of Charm constructs is defined on the Charm language page.
+ The language is block structured, with each block being introduced by a language keyword that is descriptive of the operation being performed in the block e.g. for, while, repeat (iteration), case, if (selection). Each block is enclosed by { and } delimiters. Additionally language lines within a block are normally indented for clarity, though this not required as white space is ignored.
+ Each grammatically conforming text represents a collection of executable code and associated data which can be used by a Charm tool set as a component when assembling a program that can be run under an operating system utilising the services it provides to do useful work such as data processing or interacting with users through a graphical user interface (GUI).
+ 
+ 
+ === Data types ===
+ Charm is a strongly typed language, but does allow some implicit conversions between numeric and floating point types. The following basic variable types are supported:
+ 
+ int - integers
+ char - characters
+ boolean - boolean values (true or false)
+ real - floating point numbers
+ 
+ Data aggregates of the same type may be declared and statically initialised using the array keyword, and these may be multidimensional. Aggregates of different types may be declared using the record keyword, and it is allowable for such a declaration to define a union of record fields that overlay each other in terms of storage allocation. Modules may also aggregate a mixture of static and dynamic data members. Instances of both records and modules (dynamic content only) can be instantiated on the stack, or on the heap via the new operator. Modules may also define a constructor ~new procedure to initialise dynamic data and corresponding ~delete deconstructor procedure to release resources in a similar manner to the C++ language.
+ 
+ 
+ === Referencing ===
+ Data or procedures within the scope of a module may be made global to the final application by using the export keyword. If a module wishes to reference a procedure or data from another Charm module, it does so using the import keyword. Modules may contain instance based member variables which are accessible through procedures declared with the dynamic keyword through the implicit first parameter this pointer.
+ References to data constructs and procedures may be made using the ref keyword. These can be dereferenced using the val keyword. When using reference variables, comparison operators are available to check whether two reference variables refer to the same item of data ( :=: ) or whether the data they point to is the same ( = ).
+ 
+ 
+ === Example ===
+ The original classic Hello world program written in Charm is:
+ 
+ and the equivalent latest version following evolutionary syntactic language changes is:
+ 
+ 
+ == Tool set ==
+ Tool set implementations are expected to provide a compiler and an assembler to generate object files from Charm source code and assembler source code, which can then be linked together along with library and run time support files to generate an executable program.
+ At the time of writing only one Charm tool set installation is available (free of charge) for download. The tools are themselves written in the Charm language, and the source code is available under the terms of the GNU General Public License. They run on RISC OS PCs and platforms with ARM CPUs (such as the Raspberry Pi) and on emulators for RISC OS which are hosted on Windows or Linux platforms (such as RPCEmu). Code generation for hardware assisted double precision floating point operations is supported for platforms based on ARM chips that support the VFP version 2 coprocessor architecture.
+ 
+ 
+ === Compiler ===
+ The Charm compiler is a recursive descent single pass compiler which parses Charm source code to generate quadruples of the form result := lhs op rhs in an intermediate language that supports arithmetic, logical and flow of control operations. Data is stored in temporaries which are assigned to registers and memory locations in the back end of the compiler. Two back ends are currently in existence, one generating Motorola 68000 assembly language, and the other generating ARM architecture.
+ The quadruple output from the hello world example is:
+ 
+        param   l1$
+        call    write_string[proc (ref array char) void]
+ 
+ and the assembler output is:
+ 
+ Note that in more recent releases of Charm, the I/O procedures have been split into their own modules In and Out. Other standard library procedures are organised into a set of records with procedure references as fields. As part of this reorganisation, the write_string method is now invoked through the run time library module Out via static member reference .vdu as procedure str i.e. in the hello world example above write_string ("Hello world") becomes Out.vdu.str ("Hello world").
+ 
+ 
+ === Assembler ===
+ The assembler accepts instruction mnemonics, data declarations and directives and constructs an object file containing information readily understandable by the CPU of the target processor, in particular code instructions coded in binary.
+ 
+ 
+ === Linker ===
+ One and only one of the Charm modules linked to form an executable program must contain a procedure matching one of the signatures:
+ 
+    export proc ~start ()
+    export proc ~start (int argc, ref array ref array char argv)
+ 
+ This is analogous to the main function in the C and Java languages. Here argc contains the number of parameters passed on the command line and argv contains a reference to an array of argc + 1 strings (one string per positional parameter in order and a terminating nil).
+ In addition, modules may optional contain static startup and shutdown procedures invoked during program startup and shutdown that match the signatures:
+ 
+    export proc ~startup ()
+    export proc ~shutdown ()
+ 
+ The linker adds any necessary header information required by the operating system in order to execute the program, and ensures the run time library assembler support code is run which sets up the run time environment (data and stack pointers) and passes control to the start procedure of the application.
+ A map file showing the names of all modules linked to form the program along with global data and code references is optionally produced which can be used by debuggers and profilers.
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ Charm for RISC OS
+ Risc PC Emulator
+ ARM Information Center miniKanren is a family of programming languages for relational programming. As relations are bidirectional, if miniKanren is given an expression and a desired output, miniKanren can run the expression "backward", finding all possible inputs to the expression that produce the desired output. This bidirectional behavior allows the user to constrain both the input to the program and the result of the program simultaneously. miniKanren performs an interleaved search which will eventually find any solution that exists, even if any one branch of the search tree is infinitely long and contains no solutions. If no solution exists, miniKanren may search forever if the search tree is infinite.
+ An example of miniKanren code is evalo, a relational goal that relates expressions to the values that they evaluate to. When evalo is called in miniKanren like so: (evalo q q), it will generate quines, that is, expressions q that when run will evaluate to themselves.
+ The book The Reasoned Schemer uses miniKanren to demonstrate relational programming, and provides a complete implementation in Scheme. The core of the language fits on two printed pages. The Scheme implementation of miniKanren is designed to be easily understood, modified, and extended.
+ αleanTAP is a program written in αKanren, an extension of miniKanren for nominal logic. Given a theorem, it can find a proof, making it a theorem-prover. Given a proof, it can find the theorem, making it a theorem-checker. Given part of a proof and part of a theorem, it will fill in the missing parts of the proof and the theorem, making it a theorem-explorer.
+ There are implementations of miniKanren in Haskell, Racket, Ruby, Clojure, and Python. The canonical implementation is an embedded language in Scheme. The Clojure core.logic library was inspired by miniKanren.
+ The name kanren comes from a Japanese word for "relation".
+ 
+ 
+ == See also ==
+ Logic programming
+ Tree traversal
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ Official website Lisp (historically, LISP) is a family of computer programming languages with a long history and a distinctive, fully parenthesized prefix notation. Originally specified in 1958, Lisp is the second-oldest high-level programming language in widespread use today. Only Fortran is older, by one year. Lisp has changed since its early days, and many dialects have existed over its history. Today, the best known general-purpose Lisp dialects are Common Lisp and Scheme.
+ Lisp was originally created as a practical mathematical notation for computer programs, influenced by the notation of Alonzo Church's lambda calculus. It quickly became the favored programming language for artificial intelligence (AI) research. As one of the earliest programming languages, Lisp pioneered many ideas in computer science, including tree data structures, automatic storage management, dynamic typing, conditionals, higher-order functions, recursion, and the self-hosting compiler.
+ The name LISP derives from "LISt Processor". Linked lists are one of Lisp's major data structures, and Lisp source code is made of lists. Thus, Lisp programs can manipulate source code as a data structure, giving rise to the macro systems that allow programmers to create new syntax or new domain-specific languages embedded in Lisp.
+ The interchangeability of code and data gives Lisp its instantly recognizable syntax. All program code is written as s-expressions, or parenthesized lists. A function call or syntactic form is written as a list with the function or operator's name first, and the arguments following; for instance, a function f that takes three arguments would be called as (f arg1 arg2 arg3).
+ 
+ 
+ == History ==
+ 
+ Lisp was invented by John McCarthy in 1958 while he was at the Massachusetts Institute of Technology (MIT). McCarthy published its design in a paper in Communications of the ACM in 1960, entitled "Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I". He showed that with a few simple operators and a notation for functions, one can build a Turing-complete language for algorithms.
+ Information Processing Language was the first AI language, from 1955 or 1956, and already included many of the concepts, such as list-processing and recursion, which came to be used in Lisp.
+ McCarthy's original notation used bracketed "M-expressions" that would be translated into S-expressions. As an example, the M-expression car[cons[A,B]] is equivalent to the S-expression (car (cons A B)). Once Lisp was implemented, programmers rapidly chose to use S-expressions, and M-expressions were abandoned. M-expressions surfaced again with short-lived attempts of MLISP by Horace Enea and CGOL by Vaughan Pratt.
+ Lisp was first implemented by Steve Russell on an IBM 704 computer. Russell had read McCarthy's paper and realized (to McCarthy's surprise) that the Lisp eval function could be implemented in machine code. The result was a working Lisp interpreter which could be used to run Lisp programs, or more properly, 'evaluate Lisp expressions.'
+ Two assembly language macros for the IBM 704 became the primitive operations for decomposing lists: car (Contents of the Address part of Register number) and cdr (Contents of the Decrement part of Register number). From the context, it is clear that the term "register" is used here to mean "memory register", nowadays called "memory location". Lisp dialects still use car and cdr (/ˈkɑːr/ and /ˈkʊdər/) for the operations that return the first item in a list and the rest of the list respectively.
+ The first complete Lisp compiler, written in Lisp, was implemented in 1962 by Tim Hart and Mike Levin at MIT. This compiler introduced the Lisp model of incremental compilation, in which compiled and interpreted functions can intermix freely. The language used in Hart and Levin's memo is much closer to modern Lisp style than McCarthy's earlier code.
+ Lisp was a difficult system to implement with the compiler techniques and stock hardware of the 1970s. Garbage collection routines, developed by then-MIT graduate student Daniel Edwards, made it practical to run Lisp on general-purpose computing systems, but efficiency was still a problem. This led to the creation of Lisp machines: dedicated hardware for running Lisp environments and programs. Advances in both computer hardware and compiler technology soon made Lisp machines obsolete.
+ During the 1980s and 1990s, a great effort was made to unify the work on new Lisp dialects (mostly successors to Maclisp like ZetaLisp and NIL (New Implementation of Lisp)) into a single language. The new language, Common Lisp, was somewhat compatible with the dialects it replaced (the book Common Lisp the Language notes the compatibility of various constructs). In 1994, ANSI published the Common Lisp standard, "ANSI X3.226-1994 Information Technology Programming Language Common Lisp."
+ 
+ 
+ === Timeline ===
+ 
+ 
+ === Connection to artificial intelligence ===
+ Since its inception, Lisp was closely connected with the artificial intelligence research community, especially on PDP-10 systems. Lisp was used as the implementation of the programming language Micro Planner which was used in the famous AI system SHRDLU. In the 1970s, as AI research spawned commercial offshoots, the performance of existing Lisp systems became a growing issue.
+ 
+ 
+ === Genealogy and variants ===
+ Over its fifty-year history, Lisp has spawned many variations on the core theme of an S-expression language. Moreover, each given dialect may have several implementations—for instance, there are more than a dozen implementations of Common Lisp.
+ Differences between dialects may be quite visible—for instance, Common Lisp uses the keyword defun to name a function, but Scheme uses define. Within a dialect that is standardized, however, conforming implementations support the same core language, but with different extensions and libraries.
+ 
+ 
+ ==== Historically significant dialects ====
+ 
+ LISP 1 – First implementation.
+ LISP 1.5 – First widely distributed version, developed by McCarthy and others at MIT. So named because it contained several improvements on the original "LISP 1" interpreter, but was not a major restructuring as the planned LISP 2 would be.
+ Stanford LISP 1.6 – This was a successor to LISP 1.5 developed at the Stanford AI Lab, and widely distributed to PDP-10 systems running the TOPS-10 operating system. It was rendered obsolete by Maclisp and InterLisp.
+ MACLISP – developed for MIT's Project MAC (no relation to Apple's Macintosh, nor to McCarthy), direct descendant of LISP 1.5. It ran on the PDP-10 and Multics systems. (MACLISP would later come to be called Maclisp, and is often referred to as MacLisp.)
+ InterLisp – developed at BBN Technologies for PDP-10 systems running the Tenex operating system, later adopted as a "West coast" Lisp for the Xerox Lisp machines as InterLisp-D. A small version called "InterLISP 65" was published for the 6502-based Atari 8-bit family computer line. For quite some time, Maclisp and InterLisp were strong competitors.
+ Franz Lisp – originally a University of California, Berkeley project; later developed by Franz Inc. The name is a humorous deformation of the name "Franz Liszt", and does not refer to Allegro Common Lisp, the dialect of Common Lisp sold by Franz Inc., in more recent years.
+ XLISP, which AutoLISP was based on.
+ Standard Lisp and Portable Standard Lisp were widely used and ported, especially with the Computer Algebra System REDUCE.
+ ZetaLisp, also termed Lisp Machine Lisp – used on the Lisp machines, direct descendant of Maclisp. ZetaLisp had a big influence on Common Lisp.
+ LeLisp is a French Lisp dialect. One of the first Interface Builders was written in LeLisp.
+ Scheme (1975).
+ Common Lisp (1984), as described by Common Lisp the Language – a consolidation of several divergent attempts (ZetaLisp, Spice Lisp, NIL, and S-1 Lisp) to create successor dialects to Maclisp, with substantive influences from the Scheme dialect as well. This version of Common Lisp was available for wide-ranging platforms and was accepted by many as a de facto standard until the publication of ANSI Common Lisp (ANSI X3.226-1994).
+ Dylan was in its first version a mix of Scheme with the Common Lisp Object System.
+ EuLisp – attempt to develop a new efficient and cleaned-up Lisp.
+ ISLISP – attempt to develop a new efficient and cleaned-up Lisp. Standardized as ISO/IEC 13816:1997 and later revised as ISO/IEC 13816:2007: Information technology – Programming languages, their environments and system software interfaces – Programming language ISLISP.
+ IEEE Scheme – IEEE standard, 1178–1990 (R1995)
+ ANSI Common Lisp – an American National Standards Institute (ANSI) standard for Common Lisp, created by subcommittee X3J13, chartered to begin with Common Lisp: The Language as a base document and to work through a public consensus process to find solutions to shared issues of portability of programs and compatibility of Common Lisp implementations. Although formally an ANSI standard, the implementation, sale, use, and influence of ANSI Common Lisp has been and continues to be seen worldwide.
+ ACL2 or "A Computational Logic for Applicative Common Lisp", an applicative (side-effect free) variant of Common LISP. ACL2 is both a programming language which can model computer systems, and a tool to help proving properties of those models.
+ Clojure, a recent dialect of Lisp which compiles to the Java virtual machine and handles concurrency very well.
+ 
+ 
+ === 2000-present ===
+ After having declined somewhat in the 1990s, Lisp has recently experienced a resurgence of interest. Most new activity is focused around implementations of Common Lisp, Clojure, Racket, Scheme, and Emacs Lisp, and includes development of new portable libraries and applications.
+ Many new Lisp programmers were inspired by writers such as Paul Graham and Eric S. Raymond to pursue a language others considered antiquated. New Lisp programmers often describe the language as an eye-opening experience and claim to be substantially more productive than in other languages. This increase in awareness may be contrasted to the "AI winter" and Lisp's brief gain in the mid-1990s.
+ Dan Weinreb lists in his survey of Common Lisp implementations eleven actively maintained Common Lisp implementations. Scieneer Common Lisp is a new commercial implementation forked from CMUCL with a first release in 2002.
+ The open source community has created new supporting infrastructure: CLiki is a wiki that collects Common Lisp related information, the Common Lisp directory lists resources, #lisp is a popular IRC channel and allows the sharing and commenting of code snippets (with support by lisppaste, an IRC bot written in Lisp), Planet Lisp collects the contents of various Lisp-related blogs, on LispForum users discuss Lisp topics, Lispjobs is a service for announcing job offers and there is a weekly news service, Weekly Lisp News. Common-lisp.net is a hosting site for open source Common Lisp projects. Quicklisp is a library manager for Common Lisp.
+ 50 years of Lisp (1958–2008) has been celebrated at LISP50@OOPSLA. There are regular local user meetings in Boston, Vancouver, and Hamburg. Other events include the European Common Lisp Meeting, the European Lisp Symposium and an International Lisp Conference.
+ The Scheme community actively maintains over twenty implementations. Several significant new implementations (Chicken, Gambit, Gauche, Ikarus, Larceny, Ypsilon) have been developed in the last few years. The Revised5 Report on the Algorithmic Language Scheme standard of Scheme was widely accepted in the Scheme community. The Scheme Requests for Implementation process has created a lot of quasi standard libraries and extensions for Scheme. User communities of individual Scheme implementations continue to grow. A new language standardization process was started in 2003 and led to the R6RS Scheme standard in 2007. Academic use of Scheme for teaching computer science seems to have declined somewhat. Some universities, such as MIT, are no longer using Scheme in their computer science introductory courses.
+ There are several new dialects of Lisp: Arc, Hy, Nu, Clojure, Liskell, LFE (Lisp Flavored Erlang) and Racket.
+ 
+ 
+ == Major dialects ==
+ Common Lisp and Scheme represent two major streams of Lisp development. These languages embody significantly different design choices.
+ Common Lisp is a successor to MacLisp. The primary influences were Lisp Machine Lisp, MacLisp, NIL, S-1 Lisp, Spice Lisp, and Scheme. It has many of the features of Lisp Machine Lisp (a large Lisp dialect used to program Lisp Machines), but was designed to be efficiently implementable on any personal computer or workstation. Common Lisp has a large language standard including many built-in data types, functions, macros and other language elements, as well as an object system (Common Lisp Object System). Common Lisp also borrowed certain features from Scheme such as lexical scoping and lexical closures.
+ Scheme (designed earlier) is a more minimalist design, with a much smaller set of standard features but with certain implementation features (such as tail-call optimization and full continuations) not necessarily found in Common Lisp.
+ Scheme is a statically scoped and properly tail-recursive dialect of the Lisp programming language invented by Guy L. Steele, Jr. and Gerald Jay Sussman. It was designed to have exceptionally clear and simple semantics and few different ways to form expressions. A wide variety of programming paradigms, including imperative, functional, and message passing styles, find convenient expression in Scheme. Scheme continues to evolve with a series of standards (Revisedn Report on the Algorithmic Language Scheme) and a series of Scheme Requests for Implementation.
+ Clojure is a recent dialect of Lisp that principally targets the Java Virtual Machine, as well as the Common Language Runtime (CLR), the Python VM, the Ruby VM YARV, and compiling to JavaScript. It is designed to be a pragmatic general-purpose language. Clojure draws considerable influences from Haskell and places a very strong emphasis on immutability. Every feature supported by Clojure is supported at runtime. Clojure provides access to Java frameworks and libraries, with optional type hints and type inference, so that calls to Java can avoid reflection and enable fast primitive operations.
+ Further, Lisp dialects are used as scripting languages in many applications, with the best-known being Emacs Lisp in the Emacs editor, AutoLisp and later Visual Lisp in AutoCAD, Nyquist in Audacity, Scheme in LilyPond. The potential small size of a useful Scheme interpreter makes it particularly popular for embedded scripting. Examples include SIOD and TinyScheme, both of which have been successfully embedded in the GIMP image processor under the generic name "Script-fu". LIBREP, a Lisp interpreter by John Harper originally based on the Emacs Lisp language, has been embedded in the Sawfish window manager.
+ 
+ 
+ == Language innovations ==
+ Lisp was the first language where the structure of program code is represented faithfully and directly in a standard data structure—a quality much later dubbed "homoiconicity". Thus, Lisp functions can be manipulated, altered or even created within a Lisp program without lower-level manipulations. This is generally considered one of the main advantages of the language with regard to its expressive power, and makes the language suitable for syntactic macros and metacircular evaluation.
+ A conditional using an if-then-else syntax was invented by McCarthy in a Fortran context. He proposed its inclusion in ALGOL, but it was not made part of the Algol 58 specification. For Lisp, McCarthy used the more general cond-structure. Algol 60 took up if-then-else and popularized it.
+ Lisp deeply influenced Alan Kay, the leader of the research on Smalltalk, and then in turn Lisp was influenced by Smalltalk, by adopting object-oriented programming features (classes, instances, etc.) in the late 1970s. The Flavors object system introduced multiple inheritance.
+ Lisp introduced the concept of automatic garbage collection, in which the system walks the heap looking for unused memory. Progress in modern sophisticated garbage collection algorithms such as generational garbage collection was stimulated by its use in Lisp.
+ Edsger W. Dijkstra in his 1972 Turing Award lecture said,
+ "With a few very basic principles at its foundation, it [LISP] has shown a remarkable stability. Besides that, LISP has been the carrier for a considerable number of in a sense our most sophisticated computer applications. LISP has jokingly been described as “the most intelligent way to misuse a computer”. I think that description a great compliment because it transmits the full flavour of liberation: it has assisted a number of our most gifted fellow humans in thinking previously impossible thoughts."
+ Largely because of its resource requirements with respect to early computing hardware (including early microprocessors), Lisp did not become as popular outside of the AI community as Fortran and the ALGOL-descended C language. Because of its suitability to complex and dynamic applications, Lisp is currently enjoying some resurgence of popular interest.
+ 
+ 
+ == Syntax and semantics ==
+ Note: This article's examples are written in Common Lisp (though most are also valid in Scheme).
+ 
+ 
+ === Symbolic expressions (S-expressions) ===
+ Lisp is an expression-oriented language. Unlike most other languages, no distinction is made between "expressions" and "statements"; all code and data are written as expressions. When an expression is evaluated, it produces a value (in Common Lisp, possibly multiple values), which can then be embedded into other expressions. Each value can be any data type.
+ McCarthy's 1958 paper introduced two types of syntax: Symbolic expressions (S-expressions, sexps), which mirror the internal representation of code and data; and Meta expressions (M-expressions), which express functions of S-expressions. M-expressions never found favor, and almost all Lisps today use S-expressions to manipulate both code and data.
+ The use of parentheses is Lisp's most immediately obvious difference from other programming language families. As a result, students have long given Lisp nicknames such as Lost In Stupid Parentheses, or Lots of Irritating Superfluous Parentheses. However, the S-expression syntax is also responsible for much of Lisp's power: the syntax is extremely regular, which facilitates manipulation by computer. However, the syntax of Lisp is not limited to traditional parentheses notation. It can be extended to include alternative notations. For example, XMLisp is a Common Lisp extension that employs the metaobject protocol to integrate S-expressions with the Extensible Markup Language (XML).
+ The reliance on expressions gives the language great flexibility. Because Lisp functions are written as lists, they can be processed exactly like data. This allows easy writing of programs which manipulate other programs (metaprogramming). Many Lisp dialects exploit this feature using macro systems, which enables extension of the language almost without limit.
+ 
+ 
+ === Lists ===
+ A Lisp list is written with its elements separated by whitespace, and surrounded by parentheses. For example, (1 2 foo) is a list which elements are three atoms 1, 2, and foo. These values are implicitly typed: they are respectively two integers and a Lisp-specific data type called a "symbol", and do not have to be declared as such.
+ The empty list () is also represented as the special atom nil. This is the only entity in Lisp which is both an atom and a list.
+ Expressions are written as lists, using prefix notation. The first element in the list is the name of a function, the name of a macro, a lambda expression or the name of a "special operator" (see below). The remainder of the list are the arguments. For example, the function list returns its arguments as a list, so the expression
+ 
+ evaluates to the list (1 2 foo). The "quote" before the foo in the preceding example is a "special operator" which returns its argument without evaluating it. Any unquoted expressions are recursively evaluated before the enclosing expression is evaluated. For example,
+ 
+ evaluates to the list (1 2 (3 4)). Note that the third argument is a list; lists can be nested.
+ 
+ 
+ === Operators ===
+ Arithmetic operators are treated similarly. The expression
+ 
+ evaluates to 10. The equivalent under infix notation would be "1 + 2 + 3 + 4".
+ Lisp has no notion of operators as implemented in Algol-derived languages. Arithmetic operators in Lisp are variadic functions (or n-ary), able to take any number of arguments. A C-style '++' increment operator is sometimes implemented under the name incf giving syntax
+ 
+ , equivalent to (setq x (+ x 1)), returning the new value of x.
+ "Special operators" (sometimes called "special forms") provide Lisp's control structure. For example, the special operator if takes three arguments. If the first argument is non-nil, it evaluates to the second argument; otherwise, it evaluates to the third argument. Thus, the expression
+ 
+ evaluates to (3 4 "bar"). Of course, this would be more useful if a non-trivial expression had been substituted in place of nil.
+ Lisp also provides logical operators and, or and not. The and and or operator do short circuit evaluation and will return their first non-nil argument.
+ 
+ will evaluate to "James".
+ 
+ 
+ === Lambda expressions and function definition ===
+ Another special operator, lambda, is used to bind variables to values which are then evaluated within an expression. This operator is also used to create functions: the arguments to lambda are a list of arguments, and the expression or expressions to which the function evaluates (the returned value is the value of the last expression that is evaluated). The expression
+ 
+ evaluates to a function that, when applied, takes one argument, binds it to arg and returns the number one greater than that argument. Lambda expressions are treated no differently from named functions; they are invoked the same way. Therefore, the expression
+ 
+ evaluates to 6.
+ Named functions are created by storing a lambda expression in a symbol using the defun macro.
+ 
+ (defun f (a) b...) defines a new function named f in the global environment. It is conceptually similar to the expression:
+ 
+ 
+ === Atoms ===
+ In the original LISP there were two fundamental data types: atoms and lists. A list was a finite ordered sequence of elements, where each element is either an atom or a list, and an atom was a number or a symbol. A symbol was essentially a unique named item, written as an alphanumeric string in source code, and used either as a variable name or as a data item in symbolic processing. For example, the list (FOO (BAR 1) 2) contains three elements: the symbol FOO, the list (BAR 1), and the number 2.
+ The essential difference between atoms and lists was that atoms were immutable and unique. Two atoms that appeared in different places in source code but were written in exactly the same way represented the same object, whereas each list was a separate object that could be altered independently of other lists and could be distinguished from other lists by comparison operators.
+ As more data types were introduced in later Lisp dialects, and programming styles evolved, the concept of an atom lost importance. Many dialects still retained the predicate atom for legacy compatibility, defining it true for any object which is not a cons.
+ 
+ 
+ === Conses and lists ===
+ 
+ A Lisp list is singly linked. Each cell of this list is called a cons (in Scheme, a pair), and is composed of two pointers, called the car and cdr. These are respectively equivalent to the data and next fields discussed in the article linked list.
+ Of the many data structures that can be built out of cons cells, one of the most basic is called a proper list. A proper list is either the special nil (empty list) symbol, or a cons in which the car points to a datum (which may be another cons structure, such as a list), and the cdr points to another proper list.
+ If a given cons is taken to be the head of a linked list, then its car points to the first element of the list, and its cdr points to the rest of the list. For this reason, the car and cdr functions are also called first and rest when referring to conses which are part of a linked list (rather than, say, a tree).
+ Thus, a Lisp list is not an atomic object, as an instance of a container class in C++ or Java would be. A list is nothing more than an aggregate of linked conses. A variable which refers to a given list is simply a pointer to the first cons in the list. Traversal of a list can be done by cdring down the list; that is, taking successive cdrs to visit each cons of the list; or by using any of several higher-order functions to map a function over a list.
+ Because conses and lists are so universal in Lisp systems, it is a common misconception that they are Lisp's only data structures. In fact, all but the most simplistic Lisps have other data structures, such as vectors (arrays), hash tables, structures, and so forth.
+ 
+ 
+ ==== S-expressions represent lists ====
+ Parenthesized S-expressions represent linked list structures. There are several ways to represent the same list as an S-expression. A cons can be written in dotted-pair notation as (a . b), where a is the car and b the cdr. A longer proper list might be written (a . (b . (c . (d . nil)))) in dotted-pair notation. This is conventionally abbreviated as (a b c d) in list notation. An improper list may be written in a combination of the two – as (a b c . d) for the list of three conses whose last cdr is d (i.e., the list (a . (b . (c . d))) in fully specified form).
+ 
+ 
+ ==== List-processing procedures ====
+ Lisp provides many built-in procedures for accessing and controlling lists. Lists can be created directly with the list procedure, which takes any number of arguments, and returns the list of these arguments.
+ 
+ Because of the way that lists are constructed from cons pairs, the cons procedure can be used to add an element to the front of a list. Note that the cons procedure is asymmetric in how it handles list arguments, because of how lists are constructed.
+ 
+ The append procedure appends two (or more) lists to one another. Because Lisp lists are linked lists, appending two lists has asymptotic time complexity 
+   
+     
+       
+         O
+         (
+         n
+         )
+       
+     
+     {\displaystyle O(n)}
+   
+ 
+ 
+ ==== Shared structure ====
+ Lisp lists, being simple linked lists, can share structure with one another. That is to say, two lists can have the same tail, or final sequence of conses. For instance, after the execution of the following Common Lisp code:
+ 
+ the lists foo and bar are (a b c) and (x b c) respectively. However, the tail (b c) is the same structure in both lists. It is not a copy; the cons cells pointing to b and c are in the same memory locations for both lists.
+ Sharing structure rather than copying can give a dramatic performance improvement. However, this technique can interact in undesired ways with functions that alter lists passed to them as arguments. Altering one list, such as by replacing the c with a goose, will affect the other:
+ 
+ This changes foo to (a b goose), but thereby also changes bar to (x b goose) – a possibly unexpected result. This can be a source of bugs, and functions which alter their arguments are documented as destructive for this very reason.
+ Aficionados of functional programming avoid destructive functions. In the Scheme dialect, which favors the functional style, the names of destructive functions are marked with a cautionary exclamation point, or "bang"—such as set-car! (read set car bang), which replaces the car of a cons. In the Common Lisp dialect, destructive functions are commonplace; the equivalent of set-car! is named rplaca for "replace car." This function is rarely seen however as Common Lisp includes a special facility, setf, to make it easier to define and use destructive functions. A frequent style in Common Lisp is to write code functionally (without destructive calls) when prototyping, then to add destructive calls as an optimization where it is safe to do so.
+ 
+ 
+ === Self-evaluating forms and quoting ===
+ Lisp evaluates expressions which are entered by the user. Symbols and lists evaluate to some other (usually, simpler) expression – for instance, a symbol evaluates to the value of the variable it names; (+ 2 3) evaluates to 5. However, most other forms evaluate to themselves: if entering 5 into Lisp, it returns 5.
+ Any expression can also be marked to prevent it from being evaluated (as is necessary for symbols and lists). This is the role of the quote special operator, or its abbreviation ' (one quotation mark). For instance, usually if entering the symbol foo, it returns the value of the corresponding variable (or an error, if there is no such variable). To refer to the literal symbol, enter (quote foo) or, usually, 'foo.
+ Both Common Lisp and Scheme also support the backquote operator (termed quasiquote in Scheme), entered with the ` character (grave accent). This is almost the same as the plain quote, except it allows expressions to be evaluated and their values interpolated into a quoted list with the comma , unquote and comma-at ,@ splice operators. If the variable snue has the value (bar baz) then `(foo ,snue) evaluates to (foo (bar baz)), while `(foo ,@snue) evaluates to (foo bar baz). The backquote is most often used in defining macro expansions.
+ Self-evaluating forms and quoted forms are Lisp's equivalent of literals. It may be possible to modify the values of (mutable) literals in program code. For instance, if a function returns a quoted form, and the code that calls the function modifies the form, this may alter the behavior of the function on subsequent iterations.
+ 
+ Modifying a quoted form like this is generally considered bad style, and is defined by ANSI Common Lisp as erroneous (resulting in "undefined" behavior in compiled files, because the file-compiler can coalesce similar constants, put them in write-protected memory, etc.).
+ Lisp's formalization of quotation has been noted by Douglas Hofstadter (in Gödel, Escher, Bach) and others as an example of the philosophical idea of self-reference.
+ 
+ 
+ === Scope and closure ===
+ The Lisp family splits over the use of dynamic or static (a.k.a. lexical) scope. Clojure, Common Lisp and Scheme make use of static scoping by default, while newLISP, Picolisp and the embedded languages in Emacs and AutoCAD use dynamic scoping.
+ 
+ 
+ === List structure of program code; exploitation by macros and compilers ===
+ A fundamental distinction between Lisp and other languages is that in Lisp, the textual representation of a program is simply a human-readable description of the same internal data structures (linked lists, symbols, number, characters, etc.) as would be used by the underlying Lisp system.
+ Lisp uses this to implement a very powerful macro system. Like other macro languages such as C, a macro returns code that can then be compiled. However, unlike C macros, the macros are Lisp functions and so can exploit the full power of Lisp.
+ Further, because Lisp code has the same structure as lists, macros can be built with any of the list-processing functions in the language. In short, anything that Lisp can do to a data structure, Lisp macros can do to code. In contrast, in most other languages, the parser's output is purely internal to the language implementation and cannot be manipulated by the programmer.
+ This feature makes it easy to develop efficient languages within languages. For example, the Common Lisp Object System can be implemented cleanly as a language extension using macros. This means that if an application needs a different inheritance mechanism, it can use a different object system. This is in stark contrast to most other languages; for example, Java does not support multiple inheritance and there is no reasonable way to add it.
+ In simplistic Lisp implementations, this list structure is directly interpreted to run the program; a function is literally a piece of list structure which is traversed by the interpreter in executing it. However, most substantial Lisp systems also include a compiler. The compiler translates list structure into machine code or bytecode for execution. This code can run as fast as code compiled in conventional languages such as C.
+ Macros expand before the compilation step, and thus offer some interesting options. If a program needs a precomputed table, then a macro might create the table at compile time, so the compiler need only output the table and need not call code to create the table at run time. Some Lisp implementations even have a mechanism, eval-when, that allows code to be present during compile time (when a macro would need it), but not present in the emitted module.
+ 
+ 
+ === Evaluation and the read–eval–print loop ===
+ Lisp languages are often used with an interactive command line, which may be combined with an integrated development environment (IDE). The user types in expressions at the command line, or directs the IDE to transmit them to the Lisp system. Lisp reads the entered expressions, evaluates them, and prints the result. For this reason, the Lisp command line is called a read–eval–print loop (REPL).
+ The basic operation of the REPL is as follows. This is a simplistic description which omits many elements of a real Lisp, such as quoting and macros.
+ The read function accepts textual S-expressions as input, and parses them into an internal data structure. For instance, if you type the text (+ 1 2) at the prompt, read translates this into a linked list with three elements: the symbol +, the number 1, and the number 2. It so happens that this list is also a valid piece of Lisp code; that is, it can be evaluated. This is because the car of the list names a function—the addition operation.
+ Note that a foo will be read as a single symbol. 123 will be read as the number one hundred and twenty-three. "123" will be read as the string "123".
+ The eval function evaluates the data, returning zero or more other Lisp data as a result. Evaluation does not have to mean interpretation; some Lisp systems compile every expression to native machine code. It is simple, however, to describe evaluation as interpretation: To evaluate a list whose car names a function, eval first evaluates each of the arguments given in its cdr, then applies the function to the arguments. In this case, the function is addition, and applying it to the argument list (1 2) yields the answer 3. This is the result of the evaluation.
+ The symbol foo evaluates to the value of the symbol foo. Data like the string "123" evaluates to the same string. The list (quote (1 2 3)) evaluates to the list (1 2 3).
+ It is the job of the print function to represent output to the user. For a simple result such as 3 this is trivial. An expression which evaluated to a piece of list structure would require that print traverse the list and print it out as an S-expression.
+ To implement a Lisp REPL, it is necessary only to implement these three functions and an infinite-loop function. (Naturally, the implementation of eval will be complex, since it must also implement all special operators like if or lambda.) This done, a basic REPL is one line of code: (loop (print (eval (read)))).
+ The Lisp REPL typically also provides input editing, an input history, error handling and an interface to the debugger.
+ Lisp is usually evaluated eagerly. In Common Lisp, arguments are evaluated in applicative order ('leftmost innermost'), while in Scheme order of arguments is undefined, leaving room for optimization by a compiler.
+ 
+ 
+ === Control structures ===
+ Lisp originally had very few control structures, but many more were added during the language's evolution. (Lisp's original conditional operator, cond, is the precursor to later if-then-else structures.)
+ Programmers in the Scheme dialect often express loops using tail recursion. Scheme's commonality in academic computer science has led some students to believe that tail recursion is the only, or the most common, way to write iterations in Lisp, but this is incorrect. All oft-seen Lisp dialects have imperative-style iteration constructs, from Scheme's do loop to Common Lisp's complex loop expressions. Moreover, the key issue that makes this an objective rather than subjective matter is that Scheme makes specific requirements for the handling of tail calls, and thus the reason that the use of tail recursion is generally encouraged for Scheme is that the practice is expressly supported by the language definition. By contrast, ANSI Common Lisp does not require the optimization commonly termed a tail call elimination. Thus, the fact that tail recursive style as a casual replacement for the use of more traditional iteration constructs (such as do, dolist or loop) is discouraged in Common Lisp is not just a matter of stylistic preference, but potentially one of efficiency (since an apparent tail call in Common Lisp may not compile as a simple jump) and program correctness (since tail recursion may increase stack use in Common Lisp, risking stack overflow).
+ Some Lisp control structures are special operators, equivalent to other languages' syntactic keywords. Expressions using these operators have the same surface appearance as function calls, but differ in that the arguments are not necessarily evaluated—or, in the case of an iteration expression, may be evaluated more than once.
+ In contrast to most other major programming languages, Lisp allows implementing control structures using the language. Several control structures are implemented as Lisp macros, and can even be macro-expanded by the programmer who wants to know how they work.
+ Both Common Lisp and Scheme have operators for non-local control flow. The differences in these operators are some of the deepest differences between the two dialects. Scheme supports re-entrant continuations using the call/cc procedure, which allows a program to save (and later restore) a particular place in execution. Common Lisp does not support re-entrant continuations, but does support several ways of handling escape continuations.
+ Often, the same algorithm can be expressed in Lisp in either an imperative or a functional style. As noted above, Scheme tends to favor the functional style, using tail recursion and continuations to express control flow. However, imperative style is still quite possible. The style preferred by many Common Lisp programmers may seem more familiar to programmers used to structured languages such as C, while that preferred by Schemers more closely resembles pure-functional languages such as Haskell.
+ Because of Lisp's early heritage in list processing, it has a wide array of higher-order functions relating to iteration over sequences. In many cases where an explicit loop would be needed in other languages (like a for loop in C) in Lisp the same task can be accomplished with a higher-order function. (The same is true of many functional programming languages.)
+ A good example is a function which in Scheme is called map and in Common Lisp is called mapcar. Given a function and one or more lists, mapcar applies the function successively to the lists' elements in order, collecting the results in a new list:
+ 
+ This applies the + function to each corresponding pair of list elements, yielding the result (11 22 33 44 55).
+ 
+ 
+ == Examples ==
+ Here are examples of Common Lisp code.
+ The basic "Hello world" program:
+ 
+ Lisp syntax lends itself naturally to recursion. Mathematical problems such as the enumeration of recursively defined sets are simple to express in this notation.
+ Evaluate a number's factorial:
+ 
+ An alternative implementation takes less stack space than the previous version if the underlying Lisp system optimizes tail recursion:
+ 
+ Contrast with an iterative version which uses Common Lisp's loop macro:
+ 
+ The following function reverses a list. (Lisp's built-in reverse function does the same thing.)
+ 
+ 
+ == Object systems ==
+ Various object systems and models have been built on top of, alongside, or into Lisp, including:
+ The Common Lisp Object System, CLOS, is an integral part of ANSI Common Lisp. CLOS descended from New Flavors and CommonLOOPS. ANSI Common Lisp was the first standardized object-oriented programming language (1994, ANSI X3J13).
+ ObjectLisp or Object Lisp, used by Lisp Machines Incorporated and early versions of Macintosh Common Lisp
+ LOOPS (Lisp Object-Oriented Programming System) and the later CommonLOOPS
+ Flavors, built at MIT, and its descendant New Flavors (developed by Symbolics).
+ KR (short for Knowledge Representation), a constraints-based object system developed to aid the writing of Garnet, a GUI library for Common Lisp.
+ KEE used an object system called UNITS and integrated it with an inference engine and a truth maintenance system (ATMS).
+ 
+ 
+ == Popular usage ==
+ Due to the problems of keeping track of so many brackets, some say that "LISP" is an acronym for "Lots of Irritating Single Parentheses".
+ 
+ 
+ == References ==
+ 
+ 
+ == Further reading ==
+ 
+ 
+ == External links ==
+ History
+ History of Lisp – John McCarthy's history of 12 February 1979
+ Lisp History – Herbert Stoyan's history compiled from the documents (acknowledged by McCarthy as more complete than his own, see: McCarthy's history links)
+ History of LISP at the Computer History Museum
+ Associations and meetings
+ Association of Lisp Users
+ European Common Lisp Meeting
+ European Lisp Symposium
+ International Lisp Conference
+ Books and tutorials
+ Casting SPELs in Lisp, a comic-book style introductory tutorial
+ On Lisp, a free book by Paul Graham
+ Practical Common Lisp, freeware edition by Peter Seibel
+ Lisp for the web
+ Land of Lisp
+ Let over Lambda
+ Interviews
+ Oral history interview with John McCarthy at Charles Babbage Institute, University of Minnesota, Minneapolis. McCarthy discusses his role in the development of time-sharing at the Massachusetts Institute of Technology. He also describes his work in artificial intelligence (AI) funded by the Advanced Research Projects Agency, including logic-based AI (LISP) and robotics.
+ Interview with Richard P. Gabriel (Podcast)
+ Resources
+ CLiki: the common lisp wiki
+ Common Lisp directory
+ Lisp FAQ Index
+ lisppaste
+ Planet Lisp
+ Weekly Lisp News
+ Lisp at DMOZ Golo is a simple, dynamic, weakly-typed language for the JVM created in 2012 as part of the research activities of the DynaMid group of the Centre of Innovation in Telecommunications and Integration of service aka CITI Laboratory at INSA Lyon.
+ 
+ 
+ == History ==
+ It has been build as a showcase on how to build a language runtime with invokedynamic. Golo is largely interoperable with Java (programming language) and other JVM languages (e.g., numeric types are boxing classes from java.lang, and collection literals leverage java.util classes), that runs on the Java Virtual Machine.
+ In June 2015, Golo became an official Eclipse Foundation project, currently under incubation.
+ 
+ 
+ == Technical Details ==
+ The language features have been initially designed around the abilities of invokedynamic / JSR 292 that appeared in Java SE 7. Golo uses ahead-of-time compilation of bytecode. While the bytecode remains stable over a program execution, the invokedynamic-based reconfigurable call sites support the adaptive dispatch mechanisms put in place for helping the HotSpot JIT to extract reasonable performance.
+ 
+ 
+ == Publications ==
+ Baptiste Maingret, Frédéric Le Mouël, Julien Ponge, Nicolas Stouls, Jian Cia and Yannick Loiseau. Towards a Decoupled Context-Oriented Programming Language for the Internet of Things. To appear in the 7th International Workshop on Context-Oriented Programming hosted at ECOOP 2015. Prague, Czech Republic. July 2015.
+ Julien Ponge, Frédéric Le Mouël, Nicolas Stouls, Yannick Loiseau. Opportunities for a Truffle-based Golo Interpreter. Technical report arXiv:1505.06003 (cs.PL) and HAL-INRIA deposit
+ Julien Ponge, Frédéric Le Mouël and Nicolas Stouls. Golo, a Dynamic, Light and Efficient Language for Post-Invokedynamic JVM. In Procs. of PPPJ'13. Stuttgart, Germany. September 2013. DOI link. HAL-INRIA deposit. Slides.
+ 
+ 
+ == References ==
+ "Golo – A Lightweight Dynamic Language for the JVM". Retrieved 2 July 2015. 
+ "Golo nominated for JAX Awards 2014". Retrieved 2 July 2015. ]
+ "Golo entry at JAX Awards 2014". Retrieved 2 July 2015. 
+ "Golo mentioned at the Netbeans Weekly News Issue 587". Retrieved 2 July 2015. ]
+ 
+ 
+ == External links ==
+ Source code is available on GitHub
+ Golo project incubation page at Eclipse.org
+ Eclipse integration for the Golo JVM language
+ Netbeans module to support the Golo language Java is a general-purpose computer programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible. It is intended to let application developers "write once, run anywhere" (WORA), meaning that compiled Java code can run on all platforms that support Java without the need for recompilation. Java applications are typically compiled to bytecode that can run on any Java virtual machine (JVM) regardless of computer architecture. As of 2016, Java is one of the most popular programming languages in use, particularly for client-server web applications, with a reported 9 million developers. Java was originally developed by James Gosling at Sun Microsystems (which has since been acquired by Oracle Corporation) and released in 1995 as a core component of Sun Microsystems' Java platform. The language derives much of its syntax from C and C++, but it has fewer low-level facilities than either of them.
+ The original and reference implementation Java compilers, virtual machines, and class libraries were originally released by Sun under proprietary licences. As of May 2007, in compliance with the specifications of the Java Community Process, Sun relicensed most of its Java technologies under the GNU General Public License. Others have also developed alternative implementations of these Sun technologies, such as the GNU Compiler for Java (bytecode compiler), GNU Classpath (standard libraries), and IcedTea-Web (browser plugin for applets).
+ The latest version is Java 8, which is the only version currently supported for free by Oracle, although earlier versions are supported both by Oracle and other companies on a commercial basis.
+ 
+ 
+ == History ==
+ 
+ James Gosling, Mike Sheridan, and Patrick Naughton initiated the Java language project in June 1991. Java was originally designed for interactive television, but it was too advanced for the digital cable television industry at the time. The language was initially called Oak after an oak tree that stood outside Gosling's office. Later the project went by the name Green and was finally renamed Java, from Java coffee. Gosling designed Java with a C/C++-style syntax that system and application programmers would find familiar.
+ Sun Microsystems released the first public implementation as Java 1.0 in 1995. It promised "Write Once, Run Anywhere" (WORA), providing no-cost run-times on popular platforms. Fairly secure and featuring configurable security, it allowed network- and file-access restrictions. Major web browsers soon incorporated the ability to run Java applets within web pages, and Java quickly became popular, while mostly outside of browsers, that wasn't the original plan. In January 2016, Oracle announced that Java runtime environments based on JDK 9 will discontinue the browser plugin. The Java 1.0 compiler was re-written in Java by Arthur van Hoff to comply strictly with the Java 1.0 language specification. With the advent of Java 2 (released initially as J2SE 1.2 in December 1998 – 1999), new versions had multiple configurations built for different types of platforms. J2EE included technologies and APIs for enterprise applications typically run in server environments, while J2ME featured APIs optimized for mobile applications. The desktop version was renamed J2SE. In 2006, for marketing purposes, Sun renamed new J2 versions as Java EE, Java ME, and Java SE, respectively.
+ In 1997, Sun Microsystems approached the ISO/IEC JTC 1 standards body and later the Ecma International to formalize Java, but it soon withdrew from the process. Java remains a de facto standard, controlled through the Java Community Process. At one time, Sun made most of its Java implementations available without charge, despite their proprietary software status. Sun generated revenue from Java through the selling of licenses for specialized products such as the Java Enterprise System.
+ On November 13, 2006, Sun released much of its Java virtual machine (JVM) as free and open-source software, (FOSS), under the terms of the GNU General Public License (GPL). On May 8, 2007, Sun finished the process, making all of its JVM's core code available under free software/open-source distribution terms, aside from a small portion of code to which Sun did not hold the copyright.
+ Sun's vice-president Rich Green said that Sun's ideal role with regard to Java was as an "evangelist". Following Oracle Corporation's acquisition of Sun Microsystems in 2009–10, Oracle has described itself as the "steward of Java technology with a relentless commitment to fostering a community of participation and transparency". This did not prevent Oracle from filing a lawsuit against Google shortly after that for using Java inside the Android SDK (see Google section below). Java software runs on everything from laptops to data centers, game consoles to scientific supercomputers. On April 2, 2010, James Gosling resigned from Oracle.
+ 
+ 
+ === Principles ===
+ There were five primary goals in the creation of the Java language:
+ It must be "simple, object-oriented, and familiar".
+ It must be "robust and secure".
+ It must be "architecture-neutral and portable".
+ It must execute with "high performance".
+ It must be "interpreted, threaded, and dynamic".
+ 
+ 
+ === Versions ===
+ 
+ As of 2015, only Java 8 is supported ("publicly"). Major release versions of Java, along with their release dates:
+ JDK 1.0 (January 21, 1996)
+ JDK 1.1 (February 19, 1997)
+ J2SE 1.2 (December 8, 1998)
+ J2SE 1.3 (May 8, 2000)
+ J2SE 1.4 (February 6, 2002)
+ J2SE 5.0 (September 30, 2004)
+ Java SE 6 (December 11, 2006)
+ Java SE 7 (July 28, 2011)
+ Java SE 8 (March 18, 2014)
+ 
+ 
+ == Practices ==
+ 
+ 
+ === Java platform ===
+ 
+ One design goal of Java is portability, which means that programs written for the Java platform must run similarly on any combination of hardware and operating system with adequate runtime support. This is achieved by compiling the Java language code to an intermediate representation called Java bytecode, instead of directly to architecture-specific machine code. Java bytecode instructions are analogous to machine code, but they are intended to be executed by a virtual machine (VM) written specifically for the host hardware. End users commonly use a Java Runtime Environment (JRE) installed on their own machine for standalone Java applications, or in a web browser for Java applets.
+ Standard libraries provide a generic way to access host-specific features such as graphics, threading, and networking.
+ The use of universal bytecode makes porting simple. However, the overhead of interpreting bytecode into machine instructions makes interpreted programs almost always run more slowly than native executables. However, just-in-time (JIT) compilers that compile bytecodes to machine code during runtime were introduced from an early stage. Java itself is platform-independent, and is adapted to the particular platform it is to run on by a Java virtual machine for it, which translates the Java bytecode into the platform's machine language.
+ 
+ 
+ ==== Implementations ====
+ 
+ Oracle Corporation is the current owner of the official implementation of the Java SE platform, following their acquisition of Sun Microsystems on January 27, 2010. This implementation is based on the original implementation of Java by Sun. The Oracle implementation is available for Microsoft Windows (still works for XP, while only later versions currently "publicly" supported), Mac OS X, Linux and Solaris. Because Java lacks any formal standardization recognized by Ecma International, ISO/IEC, ANSI, or other third-party standards organization, the Oracle implementation is the de facto standard.
+ The Oracle implementation is packaged into two different distributions: The Java Runtime Environment (JRE) which contains the parts of the Java SE platform required to run Java programs and is intended for end users, and the Java Development Kit (JDK), which is intended for software developers and includes development tools such as the Java compiler, Javadoc, Jar, and a debugger.
+ OpenJDK is another notable Java SE implementation that is licensed under the GNU GPL. The implementation started when Sun began releasing the Java source code under the GPL. As of Java SE 7, OpenJDK is the official Java reference implementation.
+ The goal of Java is to make all implementations of Java compatible. Historically, Sun's trademark license for usage of the Java brand insists that all implementations be "compatible". This resulted in a legal dispute with Microsoft after Sun claimed that the Microsoft implementation did not support RMI or JNI and had added platform-specific features of their own. Sun sued in 1997, and in 2001 won a settlement of US$20 million, as well as a court order enforcing the terms of the license from Sun. As a result, Microsoft no longer ships Java with Windows.
+ Platform-independent Java is essential to Java EE, and an even more rigorous validation is required to certify an implementation. This environment enables portable server-side applications.
+ 
+ 
+ ==== Performance ====
+ 
+ Programs written in Java have a reputation for being slower and requiring more memory than those written in C++. However, Java programs' execution speed improved significantly with the introduction of just-in-time compilation in 1997/1998 for Java 1.1, the addition of language features supporting better code analysis (such as inner classes, the StringBuilder class, optional assertions, etc.), and optimizations in the Java virtual machine, such as HotSpot becoming the default for Sun's JVM in 2000. With Java 1.5, the performance was improved with the addition of the java.util.concurrent package, including Lock free implementations of the ConcurrentMaps and other multi-core collections, and it was improved further Java 1.6.
+ Some platforms offer direct hardware support for Java; there are microcontrollers that can run Java in hardware instead of a software Java virtual machine, and ARM based processors can have hardware support for executing Java bytecode through their Jazelle option (while its support is mostly dropped in current implementations of ARM).
+ 
+ 
+ === Automatic memory management ===
+ Java uses an automatic garbage collector to manage memory in the object lifecycle. The programmer determines when objects are created, and the Java runtime is responsible for recovering the memory once objects are no longer in use. Once no references to an object remain, the unreachable memory becomes eligible to be freed automatically by the garbage collector. Something similar to a memory leak may still occur if a programmer's code holds a reference to an object that is no longer needed, typically when objects that are no longer needed are stored in containers that are still in use. If methods for a nonexistent object are called, a "null pointer exception" is thrown.
+ One of the ideas behind Java's automatic memory management model is that programmers can be spared the burden of having to perform manual memory management. In some languages, memory for the creation of objects is implicitly allocated on the stack, or explicitly allocated and deallocated from the heap. In the latter case the responsibility of managing memory resides with the programmer. If the program does not deallocate an object, a memory leak occurs. If the program attempts to access or deallocate memory that has already been deallocated, the result is undefined and difficult to predict, and the program is likely to become unstable and/or crash. This can be partially remedied by the use of smart pointers, but these add overhead and complexity. Note that garbage collection does not prevent "logical" memory leaks, i.e., those where the memory is still referenced but never used.
+ Garbage collection may happen at any time. Ideally, it will occur when a program is idle. It is guaranteed to be triggered if there is insufficient free memory on the heap to allocate a new object; this can cause a program to stall momentarily. Explicit memory management is not possible in Java.
+ Java does not support C/C++ style pointer arithmetic, where object addresses and unsigned integers (usually long integers) can be used interchangeably. This allows the garbage collector to relocate referenced objects and ensures type safety and security.
+ As in C++ and some other object-oriented languages, variables of Java's primitive data types are either stored directly in fields (for objects) or on the stack (for methods) rather than on the heap, as is commonly true for non-primitive data types (but see escape analysis). This was a conscious decision by Java's designers for performance reasons.
+ Java contains multiple types of garbage collectors. By default, HotSpot uses the parallel scavenge garbage collector. However, there are also several other garbage collectors that can be used to manage the heap. For 90% of applications in Java, the Concurrent Mark-Sweep (CMS) garbage collector is sufficient. Oracle aims to replace CMS with the Garbage-First collector (G1).
+ 
+ 
+ == Syntax ==
+ 
+ The syntax of Java is largely influenced by C++. Unlike C++, which combines the syntax for structured, generic, and object-oriented programming, Java was built almost exclusively as an object-oriented language. All code is written inside classes, and every data item is an object, with the exception of the primitive data types, i.e. integers, floating-point numbers, boolean values, and characters, which are not objects for performance reasons. Java reuses some popular aspects of C++ (such as printf() method).
+ Unlike C++, Java does not support operator overloading or multiple inheritance for classes, though multiple inheritance is supported for interfaces. This simplifies the language and aids in preventing potential errors and anti-pattern design.
+ Java uses comments similar to those of C++. There are three different styles of comments: a single line style marked with two slashes (//), a multiple line style opened with /* and closed with */, and the Javadoc commenting style opened with /** and closed with */. The Javadoc style of commenting allows the user to run the Javadoc executable to create documentation for the program.
+ Example:
+ 
+ 
+ == Examples ==
+ 
+ 
+ === "Hello, world!" program ===
+ The traditional "Hello, world!" program can be written in Java as:
+ 
+ Source files must be named after the public class they contain, appending the suffix .java, for example, HelloWorldApp.java. It must first be compiled into bytecode, using a Java compiler, producing a file named HelloWorldApp.class. Only then can it be executed, or "launched". The Java source file may only contain one public class, but it can contain multiple classes with other than public access and any number of public inner classes. When the source file contains multiple classes, make one class "public" and name the source file with that public class name.
+ A class that is not declared public may be stored in any .java file. The compiler will generate a class file for each class defined in the source file. The name of the class file is the name of the class, with .class appended. For class file generation, anonymous classes are treated as if their name were the concatenation of the name of their enclosing class, a $, and an integer.
+ The keyword public denotes that a method can be called from code in other classes, or that a class may be used by classes outside the class hierarchy. The class hierarchy is related to the name of the directory in which the .java file is located. This is called an access level modifier. Other access level modifiers include the keywords private and protected.
+ The keyword static in front of a method indicates a static method, which is associated only with the class and not with any specific instance of that class. Only static methods can be invoked without a reference to an object. Static methods cannot access any class members that are not also static. Methods that are not designated static are instance methods, and require a specific instance of a class to operate.
+ The keyword void indicates that the main method does not return any value to the caller. If a Java program is to exit with an error code, it must call System.exit() explicitly.
+ The method name "main" is not a keyword in the Java language. It is simply the name of the method the Java launcher calls to pass control to the program. Java classes that run in managed environments such as applets and Enterprise JavaBeans do not use or need a main() method. A Java program may contain multiple classes that have main methods, which means that the VM needs to be explicitly told which class to launch from.
+ The main method must accept an array of String objects. By convention, it is referenced as args although any other legal identifier name can be used. Since Java 5, the main method can also use variable arguments, in the form of public static void main(String... args), allowing the main method to be invoked with an arbitrary number of String arguments. The effect of this alternate declaration is semantically identical (the args parameter is still an array of String objects), but it allows an alternative syntax for creating and passing the array.
+ The Java launcher launches Java by loading a given class (specified on the command line or as an attribute in a JAR) and starting its public static void main(String[]) method. Stand-alone programs must declare this method explicitly. The String[] args parameter is an array of String objects containing any arguments passed to the class. The parameters to main are often passed by means of a command line.
+ Printing is part of a Java standard library: The System class defines a public static field called out. The out object is an instance of the PrintStream class and provides many methods for printing data to standard out, including println(String) which also appends a new line to the passed string.
+ The string "Hello World!" is automatically converted to a String object by the compiler.
+ 
+ 
+ === Comprehensive example ===
+ 
+ The import statement imports the JOptionPane class from the javax.swing package.
+ The OddEven class declares a single private field of type int named userInput. Every instance of the OddEven class has its own copy of the userInput field. The private declaration means that no other class can access (read or write) the userInput field.
+ OddEven() is a public constructor. Constructors have the same name as the enclosing class they are declared in, and unlike a method, have no return type. A constructor is used to initialize an object that is a newly created instance of the class.
+ The calculate() method is declared without the static keyword. This means that the method is invoked using a specific instance of the OddEven class. (The reference used to invoke the method is passed as an undeclared parameter of type OddEven named this.) The method tests the expression userInput % 2 == 0 using the if keyword to see if the remainder of dividing the userInput field belonging to the instance of the class by two is zero. If this expression is true, then it prints Even; if this expression is false it prints Odd. (The calculate method can be equivalently accessed as this.calculate and the userInput field can be equivalently accessed as this.userInput, which both explicitly use the undeclared this parameter.)
+ OddEven number = new OddEven(); declares a local object reference variable in the main method named number. This variable can hold a reference to an object of type OddEven. The declaration initializes number by first creating an instance of the OddEven class, using the new keyword and the OddEven() constructor, and then assigning this instance to the variable.
+ The statement number.showDialog(); calls the calculate method. The instance of OddEven object referenced by the number local variable is used to invoke the method and passed as the undeclared this parameter to the calculate method.
+ userInput = Integer.parseInt(JOptionPane.showInputDialog("Please Enter A Number")); is a statement that converts the type of String to the primitive data type int by using a utility function in the primitive wrapper class Integer.
+ 
+ 
+ == Special classes ==
+ 
+ 
+ === Applet ===
+ 
+ Java applets are programs that are embedded in other applications, typically in a Web page displayed in a web browser.
+ 
+ The import statements direct the Java compiler to include the javax.swing.JApplet and java.awt.Graphics classes in the compilation. The import statement allows these classes to be referenced in the source code using the simple class name (i.e. JApplet) instead of the fully qualified class name (FQCN, i.e. javax.swing.JApplet).
+ The Hello class extends (subclasses) the JApplet (Java Applet) class; the JApplet class provides the framework for the host application to display and control the lifecycle of the applet. The JApplet class is a JComponent (Java Graphical Component) which provides the applet with the capability to display a graphical user interface (GUI) and respond to user events.
+ The Hello class overrides the paintComponent(Graphics) method (additionally indicated with the annotation, supported as of JDK 1.5, Override) inherited from the Container superclass to provide the code to display the applet. The paintComponent() method is passed a Graphics object that contains the graphic context used to display the applet. The paintComponent() method calls the graphic context drawString(String, int, int) method to display the "Hello, world!" string at a pixel offset of (65, 95) from the upper-left corner in the applet's display.
+ 
+ An applet is placed in an HTML document using the <applet> HTML element. The applet tag has three attributes set: code="Hello" specifies the name of the JApplet class and width="200" height="200" sets the pixel width and height of the applet. Applets may also be embedded in HTML using either the object or embed element, although support for these elements by web browsers is inconsistent. However, the applet tag is deprecated, so the object tag is preferred where supported.
+ The host application, typically a Web browser, instantiates the Hello applet and creates an AppletContext for the applet. Once the applet has initialized itself, it is added to the AWT display hierarchy. The paintComponent() method is called by the AWT event dispatching thread whenever the display needs the applet to draw itself.
+ 
+ 
+ === Servlet ===
+ 
+ Java Servlet technology provides Web developers with a simple, consistent mechanism for extending the functionality of a Web server and for accessing existing business systems. Servlets are server-side Java EE components that generate responses (typically HTML pages) to requests (typically HTTP requests) from clients. A servlet can almost be thought of as an applet that runs on the server side—without a face.
+ 
+ The import statements direct the Java compiler to include all the public classes and interfaces from the java.io and javax.servlet packages in the compilation. Packages make Java well suited for large scale applications.
+ The Hello class extends the GenericServlet class; the GenericServlet class provides the interface for the server to forward requests to the servlet and control the servlet's lifecycle.
+ The Hello class overrides the service(ServletRequest, ServletResponse) method defined by the Servlet interface to provide the code for the service request handler. The service() method is passed: a ServletRequest object that contains the request from the client and a ServletResponse object used to create the response returned to the client. The service() method declares that it throws the exceptions ServletException and IOException if a problem prevents it from responding to the request.
+ The setContentType(String) method in the response object is called to set the MIME content type of the returned data to "text/html". The getWriter() method in the response returns a PrintWriter object that is used to write the data that is sent to the client. The println(String) method is called to write the "Hello, world!" string to the response and then the close() method is called to close the print writer, which causes the data that has been written to the stream to be returned to the client.
+ 
+ 
+ === JavaServer Pages ===
+ 
+ JavaServer Pages (JSP) are server-side Java EE components that generate responses, typically HTML pages, to HTTP requests from clients. JSPs embed Java code in an HTML page by using the special delimiters <% and %>. A JSP is compiled to a Java servlet, a Java application in its own right, the first time it is accessed. After that, the generated servlet creates the response.
+ 
+ 
+ === Swing application ===
+ 
+ Swing is a graphical user interface library for the Java SE platform. It is possible to specify a different look and feel through the pluggable look and feel system of Swing. Clones of Windows, GTK+ and Motif are supplied by Sun. Apple also provides an Aqua look and feel for Mac OS X. Where prior implementations of these looks and feels may have been considered lacking, Swing in Java SE 6 addresses this problem by using more native GUI widget drawing routines of the underlying platforms.
+ This example Swing application creates a single window with "Hello, world!" inside:
+ 
+ The first import includes all the public classes and interfaces from the javax.swing package.
+ The Hello class extends the JFrame class; the JFrame class implements a window with a title bar and a close control.
+ The Hello() constructor initializes the frame by first calling the superclass constructor, passing the parameter "hello", which is used as the window's title. It then calls the setDefaultCloseOperation(int) method inherited from JFrame to set the default operation when the close control on the title bar is selected to WindowConstants.EXIT_ON_CLOSE –  this causes the JFrame to be disposed of when the frame is closed (as opposed to merely hidden), which allows the Java virtual machine to exit and the program to terminate. Next, a JLabel is created for the string "Hello, world!" and the add(Component) method inherited from the Container superclass is called to add the label to the frame. The pack() method inherited from the Window superclass is called to size the window and lay out its contents.
+ The main() method is called by the Java virtual machine when the program starts. It instantiates a new Hello frame and causes it to be displayed by calling the setVisible(boolean) method inherited from the Component superclass with the boolean parameter true. Once the frame is displayed, exiting the main method does not cause the program to terminate because the AWT event dispatching thread remains active until all of the Swing top-level windows have been disposed.
+ 
+ 
+ === Generics ===
+ 
+ In 2004, generics were added to the Java language, as part of J2SE 5.0. Prior to the introduction of generics, each variable declaration had to be of a specific type. For container classes, for example, this is a problem because there is no easy way to create a container that accepts only specific types of objects. Either the container operates on all subtypes of a class or interface, usually Object, or a different container class has to be created for each contained class. Generics allow compile-time type checking without having to create many container classes, each containing almost identical code. In addition to enabling more efficient code, certain runtime exceptions are converted to compile-time errors, a characteristic known as type safety.
+ 
+ 
+ == Criticism ==
+ 
+ Criticisms directed at Java include the implementation of generics, speed, the handling of unsigned numbers, the implementation of floating-point arithmetic, and a history of security vulnerabilities in the primary Java VM implementation HotSpot.
+ 
+ 
+ == Use outside of the Java platform ==
+ The Java programming language requires the presence of a software platform in order for compiled programs to be executed. Oracle supplies the Java platform for use with Java. The Android SDK, is an alternative software platform, used primarily for developing Android applications. It supports Java 6 and some Java 7 features, offering a compatible implementation of a significant part of the standard library (Apache Harmony). The bytecode language supported by the Android SDK is incompatible with Java bytecode and runs on its own virtual machine, optimized for low-memory devices such as smartphones and tablet computers.
+ 
+ 
+ === Google ===
+ 
+ The Java language is a key pillar in Android, an open source mobile operating system. Although Android, built on the Linux kernel, was written largely in C, the Android SDK uses the Java language as the basis for Android applications. However, Android does not use the standard Java virtual machine, instead using Java bytecode as an intermediate step which is transformed into Dalvik bytecode. Depending on the Android version, this is then either interpreted by the Dalvik virtual machine, or compiled into native code by the Android Runtime.
+ Android also does not provide the full Java SE standard library, although the Android class library does include an independent implementation of a large subset of it. This led to a legal dispute between Oracle and Google. On May 7, 2012, a San Francisco jury found that if APIs could be copyrighted, then Google had infringed Oracle's copyrights by the use of Java in Android devices. District Judge William Haskell Alsup ruled on May 31, 2012, that APIs cannot be copyrighted, but this was reversed by the United States Court of Appeals for the Federal Circuit in May 2014.
+ 
+ 
+ == Class libraries ==
+ 
+ The Java Class Library is the standard library, developed to support application development in Java. It is controlled by Sun Microsystems in cooperation with others through the Java Community Process program. Companies or individuals participating in this process can influence the design and development of the APIs. This process has been a subject of controversy. The class library contains features such as:
+ The core libraries, which include:
+ IO/NIO
+ Networking
+ Reflection
+ Concurrency
+ Generics
+ Scripting/Compiler
+ Functional Programming (Lambda, Streaming)
+ Collection libraries that implement data structures such as lists, dictionaries, trees, sets, queues and double-ended queue, or stacks
+ XML Processing (Parsing, Transforming, Validating) libraries
+ Security
+ Internationalization and localization libraries
+ 
+ The integration libraries, which allow the application writer to communicate with external systems. These libraries include:
+ The Java Database Connectivity (JDBC) API for database access
+ Java Naming and Directory Interface (JNDI) for lookup and discovery
+ RMI and CORBA for distributed application development
+ JMX for managing and monitoring applications
+ 
+ User interface libraries, which include:
+ The (heavyweight, or native) Abstract Window Toolkit (AWT), which provides GUI components, the means for laying out those components and the means for handling events from those components
+ The (lightweight) Swing libraries, which are built on AWT but provide (non-native) implementations of the AWT widgetry
+ APIs for audio capture, processing, and playback
+ JavaFX
+ 
+ A platform dependent implementation of the Java virtual machine that is the means by which the bytecodes of the Java libraries and third party applications are executed
+ Plugins, which enable applets to be run in web browsers
+ Java Web Start, which allows Java applications to be efficiently distributed to end users across the Internet
+ Licensing and documentation
+ 
+ 
+ == Documentation ==
+ 
+ Javadoc is a comprehensive documentation system, created by Sun Microsystems, used by many Java developers. It provides developers with an organized system for documenting their code. Javadoc comments have an extra asterisk at the beginning, i.e. the delimiters are /** and */, whereas the normal multi-line comments in Java are set off with the delimiters /* and */.
+ 
+ 
+ == Editions ==
+ 
+ Sun has defined and supports four editions of Java targeting different application environments and segmented many of its APIs so that they belong to one of the platforms. The platforms are:
+ Java Card for smartcards.
+ Java Platform, Micro Edition (Java ME) – targeting environments with limited resources.
+ Java Platform, Standard Edition (Java SE) – targeting workstation environments.
+ Java Platform, Enterprise Edition (Java EE) – targeting large distributed enterprise or Internet environments.
+ The classes in the Java APIs are organized into separate groups called packages. Each package contains a set of related interfaces, classes and exceptions. Refer to the separate platforms for a description of the packages available.
+ Sun also provided an edition called PersonalJava that has been superseded by later, standards-based Java ME configuration-profile pairings.
+ 
+ 
+ == See also ==
+ 
+ Dalvik – used in old Android versions, replaced by non-JIT Android Runtime
+ JavaOne
+ Javapedia
+ List of Java virtual machines
+ List of Java APIs
+ List of JVM languages
+ Graal (compiler), a project aiming to implement a high performance Java dynamic compiler and interpreter
+ Spring Framework
+ 
+ 
+ === Comparison of Java with other languages ===
+ Comparison of programming languages
+ Comparison of Java and C++
+ Comparison of C# and Java
+ 
+ 
+ == Notes ==
+ 
+ 
+ == References ==
+ 
+ 
+ == External links == Fortran (formerly FORTRAN, derived from "Formula Translation") is a general-purpose, imperative programming language that is especially suited to numeric computation and scientific computing. Originally developed by IBM in the 1950s for scientific and engineering applications, Fortran came to dominate this area of programming early on and has been in continuous use for over half a century in computationally intensive areas such as numerical weather prediction, finite element analysis, computational fluid dynamics, computational physics, crystallography and computational chemistry. It is a popular language for high-performance computing and is used for programs that benchmark and rank the world's fastest supercomputers.
+ Fortran encompasses a lineage of versions, each of which evolved to add extensions to the language while usually retaining compatibility with prior versions. Successive versions have added support for structured programming and processing of character-based data (FORTRAN 77), array programming, modular programming and generic programming (Fortran 90), high performance Fortran (Fortran 95), object-oriented programming (Fortran 2003) and concurrent programming (Fortran 2008).
+ 
+ 
+ == Naming ==
+ The names of earlier versions of the language through FORTRAN 77 were conventionally spelled in all-capitals (FORTRAN 77 was the last version in which the use of lowercase letters in keywords was strictly non-standard). The capitalization has been dropped in referring to newer versions beginning with Fortran 90. The official language standards now refer to the language as "Fortran" rather than all-caps "FORTRAN".
+ 
+ 
+ == History ==
+ 
+ In late 1953, John W. Backus submitted a proposal to his superiors at IBM to develop a more practical alternative to assembly language for programming their IBM 704 mainframe computer. Backus' historic FORTRAN team consisted of programmers Richard Goldberg, Sheldon F. Best, Harlan Herrick, Peter Sheridan, Roy Nutt, Robert Nelson, Irving Ziller, Lois Haibt, and David Sayre. Its concepts included easier entry of equations into a computer, an idea developed by J. Halcombe Laning and demonstrated in the Laning and Zierler system of 1952.
+ A draft specification for The IBM Mathematical Formula Translating System was completed by mid-1954. The first manual for FORTRAN appeared in October 1956, with the first FORTRAN compiler delivered in April 1957. This was the first optimizing compiler, because customers were reluctant to use a high-level programming language unless its compiler could generate code with performance comparable to that of hand-coded assembly language.
+ While the community was skeptical that this new method could possibly outperform hand-coding, it reduced the number of programming statements necessary to operate a machine by a factor of 20, and quickly gained acceptance. John Backus said during a 1979 interview with Think, the IBM employee magazine, "Much of my work has come from being lazy. I didn't like writing programs, and so, when I was working on the IBM 701, writing programs for computing missile trajectories, I started work on a programming system to make it easier to write programs."
+ The language was widely adopted by scientists for writing numerically intensive programs, which encouraged compiler writers to produce compilers that could generate faster and more efficient code. The inclusion of a complex number data type in the language made Fortran especially suited to technical applications such as electrical engineering.
+ By 1960, versions of FORTRAN were available for the IBM 709, 650, 1620, and 7090 computers. Significantly, the increasing popularity of FORTRAN spurred competing computer manufacturers to provide FORTRAN compilers for their machines, so that by 1963 over 40 FORTRAN compilers existed. For these reasons, FORTRAN is considered to be the first widely used programming language supported across a variety of computer architectures.
+ The development of FORTRAN paralleled the early evolution of compiler technology, and many advances in the theory and design of compilers were specifically motivated by the need to generate efficient code for FORTRAN programs.
+ 
+ 
+ === FORTRAN ===
+ The initial release of FORTRAN for the IBM 704 contained 32 statements, including:
+ DIMENSION and EQUIVALENCE statements
+ Assignment statements
+ Three-way arithmetic IF statement, which passed control to one of three locations in the program depending on whether the result of the arithmetic statement was negative, zero, or positive
+ IF statements for checking exceptions (ACCUMULATOR OVERFLOW, QUOTIENT OVERFLOW, and DIVIDE CHECK); and IF statements for manipulating sense switches and sense lights
+ GO TO, computed GO TO, ASSIGN, and assigned GO TO
+ DO loops
+ Formatted I/O: FORMAT, READ, READ INPUT TAPE, WRITE, WRITE OUTPUT TAPE, PRINT, and PUNCH
+ Unformatted I/O: READ TAPE, READ DRUM, WRITE TAPE, and WRITE DRUM
+ Other I/O: END FILE, REWIND, and BACKSPACE
+ PAUSE, STOP, and CONTINUE
+ FREQUENCY statement (for providing optimization hints to the compiler).
+ The arithmetic IF statement was similar to a three-way branch instruction on the IBM 704. However, the 704 branch instructions all contained only one destination address (e.g., TZE –  Transfer AC Zero, TNZ –  Transfer AC Not Zero, TPL –  Transfer AC Plus, TMI –  Transfer AC Minus). The machine (and its successors in the 700/7000 series) did have a three-way skip instruction (CAS –  Compare AC with Storage), but using this instruction to implement the IF would consume 4 instruction words, require the constant Zero in a word of storage, and take 3 machine cycles to execute; using the Transfer instructions to implement the IF could be done in 1 to 3 instruction words, required no constants in storage, and take 1 to 3 machine cycles to execute. An optimizing compiler like FORTRAN would most likely select the more compact and usually faster Transfers instead of the Compare (use of Transfers also allowed the FREQUENCY statement to optimize IFs, which could not be done using the Compare). Also the Compare considered −0 and +0 to be different values while the Transfer Zero and Transfer Not Zero considered them to be the same. The FREQUENCY statement in FORTRAN was used originally (and optionally) to give branch probabilities for the three branch cases of the arithmetic IF statement. The first FORTRAN compiler used this weighting to perform at compile time a Monte Carlo simulation of the generated code, the results of which were used to optimize the placement of basic blocks in memory –  a very sophisticated optimization for its time. The Monte Carlo technique is documented in Backus et al.'s paper on this original implementation, The FORTRAN Automatic Coding System:
+ 
+ The fundamental unit of program is the basic block; a basic block is a stretch of program which has one entry point and one exit point. The purpose of section 4 is to prepare for section 5 a table of predecessors (PRED table) which enumerates the basic blocks and lists for every basic block each of the basic blocks which can be its immediate predecessor in flow, together with the absolute frequency of each such basic block link. This table is obtained by running the program once in Monte-Carlo fashion, in which the outcome of conditional transfers arising out of IF-type statements and computed GO TO'S is determined by a random number generator suitably weighted according to whatever FREQUENCY statements have been provided.
+ 
+ Many years later, the FREQUENCY statement had no effect on the code, and was treated as a comment statement, since the compilers no longer did this kind of compile-time simulation. A similar fate has befallen compiler hints in several other programming languages; for example C's register keyword.
+ 
+ 
+ ==== Fixed layout and punched cards ====
+ 
+ Before the development of disk files, text editors and terminals, programs were most often entered on a keypunch keyboard onto 80-column punched cards, one line to a card. The resulting deck of cards would be fed into a card reader to be compiled. Punched-card codes included no lower-case letters or many special characters, and special versions of the IBM 026 keypunch were offered that would correctly print the repurposed special characters used in Fortran.
+ Reflecting punched-card input practice, Fortran programs were originally written in a fixed-column format, with the first 72 columns read into twelve 36-bit words.
+ A letter "C" in column 1 caused the entire card to be treated as a comment and ignored by the compiler. Otherwise, the columns of the card were divided into four fields:
+ 1 to 5 were the label field: a sequence of digits here was taken as a label for use in DO or GO TO control statements, or to refer to a FORMAT in a WRITE or READ statement.
+ 6 was a continuation field: a character other than a blank or a zero here caused the card to be taken as a continuation of the statement on the prior card.
+ 7 to 72 served as the statement field.
+ 73 to 80 were ignored (the IBM 704's card reader only used 72 columns).
+ Columns 73 to 80 could therefore be used for identification information, such as punching a sequence number, which could be used to re-order cards if a stack of cards was dropped; though in practice this was reserved for stable, production programs. An IBM 519 could be used to copy a program deck and add sequence numbers. Some early compilers, e.g., the IBM 650's, had additional restrictions due to limitations on their card readers. Keypunches could be programmed to tab to column 7 and skip out after column 72. Later compilers relaxed most fixed-format restrictions, and the requirement was eliminated in the Fortran 90 standard.
+ Within the statement field, whitespace characters (blanks) were ignored outside a text literal. This allowed omitting spaces between tokens for brevity or including spaces within identifiers for clarity. For example, AVG OF X was a valid identifier, equivalent to AVGOFX, and 101010DO101I=1,101 was a valid statement, equivalent to 10101 DO 101 I = 1, 101 because the zero in column 6 is treated as if it were a space (!), while 101010DO101I=1.101 was instead 10101 DO101I = 1.101, the assignment of 1.101 to a variable called DO101I. Note the slight visual difference between a comma and a period.
+ Hollerith strings, originally allowed only in FORMAT and DATA statements, were prefixed by a character count and the letter H (e.g., 26HTHIS IS ALPHANUMERIC DATA.), allowing blanks to be retained within the character string. Miscounts were a problem.
+ 
+ 
+ === FORTRAN II ===
+ IBM's FORTRAN II appeared in 1958. The main enhancement was to support procedural programming by allowing user-written subroutines and functions which returned values, with parameters passed by reference. The COMMON statement provided a way for subroutines to access common (or global) variables. Six new statements were introduced:
+ SUBROUTINE, FUNCTION, and END
+ CALL and RETURN
+ COMMON
+ Over the next few years, FORTRAN II would also add support for the DOUBLE PRECISION and COMPLEX data types.
+ Early FORTRAN compilers supported no recursion in subroutines. Early computer architectures supported no concept of a stack, and when they did directly support subroutine calls, the return location was often stored in one fixed location adjacent to the subroutine code, which does not permit a subroutine to be called again before a prior call of the subroutine has returned. Although not specified in Fortran 77, many F77 compilers supported recursion as an option, while it became a standard in Fortran 90.
+ 
+ 
+ ==== Simple FORTRAN II program ====
+ This program, for Heron's formula, reads data on a tape reel containing three 5-digit integers A, B, and C as input. If A, B, and C cannot represent the sides of a triangle in plane geometry, then the program's execution will end with an error code of "STOP 1". Otherwise, an output line will be printed showing the input values for A, B, and C, followed by the computed AREA of the triangle as a floating-point number with 2 digits after the decimal point.
+ 
+ 
+ === FORTRAN III ===
+ 
+ IBM also developed a FORTRAN III in 1958 that allowed for inline assembly code among other features; however, this version was never released as a product. Like the 704 FORTRAN and FORTRAN II, FORTRAN III included machine-dependent features that made code written in it unportable from machine to machine. Early versions of FORTRAN provided by other vendors suffered from the same disadvantage.
+ 
+ 
+ === IBM 1401 FORTRAN ===
+ FORTRAN was provided for the IBM 1401 computer by an innovative 63-phase compiler that ran entirely in its core memory of only 8000 (6-bit) characters. The compiler could be run from tape, or from a 2200-card deck; it used no further tape or disk storage. It kept the program in memory and loaded overlays that gradually transformed it, in place, into executable form, as described by Haines. and in IBM document C24-1455. The executable form was not entirely machine language; rather, floating-point arithmetic, subscripting, input/output, and function references were interpreted, anticipating UCSD Pascal P-code by two decades.
+ IBM later provided a FORTRAN IV compiler for the 1400 series of computers, described in IBM document C24-3322.
+ 
+ 
+ === FORTRAN IV ===
+ Starting in 1961, as a result of customer demands, IBM began development of a FORTRAN IV that removed the machine-dependent features of FORTRAN II (such as READ INPUT TAPE), while adding new features such as a LOGICAL data type, logical Boolean expressions and the logical IF statement as an alternative to the arithmetic IF statement. FORTRAN IV was eventually released in 1962, first for the IBM 7030 ("Stretch") computer, followed by versions for the IBM 7090, IBM 7094, and later for the IBM 1401 in 1966.
+ By 1965, FORTRAN IV was supposed to be compliant with the standard being developed by the American Standards Association X3.4.3 FORTRAN Working Group.
+ At about this time FORTRAN IV had started to become an important educational tool and implementations such as the University of Waterloo's WATFOR and WATFIV were created to simplify the complex compile and link processes of earlier compilers.
+ 
+ 
+ === FORTRAN 66 ===
+ Perhaps the most significant development in the early history of FORTRAN was the decision by the American Standards Association (now American National Standards Institute (ANSI)) to form a committee sponsored by BEMA, the Business Equipment Manufacturers Association, to develop an American Standard Fortran. The resulting two standards, approved in March 1966, defined two languages, FORTRAN (based on FORTRAN IV, which had served as a de facto standard), and Basic FORTRAN (based on FORTRAN II, but stripped of its machine-dependent features). The FORTRAN defined by the first standard, officially denoted X3.9-1966, became known as FORTRAN 66 (although many continued to term it FORTRAN IV, the language on which the standard was largely based). FORTRAN 66 effectively became the first industry-standard version of FORTRAN. FORTRAN 66 included:
+ Main program, SUBROUTINE, FUNCTION, and BLOCK DATA program units
+ INTEGER, REAL, DOUBLE PRECISION, COMPLEX, and LOGICAL data types
+ COMMON, DIMENSION, and EQUIVALENCE statements
+ DATA statement for specifying initial values
+ Intrinsic and EXTERNAL (e.g., library) functions
+ Assignment statement
+ GO TO, computed GO TO, assigned GO TO, and ASSIGN statements
+ Logical IF and arithmetic (three-way) IF statements
+ DO loop statement
+ READ, WRITE, BACKSPACE, REWIND, and ENDFILE statements for sequential I/O
+ FORMAT statement and assigned format
+ CALL, RETURN, PAUSE, and STOP statements
+ Hollerith constants in DATA and FORMAT statements, and as arguments to procedures
+ Identifiers of up to six characters in length
+ Comment lines
+ END line
+ 
+ 
+ === FORTRAN 77 ===
+ 
+ After the release of the FORTRAN 66 standard, compiler vendors introduced several extensions to Standard Fortran, prompting ANSI committee X3J3 in 1969 to begin work on revising the 1966 standard, under sponsorship of CBEMA, the Computer Business Equipment Manufacturers Association (formerly BEMA). Final drafts of this revised standard circulated in 1977, leading to formal approval of the new FORTRAN standard in April 1978. The new standard, called FORTRAN 77 and officially denoted X3.9-1978, added a number of significant features to address many of the shortcomings of FORTRAN 66:
+ Block IF and END IF statements, with optional ELSE and ELSE IF clauses, to provide improved language support for structured programming
+ DO loop extensions, including parameter expressions, negative increments, and zero trip counts
+ OPEN, CLOSE, and INQUIRE statements for improved I/O capability
+ Direct-access file I/O
+ IMPLICIT statement, to override implicit conventions that undeclared variables are INTEGER if their name begins with I, J, K, L, M, or N (and REAL otherwise)
+ CHARACTER data type, replacing Hollerith strings with vastly expanded facilities for character input and output and processing of character-based data
+ PARAMETER statement for specifying constants
+ SAVE statement for persistent local variables
+ Generic names for intrinsic functions (e.g. SQRT also accepts arguments of other types, such as COMPLEX or REAL*16 ).
+ A set of intrinsics (LGE, LGT, LLE, LLT) for lexical comparison of strings, based upon the ASCII collating sequence. (These ASCII functions were demanded by the U.S. Department of Defense, in their conditional approval vote.)
+ In this revision of the standard, a number of features were removed or altered in a manner that might invalidate formerly standard-conforming programs. (Removal was the only allowable alternative to X3J3 at that time, since the concept of "deprecation" was not yet available for ANSI standards.) While most of the 24 items in the conflict list (see Appendix A2 of X3.9-1978) addressed loopholes or pathological cases permitted by the prior standard but rarely used, a small number of specific capabilities were deliberately removed, such as:
+ Hollerith constants and Hollerith data, such as GREET = 12HHELLO THERE!
+ Reading into an H edit (Hollerith field) descriptor in a FORMAT specification
+ Overindexing of array bounds by subscripts
+ 
+ Transfer of control out of and back into the range of a DO loop (also known as "Extended Range")
+ 
+ 
+ ==== Variants: Minnesota FORTRAN ====
+ Control Data Corporation computers had another version of FORTRAN 77, called Minnesota FORTRAN (MNF), designed especially for student use, with variations in output constructs, special uses of COMMONs and DATA statements, optimizations code levels for compiling, and detailed error listings, extensive warning messages, and debugs.
+ 
+ 
+ === Transition to ANSI Standard Fortran ===
+ The development of a revised standard to succeed FORTRAN 77 would be repeatedly delayed as the standardization process struggled to keep up with rapid changes in computing and programming practice. In the meantime, as the "Standard FORTRAN" for nearly fifteen years, FORTRAN 77 would become the historically most important dialect.
+ An important practical extension to FORTRAN 77 was the release of MIL-STD-1753 in 1978. This specification, developed by the U.S. Department of Defense, standardized a number of features implemented by most FORTRAN 77 compilers but not included in the ANSI FORTRAN 77 standard. These features would eventually be incorporated into the Fortran 90 standard.
+ DO WHILE and END DO statements
+ INCLUDE statement
+ IMPLICIT NONE variant of the IMPLICIT statement
+ Bit manipulation intrinsic functions, based on similar functions included in Industrial Real-Time Fortran (ANSI/ISA S61.1 (1976))
+ The IEEE 1003.9 POSIX Standard, released in 1991, provided a simple means for FORTRAN 77 programmers to issue POSIX system calls. Over 100 calls were defined in the document –  allowing access to POSIX-compatible process control, signal handling, file system control, device control, procedure pointing, and stream I/O in a portable manner.
+ 
+ 
+ === Fortran 90 ===
+ The much delayed successor to FORTRAN 77, informally known as Fortran 90 (and prior to that, Fortran 8X), was finally released as ISO/IEC standard 1539:1991 in 1991 and an ANSI Standard in 1992. In addition to changing the official spelling from FORTRAN to Fortran, this major revision added many new features to reflect the significant changes in programming practice that had evolved since the 1978 standard:
+ Free-form source input, also with lowercase Fortran keywords
+ Identifiers up to 31 characters in length (In the previous standard, it was only 6 characters).
+ Inline comments
+ Ability to operate on arrays (or array sections) as a whole, thus greatly simplifying math and engineering computations.
+ whole, partial and masked array assignment statements and array expressions, such as   X(1:N)=R(1:N)*COS(A(1:N))
+ WHERE statement for selective array assignment
+ array-valued constants and expressions,
+ user-defined array-valued functions and array constructors.
+ 
+ RECURSIVE procedures
+ Modules, to group related procedures and data together, and make them available to other program units, including the capability to limit the accessibility to only specific parts of the module.
+ A vastly improved argument-passing mechanism, allowing interfaces to be checked at compile time
+ User-written interfaces for generic procedures
+ Operator overloading
+ Derived (structured) data types
+ New data type declaration syntax, to specify the data type and other attributes of variables
+ Dynamic memory allocation by means of the ALLOCATABLE attribute and the ALLOCATE and DEALLOCATE statements
+ POINTER attribute, pointer assignment, and NULLIFY statement to facilitate the creation and manipulation of dynamic data structures
+ Structured looping constructs, with an END DO statement for loop termination, and EXIT and CYCLE statements for terminating normal DO loop iterations in an orderly way
+ SELECT . . . CASE construct for multi-way selection
+ Portable specification of numerical precision under the user's control
+ New and enhanced intrinsic procedures.
+ 
+ 
+ ==== Obsolescence and deletions ====
+ Unlike the prior revision, Fortran 90 removed no features. (Appendix B.1 says, "The list of deleted features in this standard is empty.") Any standard-conforming FORTRAN 77 program is also standard-conforming under Fortran 90, and either standard should be usable to define its behavior.
+ A small set of features were identified as "obsolescent" and expected to be removed in a future standard.
+ 
+ 
+ ==== "Hello world" example ====
+ 
+ 
+ === Fortran 95 ===
+ 
+ Fortran 95, published officially as ISO/IEC 1539-1:1997, was a minor revision, mostly to resolve some outstanding issues from the Fortran 90 standard. Nevertheless, Fortran 95 also added a number of extensions, notably from the High Performance Fortran specification:
+ FORALL and nested WHERE constructs to aid vectorization
+ User-defined PURE and ELEMENTAL procedures
+ Default initialization of derived type components, including pointer initialization
+ Expanded the ability to use initialization expressions for data objects
+ Initialization of pointers to NULL()
+ Clearly defined that ALLOCATABLE arrays are automatically deallocated when they go out of scope.
+ A number of intrinsic functions were extended (for example a dim argument was added to the maxloc intrinsic).
+ Several features noted in Fortran 90 to be "obsolescent" were removed from Fortran 95:
+ DO statements using REAL and DOUBLE PRECISION index variables
+ Branching to an END IF statement from outside its block
+ PAUSE statement
+ ASSIGN and assigned GO TO statement, and assigned format specifiers
+ H edit descriptor.
+ An important supplement to Fortran 95 was the ISO technical report TR-15581: Enhanced Data Type Facilities, informally known as the Allocatable TR. This specification defined enhanced use of ALLOCATABLE arrays, prior to the availability of fully Fortran 2003-compliant Fortran compilers. Such uses include ALLOCATABLE arrays as derived type components, in procedure dummy argument lists, and as function return values. (ALLOCATABLE arrays are preferable to POINTER-based arrays because ALLOCATABLE arrays are guaranteed by Fortran 95 to be deallocated automatically when they go out of scope, eliminating the possibility of memory leakage. In addition, elements of allocatable arrays are contiguous, and aliasing is not an issue for optimization of array references, allowing compilers to generate faster code than in the case of pointers.)
+ Another important supplement to Fortran 95 was the ISO technical report TR-15580: Floating-point exception handling, informally known as the IEEE TR. This specification defined support for IEEE floating-point arithmetic and floating point exception handling.
+ 
+ 
+ ==== Conditional compilation and varying length strings ====
+ In addition to the mandatory "Base language" (defined in ISO/IEC 1539-1 : 1997), the Fortran 95 language also includes two optional modules:
+ Varying length character strings (ISO/IEC 1539-2 : 2000)
+ Conditional compilation (ISO/IEC 1539-3 : 1998)
+ which, together, compose the multi-part International Standard (ISO/IEC 1539).
+ According to the standards developers, "the optional parts describe self-contained features which have been requested by a substantial body of users and/or implementors, but which are not deemed to be of sufficient generality for them to be required in all standard-conforming Fortran compilers." Nevertheless, if a standard-conforming Fortran does provide such options, then they "must be provided in accordance with the description of those facilities in the appropriate Part of the Standard."
+ 
+ 
+ === Fortran 2003 ===
+ Fortran 2003, officially published as ISO/IEC 1539-1:2004, is a major revision introducing many new features. A comprehensive summary of the new features of Fortran 2003 is available at the Fortran Working Group (ISO/IEC JTC1/SC22/WG5) official Web site.
+ From that article, the major enhancements for this revision include:
+ Derived type enhancements: parameterized derived types, improved control of accessibility, improved structure constructors, and finalizers
+ Object-oriented programming support: type extension and inheritance, polymorphism, dynamic type allocation, and type-bound procedures, providing complete support for abstract data types
+ Data manipulation enhancements: allocatable components (incorporating TR 15581), deferred type parameters, VOLATILE attribute, explicit type specification in array constructors and allocate statements, pointer enhancements, extended initialization expressions, and enhanced intrinsic procedures
+ Input/output enhancements: asynchronous transfer, stream access, user specified transfer operations for derived types, user specified control of rounding during format conversions, named constants for preconnected units, the FLUSH statement, regularization of keywords, and access to error messages
+ Procedure pointers
+ Support for IEEE floating-point arithmetic and floating point exception handling (incorporating TR 15580)
+ Interoperability with the C programming language
+ Support for international usage: access to ISO 10646 4-byte characters and choice of decimal or comma in numeric formatted input/output
+ Enhanced integration with the host operating system: access to command line arguments, environment variables, and processor error messages
+ An important supplement to Fortran 2003 was the ISO technical report TR-19767: Enhanced module facilities in Fortran. This report provided submodules, which make Fortran modules more similar to Modula-2 modules. They are similar to Ada private child subunits. This allows the specification and implementation of a module to be expressed in separate program units, which improves packaging of large libraries, allows preservation of trade secrets while publishing definitive interfaces, and prevents compilation cascades.
+ 
+ 
+ === Fortran 2008 ===
+ The most recent standard, ISO/IEC 1539-1:2010, informally known as Fortran 2008, was approved in September 2010. As with Fortran 95, this is a minor upgrade, incorporating clarifications and corrections to Fortran 2003, as well as introducing a select few new capabilities. The new capabilities include:
+ Submodules – additional structuring facilities for modules; supersedes ISO/IEC TR 19767:2005
+ Coarray Fortran – a parallel execution model
+ The DO CONCURRENT construct – for loop iterations with no interdependencies
+ The CONTIGUOUS attribute – to specify storage layout restrictions
+ The BLOCK construct – can contain declarations of objects with construct scope
+ Recursive allocatable components – as an alternative to recursive pointers in derived types
+ The Final Draft international Standard (FDIS) is available as document N1830.
+ An important supplement to Fortran 2008 is the ISO Technical Specification (TS) 29113 on Further Interoperability of Fortran with C, which has been submitted to ISO in May 2012 for approval. The specification adds support for accessing the array descriptor from C and allows ignoring the type and rank of arguments.
+ 
+ 
+ === Fortran 2015 ===
+ The next revision of the language (Fortran 2015) is intended to be a minor revision and is planned for release in mid-2018. It is currently planned to include further interoperability between Fortran and C, additional parallel features, and "the removal of simple deficiencies in and discrepancies between existing facilities."
+ 
+ 
+ == Fortran and supercomputers ==
+ Although a 1968 journal article by the authors of BASIC already described Fortran as "old-fashioned", since Fortran has been in use for many decades, there is a vast body of Fortran software in daily use throughout the scientific and engineering communities. Jay Pasachoff wrote in 1984 that "physics and astronomy students simply have to learn Fortran. So much exists in Fortran that it seems unlikely that scientists will change to Pascal, Modula-2, or whatever." In 1993, Cecil E. Leith called Fortran the "mother tongue of scientific computing" adding that its replacement by any other possible language "may remain a forlorn hope." It is the primary language for some of the most intensive supercomputing tasks, such as astronomy, weather and climate modeling, numerical linear algebra (LAPACK), numerical libraries (IMSL and NAG), structural engineering, hydrological modeling, optimization, satellite simulation and data analysis, computational fluid dynamics, computational chemistry, computational economics and computational physics. Many of the floating-point benchmarks to gauge the performance of new computer processors –  such as CFP2006, the floating-point component of the SPEC CPU2006 benchmarks –  are written in Fortran.
+ On the other hand, more modern code generally uses large program libraries such as PETSc or Trilinos for linear algebra capabilities, METIS for graph partitioning, deal.II or FEniCS for mesh and finite element support, and other generic libraries. Since the late 1990s, almost all of the most widely used support libraries have been written in C and, more often, C++. Consequently, a growing fraction of scientific code is also written in these languages. For this reason, facilities for interoperation with C were added to Fortran 2003, and enhanced by ISO/IEC technical specification 29113, which will be incorporated into Fortran 2015. This shift is also evident in the selection of applications between the SPEC CPU 2000 and SPEC CPU 2006 floating point benchmarks.
+ 
+ 
+ == Language features ==
+ The precise characteristics and syntax of Fortran 95 are discussed in Fortran 95 language features.
+ 
+ 
+ == Portability ==
+ Portability was a problem in the early days because there was no agreed standard –  not even IBM's reference manual –  and computer companies vied to differentiate their offerings from others by providing incompatible features. Standards have improved portability. The 1966 standard provided a reference syntax and semantics, but vendors continued to provide incompatible extensions. Although careful programmers were coming to realize that use of incompatible extensions caused expensive portability problems, and were therefore using programs such as The PFORT Verifier, it was not until after the 1977 standard, when the National Bureau of Standards (now NIST) published FIPS PUB 69, that processors purchased by the U.S. Government were required to diagnose extensions of the standard. Rather than offer two processors, essentially every compiler eventually had at least an option to diagnose extensions.
+ Incompatible extensions were not the only portability problem. For numerical calculations, it is important to take account of the characteristics of the arithmetic. This was addressed by Fox et al. in the context of the 1966 standard by the PORT library. The ideas therein became widely used, and were eventually incorporated into the 1990 standard by way of intrinsic inquiry functions. The widespread (now almost universal) adoption of the IEEE 754 standard for binary floating-point arithmetic has essentially removed this problem.
+ Access to the computing environment (e.g., the program's command line, environment variables, textual explanation of error conditions) remained a problem until it was addressed by the 2003 standard.
+ Large collections of library software that could be described as being loosely related to engineering and scientific calculations, such as graphics libraries, have been written in C, and therefore access to them presented a portability problem. This has been addressed by incorporation of C interoperability into the 2003 standard.
+ It is now possible (and relatively easy) to write an entirely portable program in Fortran, even without recourse to a preprocessor.
+ 
+ 
+ == Variants ==
+ 
+ 
+ === Fortran 5 ===
+ Fortran 5 was marketed by Data General Corp in the late 1970s and early 1980s, for the Nova, Eclipse, and MV line of computers. It had an optimizing compiler that was quite good for minicomputers of its time. The language most closely resembles Fortran 66. The name is a pun on the earlier Fortran IV.
+ 
+ 
+ === Fortran V ===
+ Fortran V was distributed by Control Data Corporation in 1968 for the CDC 6600 series. The language was based upon Fortran IV.
+ Univac also offered a compiler for the 1100 series known as Fortran V. A spinoff of Univac Fortran V was Athena Fortran.
+ 
+ 
+ === Fortran 6 ===
+ Fortran 6 or Visual Fortran 2001 was licensed to Compaq by Microsoft. They have licensed Compaq Visual Fortran and have provided the Visual Studio 5 environment interface for Compaq v6 up to v6.1.
+ 
+ 
+ === Specific variants ===
+ Vendors of high-performance scientific computers (e.g., Burroughs, Control Data Corporation (CDC), Cray, Honeywell, IBM, Texas Instruments, and UNIVAC) added extensions to Fortran to take advantage of special hardware features such as instruction cache, CPU pipelines, and vector arrays. For example, one of IBM's FORTRAN compilers (H Extended IUP) had a level of optimization which reordered the machine code instructions to keep multiple internal arithmetic units busy simultaneously. Another example is CFD, a special variant of Fortran designed specifically for the ILLIAC IV supercomputer, running at NASA's Ames Research Center. IBM Research Labs also developed an extended FORTRAN-based language called VECTRAN for processing vectors and matrices.
+ Object-Oriented Fortran was an object-oriented extension of Fortran, in which data items can be grouped into objects, which can be instantiated and executed in parallel. It was available for Sun, Iris, iPSC, and nCUBE, but is no longer supported.
+ Such machine-specific extensions have either disappeared over time or have had elements incorporated into the main standards. The major remaining extension is OpenMP, which is a cross-platform extension for shared memory programming. One new extension, Coarray Fortran, is intended to support parallel programming.
+ 
+ 
+ ==== FOR TRANSIT for the IBM 650 ====
+ FOR TRANSIT was the name of a reduced version of the IBM 704 FORTRAN language, which was implemented for the IBM 650, using a translator program developed at Carnegie in the late 1950s. The following comment appears in the IBM Reference Manual (FOR TRANSIT Automatic Coding System C28-4038, Copyright 1957, 1959 by IBM):
+ 
+ The FORTRAN system was designed for a more complex machine than the 650, and consequently some of the 32 statements found in the FORTRAN Programmer's Reference Manual are not acceptable to the FOR TRANSIT system. In addition, certain restrictions to the FORTRAN language have been added. However, none of these restrictions make a source program written for FOR TRANSIT incompatible with the FORTRAN system for the 704.
+ 
+ The permissible statements were:
+ Arithmetic assignment statements, e.g., a = b
+ GO to n
+ GO TO (n1, n2, ..., nm), i
+ IF (a) n1, n2, n3
+ PAUSE
+ STOP
+ DO n i = m1, m2
+ CONTINUE
+ END
+ READ n, list
+ PUNCH n, list
+ DIMENSION V, V, V, ...
+ EQUIVALENCE (a,b,c), (d,c), ...
+ Up to ten subroutines could be used in one program.
+ FOR TRANSIT statements were limited to columns 7 through 56, only. Punched cards were used for input and output on the IBM 650. Three passes were required to translate source code to the "IT" language, then to compile the IT statements into SOAP assembly language, and finally to produce the object program, which could then be loaded into the machine to run the program (using punched cards for data input, and outputting results onto punched cards).
+ Two versions existed for the 650s with a 2000 word memory drum: FOR TRANSIT I (S) and FOR TRANSIT II, the latter for machines equipped with indexing registers and automatic floating point decimal (bi-quinary) arithmetic. Appendix A of the manual included wiring diagrams for the IBM 533 card reader/punch control panel.
+ 
+ 
+ === Fortran-based languages ===
+ Prior to FORTRAN 77, a number of preprocessors were commonly used to provide a friendlier language, with the advantage that the preprocessed code could be compiled on any machine with a standard FORTRAN compiler. These preprocessors would typically support structured programming, variable names longer than six characters, additional data types, conditional compilation, and even macro capabilities. Popular preprocessors included FLECS, iftran, MORTRAN, SFtran, S-Fortran, Ratfor, and Ratfiv. Ratfor and Ratfiv, for example, implemented a C-like language, outputting preprocessed code in standard FORTRAN 66. Despite advances in the Fortran language, preprocessors continue to be used for conditional compilation and macro substitution.
+ One of the earliest versions of FORTRAN, introduced in the 60's, was popularly used in colleges and universities. Developed, supported, and distributed by the University of Waterloo, WATFOR was based largely on FORTRAN IV. A WATFOR student could submit their batch FORTRAN job and, if there were no syntax errors, the program would move straight to execution. This simplification allowed students to concentrate on their program's syntax and semantics, or execution logic flow, rather than dealing with submission Job Control Language (JCL), the compile/link-edit/execution successive process(es), or other complexities of the mainframe/minicomputer environment. A down side to this simplified environment was that WATFOR was not a good choice for programmers needing the expanded abilities of their host processor(s), e.g., WATFOR typically had very limited access to I/O devices. WATFOR was succeeded by WATFIV and its later versions.
+ 
+ (line programing)
+ LRLTRAN was developed at the Lawrence Radiation Laboratory to provide support for vector arithmetic and dynamic storage, among other extensions to support systems programming. The distribution included the LTSS operating system.
+ The Fortran-95 Standard includes an optional Part 3 which defines an optional conditional compilation capability. This capability is often referred to as "CoCo".
+ Many Fortran compilers have integrated subsets of the C preprocessor into their systems.
+ SIMSCRIPT is an application specific Fortran preprocessor for modeling and simulating large discrete systems.
+ The F programming language was designed to be a clean subset of Fortran 95 that attempted to remove the redundant, unstructured, and deprecated features of Fortran, such as the EQUIVALENCE statement. F retains the array features added in Fortran 90, and removes control statements that were made obsolete by structured programming constructs added to both Fortran 77 and Fortran 90. F is described by its creators as "a compiled, structured, array programming language especially well suited to education and scientific computing."
+ Lahey and Fujitsu teamed up to create Fortran for the Microsoft .NET Framework. Silverfrost FTN95 is also capable of creating .NET code.
+ 
+ 
+ == Code examples ==
+ 
+ The following program illustrates dynamic memory allocation and array-based operations, two features introduced with Fortran 90. Particularly noteworthy is the absence of DO loops and IF/THEN statements in manipulating the array; mathematical operations are applied to the array as a whole. Also apparent is the use of descriptive variable names and general code formatting that conform with contemporary programming style. This example computes an average over data entered interactively.
+ 
+ 
+ == Humor ==
+ During the same Fortran standards committee meeting at which the name "FORTRAN 77" was chosen, a satirical technical proposal was incorporated into the official distribution bearing the title "Letter O Considered Harmful". This proposal purported to address the confusion that sometimes arises between the letter "O" and the numeral zero, by eliminating the letter from allowable variable names. However, the method proposed was to eliminate the letter from the character set entirely (thereby retaining 48 as the number of lexical characters, which the colon had increased to 49). This was considered beneficial in that it would promote structured programming, by making it impossible to use the notorious GO TO statement as before. (Troublesome FORMAT statements would also be eliminated.) It was noted that this "might invalidate some existing programs" but that most of these "probably were non-conforming, anyway".
+ During the standards committee battle over whether the "minimum trip count" for the FORTRAN 77 DO statement should be zero (allowing no execution of the block) or one (the "plunge-ahead" DO), another facetious alternative was proposed (by Loren Meissner) to have the minimum be two –  since there is no need for a loop if it is only executed once.
+ When assumed-length arrays were being added, there was a dispute as to the appropriate character to separate upper and lower bounds. In a comment examining these arguments, Dr. Walt Brainerd penned an article entitled "Astronomy vs. Gastroenterology" because some proponents had suggested using the star or asterisk ("*"), while others favored the colon (":").
+ In Fortran 77, variable names beginning with the letters I–N had a default type of integer, while variables starting with any other letters defaulted to real, although programmers could override the defaults with an explicit declaration. This led to the joke: "In Fortran, GOD is REAL (unless declared INTEGER)."
+ 
+ 
+ == See also ==
+ 
+ f2c
+ List of Fortran compilers
+ List of Fortran numerical libraries
+ List of programming languages
+ Matrix representation
+ Row-major order
+ 
+ 
+ == References ==
+ 
+ 
+ == Further reading ==
+ Articles
+ Allen, F.E. (September 1981). "A History of Language Processor Technology in IBM" (PDF). IBM Journal of Research and Development. IBM. 25 (5). doi:10.1147/rd.255.0535. 
+ Backus, J. W.; H. Stern, I. Ziller, R. A. Hughes, R. Nutt, R. J. Beeber, S. Best, R. Goldberg, L. M. Haibt, H. L. Herrick, R. A. Nelson, D. Sayre, P. B. Sheridan; Ziller, I.; Hughes, R. A.; Nutt, R.; Beeber, R. J.; Best, S.; Goldberg, R.; Haibt, L. M.; Herrick, H. L.; Nelson, R. A.; Sayre, D.; Sheridan, P. B. (1957). "The FORTRAN Automatic Coding System". Western joint computer conference: Techniques for reliability. Los Angeles, California: Institute of Radio Engineers, American Institute of Electrical Engineers, ACM: 188–198. doi:10.1145/1455567.1455599.  CS1 maint: Multiple names: authors list (link)
+ Chivers, Ian D.; Sleightholme, Jane (2013). "Compiler support for the Fortran 2003 & 2008 standards". ACM SIGPLAN Fortran Forum. ACM. 28 (1): 26–28. doi:10.1145/1520752.1520755. ISSN 1061-7264. 
+ Pigott, Diarmuid (2006). "FORTRAN – Backus et al high-level compiler (Computer Language)". The Encyclopedia of Computer Languages. Murdoch University. Archived from the original on 8 October 2009. Retrieved 5 May 2010. 
+ Roberts, Mark L.; Griffiths, Peter D. (1985). "Design Considerations for IBM Personal Computer Professional FORTRAN, an Optimizing Compiler" (PDF). IBM Systems Journal. IBM. 24 (1): 49–60. doi:10.1147/sj.241.0049. 
+ "Core" language standards
+ Ansi x3.9-1966. USA Standard FORTRAN (PDF). American National Standards Institute.  Informally known as FORTRAN 66.
+ Ansi x3.9-1978. American National Standard – Programming Language FORTRAN. American National Standards Institute.  Also known as ISO 1539-1980, informally known as FORTRAN 77.
+ ANSI X3.198-1992 (R1997) / ISO/IEC 1539:1991. American National Standard – Programming Language Fortran Extended. American National Standards Institute / ISO/IEC.  Informally known as Fortran 90.
+ ISO/IEC 1539-1:1997. Information technology – Programming languages – Fortran – Part 1: Base language (PDF).  Informally known as Fortran 95. There are a further two parts to this standard. Part 1 has been formally adopted by ANSI.
+ ISO/IEC 1539-1:2004. Information technology – Programming languages – Fortran – Part 1: Base language (PDF).  Informally known as Fortran 2003.
+ ISO/IEC 1539-1:2010 (Final Draft International Standard). Information technology – Programming languages – Fortran – Part 1: Base language (PDF).  Informally known as Fortran 2008.
+ Related standards
+ Kneis, Wilfried (October 1981). "Draft standard Industrial Real-Time FORTRAN". ACM SIGPLAN Notices. ACM Press. 16 (7): 45–60. doi:10.1145/947864.947868. ISSN 0362-1340. 
+ ISO 8651-1:1988 Information processing systems – Computer graphics – Graphical Kernel System (GKS) language bindings – Part 1: FORTRAN. Geneva, Switzerland: ISO. 1988. 
+ Other reference material
+ ECMA Standard on FORTRAN (PDF). European Computer Manufacturers Association. April 1965. Retrieved 2014-11-17. 
+ FORTRAN 77 4.0 Reference Manual (PDF). Sun Microsystems, Inc. 1995. Retrieved 2014-11-17. 
+ "FORTRAN Coding Form" (PDF). IBM. Retrieved 2014-11-17. 
+ IBM System/360 and System/370 Fortran IV Language (PDF). International Business Machines. May 1974. Retrieved 2014-11-17. 
+ Goerz, Michael (2014). "Modern Fortran Reference Card" (PDF). Retrieved 2014-12-14. 
+ Textbooks
+ Adams, Jeanne C.; Brainerd, Walter S.; Hendrickson, Richard A.; Maine, Richard E.; Martin, Jeanne T.; Smith, Brian T. (2009). The Fortran 2003 Handbook (1st ed.). Springer. ISBN 978-1-84628-378-9. 
+ Akin, Ed (2003). Object Oriented Programming via Fortran 90/95 (1st ed.). Cambridge University Press. ISBN 0-521-52408-3. 
+ Chapman, Stephen J. (2007). Fortran 95/2003 for Scientists and Engineers (3rd ed.). McGraw-Hill. ISBN 978-0-07-319157-7. 
+ Chivers, Ian; Sleightholme, Jane (2015). Introduction to Programming with Fortran (3rd ed.). Springer. ISBN 978-3-319-17700-7. 
+ Etter, D. M. (1990). Structured FORTRAN 77 for Engineers and Scientists (3rd ed.). The Benjamin/Cummings Publishing Company, Inc. ISBN 0-8053-0051-1. 
+ Ellis, T. M. R.; Phillips, Ivor R.; Lahey, Thomas M. (1994). Fortran 90 Programming (1st ed.). Addison Wesley. ISBN 0-201-54446-6. 
+ Kupferschmid, Michael (2002). Classical Fortran: Programming for Engineering and Scientific Applications. Marcel Dekker (CRC Press). ISBN 0-8247-0802-4. 
+ McCracken, Daniel D. (1961). A Guide to FORTRAN Programming. New York: Wiley. LCCN 61016618. 
+ Metcalf, Michael; John Reid; Malcolm Cohen (2011). Modern Fortran Explained. Oxford University Press. ISBN 0-19-960142-9. 
+ Nyhoff, Larry; Sanford Leestma (1995). FORTRAN 77 for Engineers and Scientists with an Introduction to Fortran 90 (4th ed.). Prentice Hall. ISBN 0-13-363003-X. 
+ Page, Clive G. (1988). Professional Programmer's Guide to Fortran77 (7 June 2005 ed.). London: Pitman. ISBN 0-273-02856-1. Retrieved 4 May 2010. 
+ Press, William H. (1996). Numerical Recipes in Fortran 90: The Art of Parallel Scientific Computing. Cambridge, UK: Cambridge University Press. ISBN 0-521-57439-0. 
+ Sleighthome, Jane; Chivers, Ian David (1990). Interactive Fortran 77: A Hands-On Approach. Computers and their applications (2nd ed.). Chichester: E. Horwood. ISBN 0-13-466764-6. 
+ 
+ 
+ == External links ==
+ ISO/IEC JTC1/SC22/WG5 – the official home of Fortran standards
+ Fortran Standards Documents – GFortran standards
+ History of FORTRAN and Fortran II – Computer History Museum
+ FORTRAN Compilerator – an online FORTRAN F compiler for small experiments and tinkering Flow chart language (FCL) is a simple imperative programming language designed for the purposes of explaining fundamental concepts of program analysis and specialization, in particular, partial evaluation. The language was first presented in 1989 by Carsten K. Gomard and Neil D. Jones. It later resurfaced in their book with Peter Sestoft in 1993, and in John Hatcliff's lecture notes in 1998. The below describes FCL as it appeared in John Hatcliff's lecture notes.
+ FCL is an imperative programming language close to the way a Von Neumann computer executes a program. A program is executed sequentially by following a sequence of commands, while maintaining an implicit state, i.e. the global memory. FCL has no concept of procedures, but does provide conditional and unconditional jumps. FCL lives up to its name as the abstract call-graph of an FCL program is a straightforward flow chart.
+ An FCL program takes as input a finite series of named values as parameters, and produces a value as a result.
+ 
+ 
+ == Syntax ==
+ We specify the syntax of Janus using Backus–Naur form.
+ An FCL program is a list of formal parameter declarations, an entry label, and a sequence of basic blocks:
+ 
+ Initially, the language only allows non-negative integer variables.
+ A basic block consists of a label, a list of assignments, and a jump.
+ 
+ An assignment assigns a variable to an expression. An expression is either a constant, a variable, or application of a built-in n-ary operator:
+ 
+ Note, variable names occurring throughout the program need not be declared at the top of the program. The variables declared at the top of the program designate arguments to the program.
+ As values can only be non-negative integers, so can constants. The list of operations in general is irrelevant, so long as they have no side effects, which includes exceptions, e.g. division by 0:
+ 
+ Where =, <, ... have semantics as in C. The semantics of - is such that if x-y<0, then x-y=0.
+ 
+ 
+ == Example ==
+ We write a program that computes the nth Fibonacci number, for n>2:
+ 
+ (n)
+ (init)
+ 
+ init: x1 = 1
+       x2 = 1
+ 
+ fib:  x1 = x1 + x2
+ 
+       t = x1
+       x1 = x2
+       x2 = t
+ 
+       n = -(n 1)
+ 
+       if >(n 2) then fib else exit
+ 
+ exit: return x2
+ 
+ Where the loop invariant of fib is that x1 is the (i+2-1)th and x2 is the (i+2)th Fibonacci number, where i is the number of times fib has been jumped to.
+ We can check the correctness of the method for n=4 by presenting the execution trace of the program:
+ 
+   
+     
+       
+         
+           
+             
+               
+               
+                 
+                   (
+                   
+                     
+                       i
+                       n
+                       i
+                       t
+                     
+                   
+                   ,
+                    
+                   
+                     [
+                     n
+                     ↦
+                     4
+                     ,
+                      
+                     x
+                     1
+                     ↦
+                     0
+                     ,
+                      
+                     x
+                     2
+                     ↦
+                     0
+                     ,
+                      
+                     t
+                     ↦
+                     0
+                     ]
+                   
+                   )
+                 
+               
+             
+             
+               
+                 →
+               
+               
+                 
+                   (
+                   
+                     
+                       f
+                       i
+                       b
+                     
+                   
+                   ,
+                    
+                   
+                     [
+                     n
+                     ↦
+                     4
+                     ,
+                      
+                     x
+                     1
+                     ↦
+                     1
+                     ,
+                      
+                     x
+                     2
+                     ↦
+                     1
+                     ,
+                      
+                     t
+                     ↦
+                     0
+                     ]
+                   
+                   )
+                 
+               
+             
+             
+               
+                 →
+               
+               
+                 
+                   (
+                   
+                     
+                       f
+                       i
+                       b
+                     
+                   
+                   ,
+                    
+                   
+                     [
+                     n
+                     ↦
+                     3
+                     ,
+                      
+                     x
+                     1
+                     ↦
+                     1
+                     ,
+                      
+                     x
+                     2
+                     ↦
+                     2
+                     ,
+                      
+                     t
+                     ↦
+                     0
+                     ]
+                   
+                   )
+                 
+               
+             
+             
+               
+                 →
+               
+               
+                 
+                   (
+                   
+                     ⟨
+                     
+                       
+                         h
+                         a
+                         l
+                         t
+                       
+                     
+                     ,
+                      
+                     3
+                     ⟩
+                   
+                   ,
+                    
+                   
+                     [
+                     n
+                     ↦
+                     2
+                     ,
+                      
+                     x
+                     1
+                     ↦
+                     2
+                     ,
+                      
+                     x
+                     2
+                     ↦
+                     3
+                     ,
+                      
+                     t
+                     ↦
+                     0
+                     ]
+                   
+                   )
+                 
+               
+             
+           
+         
+       
+     
+     {\displaystyle {\begin{aligned}&\left({\mathtt {init}},\ \left[n\mapsto 4,\ x1\mapsto 0,\ x2\mapsto 0,\ t\mapsto 0\right]\right)\\\rightarrow &\left({\mathtt {fib}},\ \left[n\mapsto 4,\ x1\mapsto 1,\ x2\mapsto 1,\ t\mapsto 0\right]\right)\\\rightarrow &\left({\mathtt {fib}},\ \left[n\mapsto 3,\ x1\mapsto 1,\ x2\mapsto 2,\ t\mapsto 0\right]\right)\\\rightarrow &\left(\left\langle {\mathtt {halt}},\ 3\right\rangle ,\ \left[n\mapsto 2,\ x1\mapsto 2,\ x2\mapsto 3,\ t\mapsto 0\right]\right)\end{aligned}}}
+   
+ Where 
+   
+     
+       
+         
+           ⟨
+           
+             
+               h
+               a
+               l
+               t
+             
+           
+           ,
+            
+           v
+           ⟩
+         
+       
+     
+     {\displaystyle \left\langle {\mathtt {halt}},\ v\right\rangle }
+    marks a final state of the program, with the return value 
+   
+     
+       
+         v
+       
+     
+     {\displaystyle v}
+   .
+ 
+ 
+ == References == BASIC (an acronym for Beginner's All-purpose Symbolic Instruction Code) is a family of general-purpose, high-level programming languages whose design philosophy emphasizes ease of use. In 1964, John G. Kemeny and Thomas E. Kurtz designed the original BASIC language at Dartmouth College in New Hampshire. They wanted to enable students in fields other than science and mathematics to use computers. At the time, nearly all use of computers required writing custom software, which was something only scientists and mathematicians tended to learn.
+ Versions of BASIC became widespread on microcomputers in the mid-1970s and 1980s. Microcomputers usually shipped with BASIC, often in the machine's firmware. Having an easy-to-learn language on these early personal computers allowed small business owners, professionals, hobbyists, and consultants to develop custom software on computers they could afford. In the 2010s, BASIC remains popular in many computing dialects and in new languages influenced by BASIC, such as Microsoft's Visual Basic.
+ 
+ 
+ == History ==
+ Before the mid-1960s, the only computers were huge mainframe computers. Users submitted jobs (calculations or other requests) on punched cards or similar media to specialist computer operators. The computer stored these, then used a batch processing system to run this queue of jobs one after another, allowing very high levels of utilization of these expensive machines. As the performance of computing hardware rose through the 1960s, multi-processing was developed. This allowed a mix of batch jobs to be run together, but the real revolution was the development of time-sharing. Time-sharing allowed multiple remote interactive users to share use of the computer, interacting with the computer from computer terminals with keyboards and teletype printers, and later display screens, in much the same way as desktop computers or personal computers would be used later.
+ 
+ 
+ === Origin ===
+ 
+ The original BASIC language was released on May 1, 1964 by John Kemeny and Thomas Kurtz and implemented under their direction by a team of Dartmouth College students. The acronym BASIC comes from the name of an unpublished paper by Thomas Kurtz. BASIC was designed to allow students to write mainframe computer programs for the Dartmouth Time-Sharing System. It was intended specifically for less technical users who did not have or want the mathematical background previously expected. Being able to use a computer to support teaching and research was quite novel at the time.
+ The language was based on FORTRAN II, with some influences from ALGOL 60 and with additions to make it suitable for timesharing. Initially, BASIC concentrated on supporting straightforward mathematical work, with matrix arithmetic support from its initial implementation as a batch language, and character string functionality being added by 1965. Wanting use of the language to become widespread, its designers made the compiler available free of charge. (In the 1960s, software became a chargeable commodity; until then, it was provided without charge as a service with the very expensive computers, usually available only to lease.) They also made it available to high schools in the Hanover area, and put considerable effort into promoting the language. In the following years, as other dialects of BASIC appeared, Kemeny and Kurtz's original BASIC dialect became known as Dartmouth BASIC.
+ 
+ 
+ === Spread on minicomputers ===
+ 
+ Knowledge of the relatively simple BASIC became widespread for a computer language, and it was implemented by a number of manufacturers, becoming fairly popular on newer minicomputers such as the DEC PDP series, where BASIC-PLUS was an extended dialect for use on the RSTS/E time-sharing operating system. The BASIC language was available for the Data General Nova, and also central to the HP Time-Shared BASIC system in the late 1960s and early 1970s, where the language was implemented as an interpreter. A version was a core part of the Pick operating system from 1973 onward, where a compiler renders it into bytecode, able to be interpreted by a virtual machine.
+ During this period a number of simple computer games were written in BASIC, most notably Mike Mayfield's Star Trek. A number of these were collected by DEC employee David H. Ahl and published in a newsletter he compiled. He later collected a number of these into book form, 101 BASIC Computer Games, published in 1973. During the same period, Ahl was involved in the creation of a small computer for education use, an early personal computer. When management refused to support the concept, Ahl left DEC in 1974 to found the seminal computer magazine, Creative Computing. The book remained popular, and was re-published on several occasions.
+ 
+ 
+ === Explosive growth: the home computer era ===
+ 
+ The introduction of the first microcomputers in the mid-1970s was the start of explosive growth for BASIC. It had the advantage that it was fairly well known to the young designers and computer hobbyists who took an interest in microcomputers. Despite Dijkstra's famous judgement in 1975, "It is practically impossible to teach good programming to students that have had a prior exposure to BASIC: as potential programmers they are mentally mutilated beyond hope of regeneration", BASIC was one of the few languages that was both high-level enough to be usable by those without training and small enough to fit into the microcomputers of the day, making it the de facto standard programming language on early microcomputers.
+ One of the first BASICs to appear was Tiny BASIC, a simple BASIC variant designed by Dennis Allison at the urging of Bob Albrecht of the Homebrew Computer Club. He had seen BASIC on minicomputers and felt it would be the perfect match for new machines like the MITS Altair 8800. How to design and implement a stripped-down version of an interpreter for the BASIC language was covered in articles by Allison in the first three quarterly issues of the People's Computer Company newsletter published in 1975 and implementations with source code published in Dr. Dobb's Journal of Tiny BASIC Calisthenics & Orthodontia: Running Light Without Overbyte. Versions were written by Li-Chen Wang and Tom Pittman. In 1975 MITS released Altair BASIC, developed by Bill Gates and Paul Allen as the company Micro-Soft, which eventually grew into corporate giant Microsoft. The first Altair version was co-written by Gates, Allen, and Monte Davidoff.
+ Almost universally, home computers of the 1980s had a ROM-resident BASIC interpreter, which the machines booted directly into. When the Apple II, PET 2001, and TRS-80 were all released in 1977, all three had BASIC as their primary programming language and operating environment. Upon boot, a BASIC interpreter in immediate mode was presented, not the command line interface used on systems running CP/M or MS-DOS. Commodore Business Machines included a version of Microsoft BASIC. The Apple II and TRS-80 each had two versions of BASIC, a smaller introductory version introduced with the initial releases of the machines and a more advanced version developed as interest in the platforms increased. As new companies entered the field, additional versions were added that subtly changed the BASIC family. The Atari 8-bit family had its own Atari BASIC that was modified in order to fit on an 8 kB ROM cartridge. The BBC published BBC BASIC, developed by Acorn Computers Ltd, incorporating many extra structured programming keywords and advanced floating-point operation features.
+ As the popularity of BASIC grew in this period, computer magazines published complete source code in BASIC for video games, utilities, and other programs. Given BASIC's straightforward nature, it was a simple matter to type in the code from the magazine and execute the program. Different magazines were published featuring programs for specific computers, though some BASIC programs were considered universal and could be used in machines running any variant of BASIC (sometimes with minor adaptations). Many books of type-in programs were also available, and in particular, Ahl published versions of the original 101 BASIC games converted into the Microsoft dialect and published it from Creative Computing as BASIC Computer Games. This book, and its sequels, provided hundreds of ready-to-go programs that could be easily converted to practically any BASIC-running platform. The book reached the stores in 1978, just as the home computer market was starting off, and it became the first million-selling computer book. Later packages, such as Learn to Program BASIC would also have gaming as an introductory focus. On the business-focused CP/M computers which soon became widespread in small business environments, Microsoft BASIC (MBASIC) was one of the leading applications.
+ 
+ 
+ === IBM PC and compatibles ===
+ 
+ When IBM was designing the IBM PC they followed the paradigm of existing home computers in wanting to have a built-in BASIC. They sourced this from Microsoft - IBM Cassette BASIC - but Microsoft also produced several other versions of BASIC for MS-DOS/PC DOS including IBM Disk BASIC (BASIC D), IBM BASICA (BASIC A), GW-BASIC (a BASICA-compatible version that did not need IBM's ROM) and QBasic, all typically bundled with the machine. In addition they produced the Microsoft BASIC Compiler aimed at professional programmers. Turbo Pascal-publisher Borland published Turbo Basic 1.0 in 1985 (successor versions are still being marketed by the original author under the name PowerBASIC). Microsoft wrote the windowing-based AmigaBASIC that was supplied with version 1.1 of the pre-emptive multitasking GUI Amiga computers (late 1985 / early 1986), although the product unusually did not bear any Microsoft marks. These languages introduced many extensions to the original home-computer BASIC, such as improved string manipulation and graphics support, access to the file system and additional data types. More important were the facilities for structured programming, including additional control structures and proper subroutines supporting local variables. However, by the latter half of the 1980s, users were increasingly using pre-made applications written by others, rather than learning programming themselves, while professional programmers now had a wide range of more advanced languages available on small computers. C and later C++ became the languages of choice for professional "shrink wrap" application development.
+ 
+ 
+ === Visual Basic ===
+ BASIC's fortunes reversed once again with the introduction in 1991 of Visual Basic ("VB") by Microsoft. This was an evolutionary development of QuickBasic, and included constructs from other languages such as block structured control statements including "With" and "For Each", parameterized subroutines, optional static typing, and a full object oriented language. But the language retained considerable links to its past, such as the Dim statement for declarations, "Gosub"/Return statements, and even line numbers which were still needed to report errors properly. An important driver for the development of Visual Basic was as the new macro language for Microsoft Excel, a spreadsheet program. Ironically, given the origin of BASIC as a "beginner's" language, and apparently even to the surprise of many at Microsoft who still initially marketed it as a language for hobbyists, the language had come into widespread use for small custom business applications shortly after the release of VB version 3.0, which is widely considered the first relatively stable version. While many advanced programmers still scoffed at its use, VB met the needs of small businesses efficiently wherever processing speed was less of a concern than ease of development.
+ By that time, computers running Windows 3.1 had become fast enough that many business-related processes could be completed "in the blink of an eye" even using a "slow" language, as long as large amounts of data were not involved. Many small business owners found they could create their own small, yet useful applications in a few evenings to meet their own specialized needs. Eventually, during the lengthy lifetime of VB3, knowledge of Visual Basic had become a marketable job skill. Microsoft also produced VBScript in 1996 and Visual Basic .NET in 2001. The latter has essentially the same power as C# and Java but with syntax that reflects the original Basic language.
+ 
+ 
+ === Post-1990 versions and dialects ===
+ Many other BASIC dialects have also sprung up since 1990, including the open source QB64 and FreeBASIC, inspired by QBasic, and the Visual Basic-styled RapidQ, Basic For Qt and Gambas. Modern commercial incarnations include PureBasic, PowerBASIC, Xojo, Monkey X and True BASIC (the direct successor to Dartmouth BASIC from a company controlled by Kurtz). Several web-based simple BASIC interpreters also now exist, including Quite BASIC and Microsoft's Small Basic (educational software). Versions of BASIC have been showing up for use on smartphones and tablets. Apple App Store contains such implementations of BASIC programming language as smart BASIC, Basic!, HotPaw Basic, BASIC-II, techBASIC and others. Android devices feature such implementations of BASIC as RFO BASIC and Mintoris Basic. Applications for some mobile computers with proprietary OS (CipherLab) can be built with programming environment based on BASIC. An application for the Nintendo 3DS and Nintendo DSi called Petit Computer allows for programming in a slightly modified version of BASIC with DS button support. A 3DS sequel was released in Japan in November 2014.
+ 
+ 
+ === Calculators ===
+ Variants of BASIC are available on graphing and otherwise programmable calculators made by Texas Instruments, HP, Casio, and others.
+ 
+ 
+ === Windows command line ===
+ QBasic, a version of Microsoft QuickBasic without the linker to make EXE files, is present in the Windows NT and DOS-Windows 95 streams of operating systems and can be obtained for more recent releases like Windows 7 which do not have them. Prior to DOS 5, the Basic interpreter was GW-Basic. QuickBasic is part of a series of three languages issued by Microsoft for the home and office power user and small scale professional development; QuickC and QuickPascal are the other two. For Windows 95 and 98, which do not have QBasic installed by default, they can be copied from the installation disc, which will have a set of directories for old and optional software; other missing commands like Exe2Bin and others are in these same directories.
+ 
+ 
+ === Other ===
+ 
+ The various Microsoft, Lotus, and Corel office suites and related products are programmable with Visual Basic in one form or another, including LotusScript, which is very similar to VBA 6. The Host Explorer terminal emulator uses WWB as a macro language; or more recently the programme and the suite in which it is contained is programmable in an in-house Basic variant known as Hummingbird Basic. The VBScript variant is used for programming web content, Outlook 97, Internet Explorer, and the Windows Script Host. WSH also has a Visual Basic for Applications(VBA) engine installed as the third of the default engines along with VBScript, JScript, and the numerous proprietary or open source engines which can be installed like PerlScript, a couple of Rexx-based engines, Python, Ruby, Tcl, Delphi, XLNT, PHP, and others; meaning that the two versions of Basic can be used along with the other mentioned languages, as well as LotusScript, in a WSF file, through the component object model, and other WSH and VBA constructions. VBScript is one of the languages that can be accessed by the 4Dos, 4NT, and Take Command enhanced shells SaxBasic and WWB are also very similar to the Visual Basic line of Basic implementations. The pre-Office 97 macro language for Microsoft Word is known as WordBasic. Excel 4 and 5 use Visual Basic itself as a macro language. Many Linux distributions include Chipmunk Basic, an old school interpreter similar to BASICs of the 1970s. Chipmunk Basic is also available for Microsoft Windows and OS X.
+ 
+ 
+ === Nostalgia ===
+ The ubiquity of BASIC interpreters on personal computers was such that textbooks once included simple "Try It In BASIC" exercises that encouraged students to experiment with mathematical and computational concepts on classroom or home computers. Popular computer magazines of the day typically included type-in programs. Futurist and sci-fi writer David Brin mourned the loss of ubiquitous BASIC in a 2006 Salon article as have others who first used computers during this era. In turn, the article prompted Microsoft to develop and release Small Basic. Dartmouth held a 50th anniversary celebration for BASIC on 1 May 2014 as did other organisations; at least one organisation of VBA programmers organised a 35th anniversary observance in 1999.
+ 
+ 
+ == Syntax ==
+ 
+ 
+ === Typical BASIC keywords ===
+ Data manipulation
+ LET: assigns a value (which may be the result of an expression) to a variable.
+ DATA: holds a list of values which are assigned sequentially using the READ command.
+ Program flow control
+ IF ... THEN ... ELSE: used to perform comparisons or make decisions.
+ FOR ... TO ... {STEP} ... NEXT: repeat a section of code a given number of times. A variable that acts as a counter is available within the loop.
+ WHILE ... WEND and REPEAT ... UNTIL: repeat a section of code while the specified condition is true. The condition may be evaluated before each iteration of the loop, or after.
+ DO ... LOOP {WHILE} or {UNTIL}: repeat a section of code Forever or While/Until the specified condition is true. The condition may be evaluated before each iteration of the loop, or after.
+ GOTO: jumps to a numbered or labelled line in the program.
+ GOSUB: jumps to a numbered or labelled line, executes the code it finds there until it reaches a RETURN Command, on which it jumps back to the operator following the GOSUB - either after a colon, or on the next line. This is used to implement subroutines.
+ ON ... GOTO/GOSUB: chooses where to jump based on the specified conditions. See Switch statement for other forms.
+ DEF FN: a pair of keywords introduced in the early 1960s to define functions. The original BASIC functions were modelled on FORTRAN single-line functions. BASIC functions were one expression with variable arguments, rather than subroutines, with a syntax on the model of DEF FND(x) = x*x at the beginning of a program. Function names were originally restricted to FN+one letter.
+ Input and output
+ LIST: displays all inputted code.
+ PRINT: displays a message on the screen or other output device.
+ INPUT: asks the user to enter the value of a variable. The statement may include a prompt message.
+ TAB or AT: sets the position where the next character will be shown on the screen or printed on paper.
+ Miscellaneous
+ REM: holds a programmer's comment or REMark; often used to give a title to the program and to help identify the purpose of a given section of code.
+ USR: transfers program control to a machine language subroutine, usually entered as an alphanumeric string or in a list of DATA statements.
+ TRON: turns on a visual, screen representation of the flow of BASIC commands by displaying the number of each command line as it is run. The TRON command, largely obsolete now, stood for, TRace ON. This meant that command line numbers were displayed as the program ran, so that the command lines could be traced. This command allowed easier debugging or correcting of command lines that caused problems in a program. Problems included a program terminating without providing a desired result, a program providing an obviously erroneous result, a program running in a non-terminating loop, or a program otherwise having a non-obvious error.
+ TROFF: turns off the display of the number of each command line as command lines run after the command TRON has been used.
+ 
+ 
+ === Data types and variables ===
+ Minimal versions of BASIC had only integer variables and one- or two-letter variable names, which minimized requirements of limited and expensive memory (RAM). More powerful versions had floating-point arithmetic, and variables could be labelled with names six or more characters long. There were some problems and restrictions in early implementations; for example, Applesoft allowed variable names to be several characters long, but only the first two were significant, thus it was possible to inadvertently write a program with variables "LOSS" and "LOAN", which would be treated as being the same; assigning a value to "LOAN" would silently overwrite the value intended as "LOSS". Keywords could not be used in variables in many early BASICs; "SCORE" would be interpreted as "SC" OR "E", where OR was a keyword. String variables are usually distinguished in many microcomputer dialects by having $ suffixed to their name, and values are often identified as strings by being delimited by "double quotation marks". Arrays in BASIC could contain integers, floating point or string variables.
+ Some dialects of BASIC supported matrices and matrix operations, useful for the solution of sets of simultaneous linear algebraic equations. These dialects would directly support matrix operations such as assignment, addition, multiplication (of compatible matrix types), and evaluation of a determinant. Many microcomputer BASICs did not support this data type; matrix operations were still possible, but had to be programmed explicitly on array elements.
+ 
+ 
+ === Examples ===
+ 
+ 
+ ==== Unstructured BASIC ====
+ The original Dartmouth Basic was unusual in having a matrix keyword, MAT. Although dropped by most later microprocessor derivatives it is used in this example from the 1968 manual which averages the numbers that are input:
+ 
+ New BASIC programmers on a home computer might start with a simple program, perhaps using the language's PRINT statement to display a message on the screen; a well-known and often-replicated example is Kernighan and Ritchie's Hello world program:
+ 
+ An infinite loop could be used to fill the display with the message.
+ Most first-generation BASIC versions such as MSX BASIC and GW-BASIC supported simple data types, loop cycles and arrays. The following example is written for GW-BASIC, but will work in most versions of BASIC with minimal changes:
+ 
+ The resulting dialog might resemble:
+ 
+ What is your name: Mike
+ Hello Mike
+ How many stars do you want: 7
+ *******
+ Do you want more stars? yes
+ How many stars do you want: 3
+ ***
+ Do you want more stars? no
+ Goodbye Mike
+ 
+ 
+ ==== Structured BASIC ====
+ Second-generation BASICs (for example, VAX Basic, SuperBASIC, True BASIC, QuickBASIC, BBC BASIC, Pick BASIC and PowerBASIC) introduced a number of features into the language, primarily related to structured and procedure-oriented programming. Usually, line numbering is omitted from the language and replaced with labels (for GOTO) and procedures to encourage easier and more flexible design. In addition keywords and structures to support repetition, selection and procedures with local variables were introduced.
+ The following example is in QuickBASIC:
+ 
+ 
+ ==== BASIC with object-oriented features ====
+ Third-generation BASIC dialects such as Visual Basic, Xojo, StarOffice Basic and BlitzMax introduced features to support object-oriented and event-driven programming paradigm. Most built-in procedures and functions are now represented as methods of standard objects rather than operators. Also, the Operating System became more and more available to the BASIC language.
+ The following example is in Visual Basic .NET:
+ 
+ 
+ == Standards ==
+ ANSI/ISO/IEC Standard for Minimal BASIC:
+ ANSI X3.60-1978 "For minimal BASIC"
+ ISO/IEC 6373:1984 "Data Processing — Programming Languages — Minimal BASIC"
+ 
+ ECMA-55 Minimal BASIC (withdrawn, similar to ANSI X3.60-1978)
+ ANSI/ISO/IEC Standard for Full BASIC:
+ ANSI X3.113-1987 "Programming Languages Full BASIC"
+ INCITS/ISO/IEC 10279-1991 (R2005) "Information Technology - Programming Languages - Full BASIC"
+ 
+ ANSI/ISO/IEC Addendum Defining Modules:
+ ANSI X3.113 Interpretations-1992 "BASIC Technical Information Bulletin # 1 Interpretations of ANSI 03.113-1987"
+ ISO/IEC 10279:1991/ Amd 1:1994 "Modules and Single Character Input Enhancement"
+ 
+ ECMA-116 BASIC (withdrawn, similar to ANSI X3.113-1987)
+ 
+ 
+ == See also ==
+ List of BASIC dialects
+ List of Computers With On-Board BASIC
+ 
+ 
+ == References ==
+ 
+ 
+ === Notes ===
+ 
+ 
+ === Citations ===
+ 
+ 
+ === Bibliography ===
+ 
+ 
+ == External links ==
+ BASIC at DMOZ
+ "BASIC — Beginners All-purpose Symbolic Instruction Code". The Encyclopedia of Computer Languages. Murdoch University. LFE (Lisp Flavored Erlang) is a functional, concurrent, general-purpose programming language and Lisp dialect built on top of Core Erlang and the Erlang Virtual Machine (BEAM). LFE builds on top of Erlang in order to provide a Lisp syntax for writing distributed, fault-tolerant, soft real-time, non-stop applications. LFE also extends Erlang to support meta-programming with Lisp macros and an improved developer experience with a feature-rich REPL. LFE is actively supported on all recent releases of Erlang; the oldest version of Erlang supported is R14.
+ 
+ 
+ == History ==
+ 
+ 
+ === Initial release ===
+ Initial work on LFE began in 2007, when Robert Virding started creating a prototype of Lisp running on Erlang. This work was focused primarily on parsing and exploring what an implementation might look like; no version control system was being used at the time, so tracking exact initial dates is somewhat problematic.
+ Robert Virding announced the first release of LFE on the "Erlang Questions" mail list in March 2008. This release of LFE was very limited: it did not handle recursive letrecs, binarys, receive, or try; it also did not support a Lisp shell.
+ Initial development of LFE was done with version R12B-0 of Erlang on a Dell XPS laptop.
+ 
+ 
+ === Motivation ===
+ Robert Virding has stated that there were a number of reasons why he started the LFE programming language:.
+ He had previous experience programming in Lisp.
+ Given his previous experience, he was interested in implementing his own Lisp.
+ In particular, he wanted to implement a Lisp in Erlang: not only was he curious to see how it would run on and integrate with Erlang, he wanted to see what it would look like.
+ Since helping to create the Erlang programming language, he had had the goal of making a Lisp which was specifically designed for running on the BEAM and able to fully interact with Erlang/OTP.
+ He wanted to experiment with compiling another language on top of Erlang. As such, he saw LFE as a means of exploring this by generating Core Erlang and plugging it into the backend of the Erlang compiler.
+ He was not working with programming or Erlang at the time, so was looking for some interesting programming projects that were not too large to do in his spare time.
+ He likes implementing languages.
+ He also thought it would be a fun problem to solve, as a solution would have many parts and the problem space was quite open-ended.
+ 
+ 
+ == Features ==
+ A language targeting Erlang Virtual Machine (BEAM)
+ Seamless Erlang integration: zero-penalty Erlang function calls (and vice versa)
+ Meta programming via macros and the homoiconicity of a Lisp
+ Common Lisp-style documentation via both code comments and docstrings
+ Shared-nothing concurrent programming via message passing (Actor model)
+ Emphasis on recursion and higher-order functions instead of side-effect-based looping
+ A full REPL for interactive development and testing (unlike Erlang's shell, the LFE REPL supports function and macro definitions)
+ Pattern matching
+ Hot loading of code
+ A Lisp-2 separation of namespaces for variables and functions
+ Java inter-operation via JInterface and Erjang
+ Scripting capabilities with both lfe and lfescript
+ 
+ 
+ == Syntax and semantics ==
+ 
+ 
+ === Symbolic expressions (S-expressions) ===
+ Like Lisp, LFE is an expression-oriented language. Unlike non-homoiconic programming languages, Lisps make no or little syntactic distinction between "expressions" and "statements": all code and data are written as expressions. LFE brought homoiconicity to the Erlang VM.
+ 
+ 
+ === Lists ===
+ In LFE, the list data type is written with its elements separated by whitespace, and surrounded by parentheses. For example, (list 1 2 'foo) is a list whose elements are the integers 1 and 2, and the atom foo. These values are implicitly typed: they are respectively two integers and a Lisp-specific data type called a "symbolic atom", and do not have to be declared as such.
+ As seen in the example above, LFE expressions are written as lists, using prefix notation. The first element in the list is the name of a form, i.e., a function, operator, macro, or operator. The remainder of the list are the arguments.
+ 
+ 
+ === Operators ===
+ The LFE/Erlang operators are used in the same way. The expression
+ 
+ evaluates to 42. Unlike functions in Erlang and LFE, arithmetic operators in Lisp are variadic (or n-ary), able to take any number of arguments.
+ 
+ 
+ === Lambda expressions and function definition ===
+ LFE has lambda, just like Common Lisp. It also, however, has lambda-match to account for Erlang's pattern-matching capabilities in anonymous function calls.
+ 
+ 
+ == Erlang idioms in LFE ==
+ This section does not represent a complete comparison between Erlang and LFE, but should give a taste.
+ 
+ 
+ === Pattern matching ===
+ Erlang:
+ 
+ LFE:
+ 
+ 
+ === List comprehensions ===
+ Erlang:
+ 
+ LFE:
+ 
+ Or idiomatic functional style:
+ 
+ 
+ === Guards ===
+ Erlang:
+ 
+ LFE:
+ 
+ 
+ === cons'ing in function heads ===
+ Erlang:
+ 
+ LFE:
+ 
+ or using a ``cons`` literal instead of the constructor form:
+ 
+ 
+ === Matching records in function heads ===
+ Erlang:
+ 
+ LFE:
+ 
+ 
+ === Receiving messages ===
+ Erlang:
+ 
+ LFE:
+ 
+ or:
+ 
+ 
+ == Examples ==
+ 
+ 
+ === Erlang interoperability ===
+ Calls to Erlang functions take the form (<module>:<function> <arg1> ... <argn>):
+ 
+ 
+ === Functional paradigm ===
+ Using recursion to define the Ackermann function:
+ 
+ Composing functions:
+ 
+ 
+ === Concurrency ===
+ Message-passing with Erlang's light-weight "processes":
+ 
+ Multiple simultaneous HTTP requests:
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ LFE language website
+ LFE Quick Start
+ LFE User Guide
+ LFE on Rosetta Code In computer programming, bidirectional transformations (bx) are programs in which a single piece of code can be run in several ways, such that the same data are sometimes considered as input, and sometimes as output. For example, a bx run in the forward direction might transform input I into output O, while the same bx run backward would take as input versions of I and O and produce a new version of I as its output.
+ Bidirectional model transformations are an important special case in which a model is input to such a program.
+ Some bidirectional languages are bijective. The bijectivity of a language is a severe restriction of its bidirectionality, because a bijective language is merely relating two different ways to present the very same information.
+ More general is a lens language, in which there is a distinguished forward direction ("get") that takes a concrete input to an abstract output, discarding some information in the process: the concrete state includes all the information that is in the abstract state, and usually some more. The backward direction ("put") takes a concrete state and an abstract state and computes a new concrete state. Lenses are required to obey certain conditions to ensure sensible behaviour.
+ The most general case is that of symmetric bidirectional transformations. Here the two states that are related typically share some information, but each also includes some information that is not included in the other.
+ 
+ 
+ == Usage ==
+ Bidirectional transformations can be used to:
+ Maintain the consistency of several sources of information
+ Provide an 'abstract view' to easily manipulate data and write them back to their source
+ 
+ 
+ == Vocabulary ==
+ A bidirectional program which obeys certain round-trip laws is called a lens.
+ 
+ 
+ == Examples of implementations ==
+ Boomerang is a programming language which allows writing lenses to process text data formats bidirectionally
+ Augeas is a configuration management library whose lens language is inspired by the Boomerang project
+ biXid is a programming language for processing XML data bidirectionally
+ XSugar allows translation from XML to non-XML formats
+ 
+ 
+ == See also ==
+ Bidirectionalization
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ GRACE International Meeting on Bidirectional Transformations
+ Bidirectional Transformations: The Bx Wiki The Address programming language (Russian: Адресный язык программирования) is one of the world's first high-level programming languages. It was created in 1955 by Ekaterina Yushchenko. In particular, the Address programming language made possible indirect addressing and addresses of the highest rank –  analogous to pointers.
+ Unlike Fortran and ALGOL 60, APL (Address programming language) supported indirect addressing and addressing of higher ranks. Indirect addressing is a mechanism that appeared in other programming languages much later (1963–65 –  in PL/1).
+ The Address language was implemented on all the computers of the first and second generation produced in the Soviet Union. The Address language influenced the architecture of the Kyiv, Strela, Ural, and Promin computers. The Address was used exclusively for the solution of economical problems, including aviation, space exploration, machine building, and military complex –  in particular, to calculate the trajectories of ballistic missiles in flight –  in the 1950–60s. Implementations of the Address programming language were used for nearly 20 years. A book about APL was written in 1967 and it was translated into French and published in France in 1974.
+ The Address language affected not only the Soviet Union's economical development, but information technology and programming. APL's proposed and implemented ideas and tools can be found in many programming-related fields, such as abstract data types, object-oriented programming, functional programming, database and artificial intelligence.
+ 
+ 
+ == References == GLOBAL was a language developed in industry and sold off privately as an expert system. It was used to design several biopharmaceutical products, and sold to Tularik (Amgen).
+ Prometheus used for drug system design was written using GLOBAL and is described on this Cray software specification.
+ 
+ 
+ == References ==
