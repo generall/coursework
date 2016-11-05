@@ -1,0 +1,81 @@
+Ocean governance is the conduct of the policy, actions and affairs regarding the world's oceans. Within governance, it incorporates the influence of non-state actors, i.e. stakeholders, NGOs and so forth, therefore the state is not the only acting power in policy making. However, in terms of the ocean, this is a complex issue because it is a commons that is not ‘owned’ by any single nation/state. The consequences of this has resulted in humankind abusing the oceans’ resources, by treating them as shared resources, but not taking equal and collective responsibilities in caring for them. This means that rules on the conduct of the ocean can only be implemented through international agreements. Therefore, there is a need for some form of governance to maintain the ocean for its various uses, preferably in a sustainable manner.
+
+
+== Legal Framework ==
+
+There are two major international legal organisations that exist that are involved in ocean governance on a global scale. The International Maritime Organization (IMO), which was ratified in 1958 is responsible mainly for maritime safety, liability and compensation and they have held some conventions on marine pollution related to shipping incidents.
+
+
+=== IMO marine pollution conventions ===
+1972 – Convention on the Prevention of Marine Pollution by Dumping of Wastes and Other Matter (LDC)
+1969 – International Convention Relating to Intervention on the High Seas in Cases of Oil Pollution Casualties (INTERVENTION).
+1973 – International Convention for the Prevention of Pollution from Ships, as modified by the Protocol of 1978 relating thereto (MARPOL 73/78).
+1990 – International Convention on Oil Pollution Preparedness, Response and Cooperation (OPRC).
+2000 – Protocol on Preparedness, Response and Cooperation to Pollution Incidents by Hazardous and Noxious Substances (HNS Protocol).
+The IMO sees the regulation of marine pollution as one its most important aspects of governance and in particular, the MARPOL convention is regarded as one of its greatest successes. The result of MARPOL has meant that oil pollution has decreased due to a change in equipment standards of oil tankers to prevent operational discharge of oil. However, the main organisation concerned with the economic, environmental, ethical, peace and security issues is the United Nations Convention on the Law of the Sea (UNCLOS).
+
+
+=== United Nations Convention on the Law of the Sea (UNCLOS) ===
+
+It was first established under the Third UNCLOS in 1973 and fully ratified in 1982. The main aim was to adopt a regime of national seas and international waters on a global scale. What was agreed was that the jurisdictional boundaries of individual states were to be enlarged to 200 nautical miles off a state’s coastline. Coastal states were given greater rights to control these areas for protective purposes and the exploitation of natural resources. In total 38 million square nautical miles of ocean space was put under jurisdiction under the Exclusive Economic Zones (EEZ) and the legalities concerning the continental shelf and territorial sea were altered.
+However, the Convention did not come into full effect despite a number of implementations being carried out between 1973 and 1982. This was profoundly due to a dispute over mineral resources, particularly manganese nodules in the deep-oceans. Developing countries preferred treating these minerals as “common heritage,” that via an international organisation, they could benefit from a sharing of these resources. However, the developed world, in particular the United States, was not in favour of this and preferring a first-come, first-served basis, due to self-economic interest. Only in 1994 did the United States renounce their objections so that the Convention could be enacted.
+
+
+==== Institutions established by UNCLOS ====
+International Seabed Authority (ISA) – An independent international institution that came into force in 1994, with the aim of acting as a custodian of ocean commons (the Common Heritage of Mankind). However its main purpose is to regulate deep seabed mining.
+Commission on the Limits of the Continental Shelf (CLCS) – Assists states in affairs to do with the establishment of outer limits of their continental shelf.
+Regime for the Peaceful Settlement of Disputes and the International Tribunal for the Law of the Sea (ITLOS) – This was established to handle disputes with the application and interpretations of UNCLOS.
+The Meeting of the State Parties (SPLOS) - carried out to conform with the article 319, paragraph 2 (e) to the LOSC Convention and is concerned with administrative matters.
+
+
+== Participatory Governance in Ocean Governance ==
+Despite an obvious need for international bodies to control and manage the resources, it has been argued that for sustainable governance of the ocean to occur, it needs to be participatory. The idea of the potential importance of participatory governance was first truly highlighted in Agenda 21, signed at the UNCED (United Nations Conference on Environment and Development) in Rio de Janeiro in 1992. It was stated that:
+
+“Broad public participation in decision making was a fundamental prerequisite for the achievement of sustainable development.”
+
+What this means is that the public needs to be more actively involved along with the other stakeholders and authoritative bodies. This stems from democratic principles where the people are empowered to choose their own government, so with environmental concerns perhaps they should be involved in these in a similar manner. With the inclusion of people in a decision making process, it immediately secures legitimacy for these decisions.
+It is said that expert scientific knowledge is important, but often enough “lay-knowledge” is equally credible concerning certain resources (in this case an example would be a fishery) and uncertainties within science itself. By engaging public participation, the benefit is that it is able to frame the environmental decision with the community in mind and how it will impact them. This would significantly be useful for ocean governance at a local and national level, in particular areas with coastal communities.
+Due to the nature of participatory governance being resource intensive, it would be harder to expand this to regional levels and beyond. It is also important to not necessarily enrol too many stakeholders, as there may be the ‘participation paradox’ that essentially means the greater the number of stakeholders, the fewer the responsibilities and involvement of each one and their effectiveness is reduced in the process.
+
+
+=== Importance of Participatory Governance to Integrated Coastal and Ocean Management in Canada (ICOM) ===
+In 2002, Canada introduced the Oceans Strategy, which was heavily based on participatory governance principles:
+
+“The governance model proposed for Integrated Management is one of collaboration. It involves ocean management decisions based on shared information, on consultation with stakeholders, and on their advisory or management participation in the planning process. It is also based on institutional arrangements that bring together all stakeholders. Participants take an active part in designing, implementing and monitoring the effectiveness of coastal and ocean management plans, and partners enter into agreements on ocean management plans with speciﬁc responsibilities, powers and obligations. It is also recognized that in speciﬁc cases, Integrated Management and planning may be achieved through co-management.”
+
+
+==== Case Study: The Eastern Scotian Shelf Integrated Management (ESSIM) Initiative ====
+The aim of the ESSIM Initiative is to create integrated and adaptive management plans that are a collaborative effort for ecosystem, social, economic and institutional sustainability of the Eastern Scotian Shelf. It incorporates maintaining existing jurisdictional responsibilities, inclusion, consensus, accountability, dispute resolution, networking, evolution, and learning by doing, which are all part of the governance principles in the Oceans Strategy.
+How it works is that the Stakeholders Roundtable (lead stakeholders and government) and the Planning Office draft up a management plan and this is then reviewed at the ESSIM Forum (an annual stakeholders’ meeting), community meetings and the general public. Overall, an agreement then must be reached with the Stakeholder Roundtable and a final plan given to appropriate federal and provincial government agencies, before acquiring final approval under the Oceans Act. It has been seen as fairly successful in improving communication and cooperation within government agencies, but there is room for greater inclusion of coastal community participation to fully fulfil the participatory theory.
+
+
+== Levels of implementation ==
+Ocean governance can be carried out at a local, national, regional or international level. However, there needs to be a link between all levels of implementation for “good” ocean governance to build on the theory of participatory governance at these different levels. Yet one of the greatest problems with ocean governance is that the organisations lack authority and instruments to guarantee compliance and enforcement of these laws.
+
+
+=== Local ===
+Community-based management features in local implementation as stated in Principle 22 at Rio. What this means is that the state needs to recognise the importance that indigenous and local communities play in sustainable environmental policy making and how they can be beneficial. Also the stakeholders should take a role of responsibility with the government in a form of co-management to manage ocean resources.
+
+
+=== National ===
+At a national level, ocean governance is seen as an integrated management process within one state. This means there is a focus on almost all ministries of a government that have a function or authority related to ocean sectors and they collaborate. Due to ocean issues usually being low on a political agenda, it is said that to be successful integrated ocean policy is in need of the highest political direction and oversight to succeed.
+
+
+=== Regional ===
+At this scale, the scope of management and challenges are greater, so governance requires more organisations. It comprises Regional Seas Programme of UNEP creating programmes to be managed and coordinated by countries that share a common body of water. These Action Plans range from chemical waste to conservation of marine ecosystems. These however need to be strengthened along with The Global Programme of Action for the Protection of the Marine Environment from Land-based Activities (GPA).
+To be effective Regional Development Banks (RDBs) and Regional Governmental Organizations (RGOs) are necessary to participate and provide reinforcement of the former organisations. Therefore, a mandate is required for the implementation of sub-regional programs, agreements and conventions to ensure consensus-based decision-making.
+
+
+=== International ===
+The General Assembly of the United Nations is seen as the proficient international body to implement ocean governance. It functions by the Secretary General producing reports on the recommendations by the Consultative Process of ocean matters and the law of the sea, which are then annually reviewed by The General Assembly.
+
+
+== Example of Ocean Governance of a Resource - Fishing ==
+The direct use of the ocean inherently comes from fishing for food resources, mainly for human consumption. In 2009, 79.9 million tonnes of fish were caught from a marine environment. While the FAO have stated that over half (53%) of fish stocks were said to be at full exploitation and thus their current catches are close to the maximum sustainable production levels. Therefore, it is important for an international agreement and policies to be in place, or nations will feel they are welcome to exploit the fish stocks beyond a sustainable level if there are no rules guiding fishing practices. Yet under UNCLOS, it is said that almost 99% of all fisheries are within a nation’s jurisdiction, however this is not preventing problems of exploitation.
+Since the mid-1980s, numerous fishery organisations appeared, which are narrowly focused but struggle to prevent global overfishing. As a result, there are problems with illegal fishing vessels, violating the laws of a fishery in which they may misreport their catches to authorities or are vessels that are not certified to be within an area of water. The reason for this is usually due to a certain fish species with a high economic value, for example Bluefin Tuna.
+Overcoming the problem of poor fishery management may be work best by transitioning to rights-based fishing and self-governance, which incorporates participatory governance theory. For it to work, there still needs to be a financial incentive that will fund it and ‘shares’ are distributed between the shareholders (individual/corporation, community or fishers’ collective) that are linked directly to the productivity and value of the resource, which consequently will make the shareholders appreciate the resource better and prevent overfishing. The theory is that when shareholders have an individual share, it reduces the competition between them since they are not allowed more than their share.
+There is a focus on rights-based approaches in current development programmes, which have an emphasis on creating (or recreating) and supporting local institutions to the fishery. While a freedom of rights will result in economic benefits, there is a possibility of a monopolisation by more larger and powerful shareholders that will squeeze out small-scaled operations. The problem though with fisher folk having more rights, is they subsequently lack the transfer of skills to do with information, assessment, management and negotiation and they also lack sufficient funding due to their self-governing nature.
+An alternative approach has been introducing market incentives to encourage sustainable fishing. The Marine Stewardship Council (MSC) introduced this through a fishery certification programme, with the incentive that the consumer will buy fish only caught by sustainable fisheries. This in turn creates a cycle that encourages the producer to abide by sustainable practices to gain the custom. To date (December 2011) there are currently 135 certified fisheries in the MSC Program.
+
+
+== References ==

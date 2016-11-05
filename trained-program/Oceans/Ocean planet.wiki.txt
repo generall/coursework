@@ -1,0 +1,30 @@
+An ocean planet, aquaplanet or water world is a hypothetical type of exoplanet wherein the surface is completely covered by water, and a substantial portion of its mass is water.
+
+
+== Formation ==
+Planetary objects that form in the outer Solar System begin as a comet-like mixture of roughly half water and half rock by mass. Simulations of Solar System formation and of extra-solar system formation have shown that planets are likely to migrate inward (i.e., toward the star) as they form. Outward migration may also occur under particular conditions. Inward migration presents the possibility that icy planets could move to orbits where their ice melts into liquid form, turning them into ocean planets. This possibility was first discussed in the professional astronomical literature by Marc Kuchner and Alain Léger in 2003.
+
+
+== Structure ==
+Although 70.8% of all Earth's surface is covered in water, water accounts for just some 0.05% of Earth’s mass. There are worlds where more than 10% of the mass may be water. This may be the case, for example, for all the six innermost planets orbiting the star Kepler-11. These planets may have oceans hundreds of kilometres deep. Their abyssal depths would be so deep and dense that even at high temperatures the pressure would turn the water into ice. The immense pressures in the lower regions of these oceans could lead to the formation of a mantle of exotic forms of ice. This ice would not necessarily be as cold as conventional ice. If the planet is close enough to its star that the water reaches its boiling point, the water will become supercritical and lack a well-defined surface. Even on cooler water-dominated planets, the atmosphere can be much thicker than that of Earth, and composed largely of water vapor, producing a very strong greenhouse effect. Such planets would have to be small enough not to be able to retain a thick envelope of hydrogen and helium, otherwise they would form a warmer version of an ice giant instead, like Uranus and Neptune.
+Smaller ocean planets would have less dense atmospheres and lower gravity; thus, liquid could evaporate much more easily than on more massive ocean planets. Theoretically, such planets could have higher waves than their more massive counterparts due to their lower gravity.
+
+
+== Examples ==
+The extrasolar planet GJ 1214 b is the most likely known candidate for an ocean planet. Many more such objects are expected to be discovered by Kepler, such as the recently discovered ocean planet candidate Kepler-22b.
+
+
+== Possibilities for colonization ==
+An ocean planet has no dry surface landmasses. One of two processes would be required:
+Constructing an artificial surface, either from a network of large platforms or series of floating settlements.
+Constructing artificial islands from solid materials gathered elsewhere. This is not viable if the ocean is hundreds or thousands of miles deep.
+
+
+== See also ==
+
+
+== References ==
+
+
+== External links ==
+F. Selsis; B. Chazelas; P. Borde; M. Ollivier; et al. (2007). "Could we identify hot Ocean-Planets with CoRoT, Kepler and Doppler velocimetry?". Icarus. 191 (2): 453. arXiv:astro-ph/0701608. Bibcode:2007Icar..191..453S. doi:10.1016/j.icarus.2007.04.010.
