@@ -1,0 +1,44 @@
+The 100,000 Genomes Project is a UK Government project that is sequencing whole genomes from National Health Service patients. The project is focusing on rare diseases, some common types of cancer, and infectious diseases. Participants give consent for their genome data to be linked to information about their medical condition and health records. The medical and genomic data is shared with researchers, to improve knowledge of the causes, treatment and care of diseases.
+
+
+== History ==
+The project was first announced by UK Prime Minister David Cameron in December 2012. The Government set up a new company Genomics England to oversee the project with the plan to focus on rare diseases, cancer and infectious diseases announced by Health Secretary Jeremy Hunt in July 2013. The project was also made possible by the National Institute for Health Research, NHS England, Public Health England and Health Education England. In 2015 Northern Ireland and Scotland also joined the project with plans to start work the following year. In 2016, the Welsh government issued a statement of intent and is considering participating in the 100,000 Genomes Project.
+The initial participants were recruited from Cambridge University Hospitals, University College London Partners and Newcastle upon Tyne NHS Foundation Trust. The following medical centres joined the project a short time later: Central Manchester University Hospitals NHS Foundation Trust, Great Ormond Street Hospital, Guy's and St Thomas' NHS Foundation Trust, Moorfields Eye Hospital NHS Foundation Trust and Oxford University Hospitals NHS Trust.
+In September 2015, Genomics England announced it had contracted with interpretation partners Congenica and Omicia. This is in addition to ongoing work with sequencing partner Illumina.
+As of December 2015, the 100,000 Genomes Project had already completed the sequencing of 6,000 whole genomes in England and as a result children with debilitating "mystery" diseases have finally been given a diagnosis.
+
+
+== NHS Genomic Medicine Centres ==
+Following the pilot studies, Genomics England ran a tender to appoint NHS Genomic Medicine Centres with responsibility for recruiting suitable patients, gaining their consent to participate in the project and taking samples for whole genome sequencing by Illumina (company). The successful bidders designated as NHS Genomic Medicine Centres are:
+East of England NHS GMC – designated for both cancer and rare disease. Led by Cambridge University Hospitals NHS Foundation Trust
+South London NHS GMC – designated for both cancer and rare disease. Led by Guy's and St Thomas' NHS Foundation Trust
+North West Coast NHS GMC – designated for both cancer and rare disease. Led by Liverpool Women's NHS Foundation Trust
+Greater Manchester NHS GMC – designated for both cancer and rare disease. Led by Central Manchester University Hospitals NHS Foundation Trust
+University College London Partners NHS GMC – designated for both cancer and rare disease. Led by Great Ormond Street Hospital for Children NHS Foundation Trust
+North East and North Cumbria NHS GMC – designated GMC for rare disease only. Led by The Newcastle upon Tyne Hospitals NHS Foundation Trust
+Oxford NHS GMC – designated for both cancer and rare disease. Led by Oxford University Hospitals NHS Trust
+South West Peninsula NHS GMC – designated for both cancer and rare disease. Led by Royal Devon and Exeter NHS Foundation Trust
+Wessex NHS GMC – designated for both cancer and rare disease. Led by University Hospital Southampton NHS Foundation Trust
+Imperial College Health Partners NHS GMC – designated for both cancer and rare disease. Led by Imperial College Healthcare NHS Trust
+West Midlands NHS GMC – designated for both cancer and rare disease. Led by University Hospitals Birmingham NHS Foundation Trust
+In December 2015, two new NHS Genomic Medicine Centres were announced by NHS England:
+Yorkshire and Humber NHS GMC - designated for both cancer and rare disease.
+West of England NHS GMC - designated for both cancer and rare disease.
+There are now 13 designated Genomic Medicine Centres (GMCs) across the country.
+
+
+== See also ==
+Genomics England
+Genome project
+
+
+== External links ==
+Genomics England
+Health Education England's Genomics Education programme
+NHS England - Genomics
+East of England NHS Genomic Medicine Centre
+North Thames NHS Genomic Medicine Centre
+13 Genomic Medicine Centres
+
+
+== References ==

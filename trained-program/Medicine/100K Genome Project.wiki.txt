@@ -1,0 +1,17 @@
+The 100K Pathogen Genome Project was launched in July 2012 by Bart Weimer (UC Davis) as an academic, public, and private partnership. It aims to sequence the genomes of 100,000 infectious microorganisms to create a database of bacterial genome sequences for use in public health, outbreak detection, and bacterial pathogen detection. This will speed up the diagnosis of foodborne illnesses and shorten infectious disease outbreaks.
+The 100K Pathogen Genome Project is a public-private collaborative project to sequence the genomes of 100,000 infectious microorganisms. The 100K Genome Project will provide a roadmap for developing tests to identify pathogens and trace their origins more quickly.
+Partners announced at the launch of the project were UC Davis, Agilent Technologies, and the US Food and Drug Administration, with the US Centers for Disease Control and Prevention and the US Department of Agriculture noted as collaborators. As the project has proceeded, the partnership has evolved to include or replace these founding partners. The 100K Pathogen Genome Project was selected by the IBM/Mars Food Safety Consortium for metagenomic sequences.
+The 100K Pathogen Genome Project is conducting high-throughput next-generation sequencing (NGS) to investigate the genomes of targeted microorganisms, with whole genome sequencing to be carried out on a small number of microorganisms for use as a reference genome. Most bacterial strains will be sequenced and assembled as draft genomes; however, the project has also produced closed genomes for a variety of enteric pathogens in the 100K bioproject http://www.ncbi.nlm.nih.gov/bioproject/186441]]. Data from this project is also available for download at the 100K Pathogen Genome Project [1]] web site.
+This strategy enables world-wide collaboration to identify sets of genetic biomarkers associated with important pathogen traits. This five-year microbial pathogen project will result in a free, public database with the sequence information for each pathogen's genome. The completed gene sequences will be stored in the National Institutes of Health (NIH)'s National Center for Biotechnology Information (NCBI)'s public database. Using the database, scientists will be able to develop new methods of controlling disease-causing bacteria in the food chain.
+
+
+== References ==
+
+
+== External links ==
+GOLD:Genomes OnLine Database
+Genome Project Database
+The Protein Naming Utility
+SUPERFAMILY
+The sea urchin genome database
+NRCPB.
